@@ -1,0 +1,18 @@
+.col-md-12_edit{
+    display: block;
+    background-color: #696c6e;
+    height: 150px;
+    width: 100%;
+    padding: 0;
+}
+
+.edit {
+    position: relative;
+    left: 0;
+    top:30%;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    color:white;
+}
+

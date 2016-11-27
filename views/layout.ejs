@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>יוסי עמר| הדרך להציל חיים</title>
+
+        <!-- css -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">        
+        <link rel="stylesheet" href="../../style.css">
+    </head>
+
+    <body> 
+        <div class="col-md-12_index">  
+            <div class="col-sm-6-sign">
+                <a class="index" href="/login">התחבר</a>
+                <a class="index" href="/register">/הרשם</a>
+            </div>
+            <div class="col-sm-6-contact">
+                <p>שירות לקוחות: 02-9404444</p>
+            </div>
+            <br>
+        </div>
+        
+        <div class="brand">
+            <img src="/../../logoTransperentFormat.png" class="img-responsive" alt="logo_image">
+        </div>
+
+        <!-- header -->
+
+        <div class="nav1">
+            <div class="navbar navbar-default" role="navigation" data-offset-top="0">
+                <div class="container">
+                    <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myCollapseGuy">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+
+                            <div class="navbar-collapse collapse" id="myCollapseGuy">
+                                <ul class="nav navbar-nav navbar-right" >
+                                    <li class="active"><a href="/main">ראשי</a></li>
+                                    <li><a href ="/about">אודות</a></li>
+                                    <li><a href ="/courses">קורסים והדרכות</a></li>
+                                    <li><a href="/medicalProducts">ציוד רפואי</a></li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> אישורים והמלצות <span class="caret"></span></a>
+                                        <ul class="dropdown-menu" >
+                                            <li><a href="/approvals">אישורים</a></li>
+                                            <li><a href="/recommendation">המלצות</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="/onlineCourse">קורס מתוקשב</a></li>
+                                    <li><a href="/contact">צרו קשר</a></li>
+                                    <li><a href="/cart">סל קניות</a></li>
+                                </ul>
+                            </div><!--/.nav-collapse -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- main -->
+        <main id="site-main">
+        <div class="container">
+            <%- body %>
+        </div>
+        </main>
+
+        <!-- fotter -->
+         <footer id="site-footer">
+            <form>
+                    <h4><strong>יוסי עמר
+                        <br>הדרך להציל חיים
+                    </strong></h4>
+                    <h5>אהבת ישראל 44
+                        <br>תל ציון מ. 9062200
+                        <br>052-7766660
+                    </h5>
+                    <a href="mailto:#">yosiamarya@gmail.com</a>
+            </form>
+        </footer>
+        
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       
+    </body>
+</html>

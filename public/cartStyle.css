@@ -1,0 +1,21 @@
+.col-md-12_cart{
+    display: block;
+    background-color: #696c6e;
+    height: 150px;
+    width: 100%;
+    padding: 0;
+}
+
+.cart {
+    position: relative;
+    left: 0;
+    top:30%;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    color:white;
+}
+
+.table{
+    text-align: center;
+}

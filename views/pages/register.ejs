@@ -1,0 +1,63 @@
+<link rel="stylesheet" href="//cdn.kendostatic.com/2013.3.1119/styles/kendo.common.min.css">
+<link rel="stylesheet", href="//cdn.kendostatic.com/2013.3.1119/styles/kendo.bootstrap.min.css">
+
+<div class="jumbotron text-center">
+    <h1>הרשמה</h1>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+
+        
+       <% if (errors.length > 0) { %>
+            <div class="alert alert-danger">
+                <% for (error of errors) { %>
+                    <%= error %><br>
+                <% } %>
+            </div>
+        <% } %>
+        
+        <form action="/register" method="POST" id="register-form">
+
+            <div class="form-group">
+                <label>שם משתמש</label>
+                <input type="text" name="username" class="form-control" id="username" placeholder="הכנס שם משתמש" required data-required-msg="Display Name is required">
+            </div>
+
+            <div class="form-group">
+                <label>שם פרטי</label>
+                <input type="text" name="firstname" class="form-control" id="firstname", placeholder="הכנס שם פרטי">
+            </div>
+
+            <div class="form-group">
+                <label>שם משפחה</label>
+                <input type="text" name="lastname" class="form-control" id="lastname", placeholder="הכנס שם משפחה">
+            </div>
+
+            <div class="form-group">
+                <label>סיסמא</label>
+                <input type="text" name="password" class="form-control" id="password", placeholder="הכנס סיסמא">
+            </div>
+
+            <div class="form-group">
+                <label>אשר סיסמא</label>
+                <input type="text" name="confirm-password" class="form-control" id="confirm-password", placeholder="הכנס סיסמא שנית">
+            </div>
+
+            <div class="form-group">
+                <label>מייל</label>
+                <input type="text" name="e-mail" class="form-control" id="e-mail", placeholder="הכנס מייל">
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="button btn btn-default">הרשם</button>
+                <a href="/login">משתמש רשום? התחבר</a>
+            </div>
+
+        </form>
+
+    </div>
+</div>
+
+
+
