@@ -2,29 +2,29 @@ const mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
 // create a schema
-const productSchema = new Schema({
+const cartSchema = new Schema({
   name: String,
   slug: {
     type: String,
     unique: true
   },
   description: String,
-  price: String,
-  stockpile: String
+    price: String,
+    amount: String
 });
 
 // middleware -----
 // make sure that the slug is created from the name
-productSchema.pre('save', function(next) {
+cartSchema.pre('save', function(next) {
   this.slug = slugify(this.name);
   next();
 });
 
 // create the model
-const productModel = mongoose.model('Product', productSchema);
+const cartModel = mongoose.model('Cart', cartSchema);
 
 // export the model
-module.exports = productModel;
+module.exports = cartModel;
 
 // function to slugify a name
 function slugify(text) {

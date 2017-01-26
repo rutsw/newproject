@@ -3,14 +3,15 @@ const express = require('express'),
   router = express.Router(),
 
   layoutController = require('./controllers/layout.controller'),
+  registerController = require('./controllers/register.controller'),
   mainController = require('./controllers/main.controller'),
   contactController = require('./controllers/contact.controller'),
-  aboutController = require('./controllers/about.controller');
-  coursesController = require('./controllers/courses.controller');
-  approvalsController = require('./controllers/approvals.controller');
-  recommendationController = require('./controllers/recommendation.controller');
-  cartController = require('./controllers/cart.controller');
-  medicalProductsController = require('./controllers/medicalProducts.controller');
+  aboutController = require('./controllers/about.controller'),
+  coursesController = require('./controllers/courses.controller'),
+  approvalsController = require('./controllers/approvals.controller'),
+  recommendationController = require('./controllers/recommendation.controller'),
+  cartController = require('./controllers/cart.controller'),
+  medicalProductsController = require('./controllers/medicalProducts.controller'),
   onlineCourseController = require('./controllers/onlineCourse.controller');
 
 // export router
@@ -22,20 +23,23 @@ module.exports = router;
 //app.get('/login', routes.login);
 router.get('/login', layoutController.showLogin);
 //
-//app.get('/register', routes.register);
-router.get('/register',      layoutController.showRegister);
-router.post('/register',     layoutController.processRegister);
+//register routes
+router.get('/register',      registerController.showRegister);
+router.post('/register',     registerController.processRegister);
 
 
 // main routes
 router.get('/', mainController.showMain);
 router.get('/main', mainController.showMain);
+//router.get('/main/{firstname}', mainController.showName);
 
 // contact routes
 router.get('/contact', contactController.showContact);
 
 // medical products routes
 router.get('/medicalProducts', medicalProductsController.showMedicalProducts);
+router.get('/medicalProducts/:slug/add', medicalProductsController.addToCart);
+
 
 // online course routes
 router.get('/onlineCourse', onlineCourseController.showOnlineCourse);

@@ -10,16 +10,22 @@
 
   <div class="row">
     <br><br>
+       <% for (var product of products) { %>
       <div class="col-sm-3">
         <div class="thumbnail">
           <img src="../../rsz_p.jpg" class="img-responsive1" alt="Pr_Image1">
           <div class="caption">
-            <h5>תחבושת קירור</h5>
-            <h6>25.9 ש"ח</h6>
-            <a href="#" class="btn btn-default" role="button">הוסף לסל</a>
+            <h5><%= product.name %></h5>
+            <h6><%= product.price %></h6>
+            <a href="/medicalProducts/<%= product.slug %>/add" class="btn btn-default" role="button">הוסף לסל</a>
+              
+<!--              <button type="submit" class="btn btn-success btn-lg" method="POST">הוסף לסל</button>-->
           </div>
         </div>
       </div>
+    <% } %>      
+      
+<!--
       <div class="col-sm-3">
         <div class="thumbnail">
           <img src="../../rsz_p1.jpg" class="img-responsive1" alt="Pr_Image2">
@@ -90,46 +96,6 @@
           </div>
         </div>
       </div>
-
-       <!--<div class="col-sm-3">
-        <div class="thumbnail">
-          <img src="../../rsz_p8.jpg" class="img-responsive1" alt="Pr_Image9">
-          <div class="caption">
-            <h5>תחבושות לכוויות</h5>
-            <h6>50 ש"ח</h6>
-            <a href="#" class="btn btn-default" role="button">הוסף לסל</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <img src="../../rsz_p9.jpg" class="img-responsive1" alt="Pr_Image10">
-          <div class="caption">
-            <h5>דיפיברילטור</h5>
-            <h6>מחיר ניתן טלפונית</h6>
-            <a href="#" class="btn btn-default" role="button">הוסף לסל</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <img src="../../rsz_p10.jpg" class="img-responsive1" alt="Pr_Image11">
-          <div class="caption">
-            <h5>10 טבליות אברול</h5>
-            <h6>8.20 ש"ח</h6>
-            <a href="#" class="btn btn-default" role="button">הוסף לסל</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <img src="../../rsz_p11.jpg" class="img-responsive1" alt="Pr_Image12">
-          <div class="caption">
-            <h5>מפוח הנשמה לתינוק</h5>
-            <h6>93.60 ש"ח</h6>
-            <a href="#" class="btn btn-default" role="button">הוסף לסל</a>
-          </div>
-        </div>
-      </div>-->
+-->
     </div>
 </div>
