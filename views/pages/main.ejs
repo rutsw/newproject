@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="../../../mainStyle.css" >
 
-
 <div class="container text-center">
     <div class="row">
         <div class="col-sm-4">
@@ -64,56 +63,34 @@
     <br><br>
     <legend><h2><strong>מוצרים נבחרים</strong></h2></legend>
     <br>
+
     <div class="row">
-        <div class="col-sm-3">
-            <a href="../../rsz_p.jpg" class="thumbnail">
-                <img src="../../rsz_p.jpg" class="img-responsive0" alt="Pr_Image1">
-                <p>תחבושת קירור</p>
-            </a>
+    <br><br>
+    <% for (var product of products) { %>
+        <div class="img-responsive1">
+          <div class="thumbnail">
+            <img id="myImg" src="../../rsz_p.jpg" alt="<%= product.name %>">
+          
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img01">
+              <div id="caption1"></div>
+            </div>
+
+            <div class="caption">
+              <h5><%= product.name %></h5>
+              <h6><%= product.price %></h6>
+            </div>
+            
+          </div>
         </div>
-        <div class="col-sm-3">
-            <a href="../../rsz_p1.jpg" class="thumbnail">
-                <img src="../../rsz_p1.jpg" class="img-responsive0" alt="Pr_Image2">
-                <p>ספריי קירור</p>
-            </a>
-        </div>
-        <div class="col-sm-3">
-            <a href="../../rsz_p2.jpg" class="thumbnail">
-                <img src="../../rsz_p2.jpg" class="img-responsive0" alt="Pr_Image3">
-                <p>תחבושת אלסטית</p>
-            </a>
-        </div>
-        <div class="col-sm-3">
-            <a href="../../rsz_p3.jpg" class="thumbnail">
-                <img src="../../rsz_p3.jpg" class="img-responsive0" alt="Pr_Image4">
-                <p>ברנשליד לכוויות</p>
-            </a>
-        </div>
-        <div class="col-sm-3">
-            <a href="../../rsz_p4.jpg" class="thumbnail">
-                <img src="../../rsz_p4.jpg" class="img-responsive0" alt="Pr_Image5">
-                <p>מדחום</p>
-            </a>
-        </div>
-        <div class="col-sm-3">
-            <a href="../../rsz_p5.jpg" class="thumbnail">
-                <img src="../../rsz_p5.jpg" class="img-responsive0" alt="Pr_Image6">
-                <p>סביעור</p>
-            </a>
-        </div>
-        <div class="col-sm-3">
-            <a href="../../rsz_p6.jpg" class="thumbnail">
-                <img src="../../rsz_p6.jpg" class="img-responsive0" alt="Pr_Image7">
-                <p>ברנשליד בתרסיס</p>
-            </a>
-        </div>
-        <div class="col-sm-3">
-            <a href="../../rsz_p.jpg" class="thumbnail">
-                <img src="../../rsz_p7.jpg" class="img-responsive0" alt="Pr_Image8">
-                <p>כלודין</p>
-            </a>
-        </div>
-    </div>
+    <% } %>      
+    <div class="clearfix"></div>
+  </div>
+</div>
+
+
 </div>
 
 <div class="container text-center">
@@ -127,3 +104,35 @@
     </div>
     <br><br>
 </div>
+
+
+
+<script>
+  // Get the modal
+  var modal = document.getElementById('myModal');
+
+  // Get the image and insert it inside the modal - use its "alt" text as a caption
+  var img = document.getElementById('myImg');
+  var modalImg = document.getElementById("img01");
+  var captionText = document.getElementById("caption1");
+  img.onclick = function(){
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+  }
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() { 
+      modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+  }
+</script>

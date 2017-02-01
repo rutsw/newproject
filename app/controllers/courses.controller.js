@@ -1,8 +1,6 @@
 module.exports = {
-
-  // show the about page
+  	// show the about page
 	showCourses: (req, res) => {
-    res.render('pages/courses');
+   	res.render('pages/courses');
   }
-
 };

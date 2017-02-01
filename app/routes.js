@@ -14,64 +14,62 @@ const express = require('express'),
   medicalProductsController = require('./controllers/medicalProducts.controller'),
   onlineCourseController = require('./controllers/onlineCourse.controller');
 
-// export router
-module.exports = router;
+  // export router
+  module.exports = router;
+
+  // define routes
+  //layout routs
+  router.get('/login', layoutController.showLogin);
+  //
+  //register routes
+  router.get('/register', registerController.showRegister);
+  router.post('/register', registerController.processRegister);
 
 
-// define routes
-//layout routs
-//app.get('/login', routes.login);
-router.get('/login', layoutController.showLogin);
-//
-//register routes
-router.get('/register',      registerController.showRegister);
-router.post('/register',     registerController.processRegister);
+  // main routes
+  //router.get('/', mainController.showMain);
+  //router.get('/main', mainController.showMain);
+  router.get('/', mainController.showProducts);
+  //router.get('/main/{firstname}', mainController.showName);
 
+  // contact routes
+  router.get('/contact', contactController.showContact);
 
-// main routes
-router.get('/', mainController.showMain);
-router.get('/main', mainController.showMain);
-//router.get('/main/{firstname}', mainController.showName);
+  // medical products routes
+  router.get('/medicalProducts', medicalProductsController.showMedicalProducts);
+  router.get('/medicalProducts/:slug/add', medicalProductsController.addToCart);
 
-// contact routes
-router.get('/contact', contactController.showContact);
+  // online course routes
+  router.get('/onlineCourse', onlineCourseController.showOnlineCourse);
 
-// medical products routes
-router.get('/medicalProducts', medicalProductsController.showMedicalProducts);
-router.get('/medicalProducts/:slug/add', medicalProductsController.addToCart);
+  //about routes
+  router.get('/about', aboutController.showAbout);
 
+  //courses routes
+  router.get('/courses', coursesController.showCourses);
 
-// online course routes
-router.get('/onlineCourse', onlineCourseController.showOnlineCourse);
+  //approvals routes
+  router.get('/approvals', approvalsController.showApprovals);
 
-//about routes
-router.get('/about' , aboutController.showAbout);
+  //recommendation routes
+  router.get('/recommendation', recommendationController.showRecommendation);
 
-//courses routes
-router.get('/courses' , coursesController.showCourses);
+  //cart routes
+  router.get('/cart', cartController.showProducts);
 
-//approvals routes
-router.get('/approvals' , approvalsController.showApprovals);
+  // seed products
+  router.get('/cart/seed', cartController.seedProducts);
 
-//recommendation routes
-router.get('/recommendation' , recommendationController.showRecommendation);
+  // create product
+  router.get('/cart/create', cartController.showCreate);
+  router.post('/cart/create', cartController.processCreate);
 
-//cart routes
-router.get('/cart', cartController.showProducts);
+  // edit product
+  router.get('/cart/:slug/edit', cartController.showEdit);
+  router.post('/cart/:slug', cartController.processEdit);
 
-// seed products
-router.get('/cart/seed' ,  cartController.seedProducts);
+  // delete product
+  router.get('/cart/:slug/delete', cartController.deleteProduct);
 
-// create product
-router.get('/cart/create',  cartController.showCreate);
-router.post('/cart/create', cartController.processCreate);
-
-// edit product
-router.get('/cart/:slug/edit', cartController.showEdit);
-router.post('/cart/:slug',     cartController.processEdit);
-
-// delete product
-router.get('/cart/:slug/delete', cartController.deleteProduct);
-
-// show a single product
-router.get('/cart/:slug', cartController.showSingle);
+  // show a single product
+  router.get('/cart/:slug', cartController.showSingle);

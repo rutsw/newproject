@@ -8,8 +8,7 @@
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
 
-        
-       <% if (errors.length > 0) { %>
+        <% if (errors.length > 0) { %>
             <div class="alert alert-danger">
                 <% for (error of errors) { %>
                     <%= error %><br>
@@ -18,7 +17,6 @@
         <% } %>
         
         <form action="/register" method="POST" id="register-form">
-
             <div class="form-group">
                 <label>שם משתמש</label>
                 <input type="text" name="username" class="form-control" id="username" placeholder="הכנס שם משתמש" required data-required-msg="Display Name is required">
@@ -36,12 +34,12 @@
 
             <div class="form-group">
                 <label>סיסמא</label>
-                <input type="text" name="password" class="form-control" id="password", placeholder="הכנס סיסמא">
+                <input type="password" name="password" class="form-control" id="password", placeholder="הכנס סיסמא">
             </div>
 
             <div class="form-group">
                 <label>אשר סיסמא</label>
-                <input type="text" name="confirmpassword" class="form-control" id="confirmpassword", placeholder="הכנס סיסמא שנית">
+                <input type="password" name="confirmpassword" class="form-control" id="confirmpassword", placeholder="הכנס סיסמא שנית">
             </div>
 
             <div class="form-group">
@@ -50,14 +48,18 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="button btn btn-default">הרשם</button>
+                <button type="submit" class="button btn btn-default" onclick="myFunction()">הרשם</button>
                 <a href="/login">משתמש רשום? התחבר</a>
             </div>
-
         </form>
-
     </div>
 </div>
+
+<script>
+    function myFunction() {
+     
+    }
+</script>
 
 
 

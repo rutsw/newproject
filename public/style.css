@@ -76,16 +76,15 @@ html, body  {
 }
 
 .navbar-nav>li{
-    float:right;
+  float:right;
 }
 
 .navbar-nav>ul{
-    float:right;
+  float:right;
 }
 
 /* main section */
 #site-main  {
-  
   padding-top: 50px;
 }
 

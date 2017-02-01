@@ -13,7 +13,7 @@ module.exports = {
 
 /**
  * Show all products
- */
+*/
 function showProducts(req, res) {
   // get all products   
   Product.find({}, (err, products) => {
@@ -54,7 +54,7 @@ function seedProducts(req, res) {
     ];
 
   // use the Product model to insert/save
- Product.remove({}, () => {
+  Product.remove({}, () => {
     for (product of products) {
       var newProduct = new Product(product);
       newProduct.save();
@@ -87,9 +87,7 @@ function processCreate(req, res) {
 
   // if there are errors, redirect and save errors to flash
   const errors = req.validationErrors();
-//////
   console.log(errors);
-/////
   if (errors) {
     req.flash('errors', errors.map(err => err.msg));
     return res.redirect('/cart/create');
@@ -102,7 +100,7 @@ function processCreate(req, res) {
   });
 
   // save product
- product.save((err) => {
+product.save((err) => {
     if (err)
       throw err;
 
@@ -158,7 +156,6 @@ function processEdit(req, res) {
       res.redirect('/cart');
     });
   });
-
 }
 
 /**

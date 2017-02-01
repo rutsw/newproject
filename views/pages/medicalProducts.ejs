@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="../../medicalProductsStyle.css" >
 
+
 <div class="container text-center">
   <div class="row">
       <div class="col-md-12_medical">
@@ -10,92 +11,30 @@
 
   <div class="row">
     <br><br>
-       <% for (var product of products) { %>
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <img src="../../rsz_p.jpg" class="img-responsive1" alt="Pr_Image1">
-          <div class="caption">
-            <h5><%= product.name %></h5>
-            <h6><%= product.price %></h6>
-            <a href="/medicalProducts/<%= product.slug %>/add" class="btn btn-default" role="button">הוסף לסל</a>
-              
-<!--              <button type="submit" class="btn btn-success btn-lg" method="POST">הוסף לסל</button>-->
+    <% for (var product of products) { %>
+        <div class="img-responsive1">
+          <div class="thumbnail">
+            <img id="myImg" src="../../rsz_p.jpg" alt="<%= product.name %>">
+          
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+              <span class="close">&times;</span>
+              <img class="modal-content" id="img01">
+              <div id="caption1"></div>
+            </div>
+
+            <div class="caption">
+              <h5><%= product.name %></h5>
+              <h6><%= product.price %></h6>
+              <a href="/medicalProducts/<%= product.slug %>/add" class="btn btn-default" role="button">הוסף לסל</a>
+
+              <!--<button type="submit" class="btn btn-success btn-lg" method="POST">הוסף לסל</button>-->
+            </div>
           </div>
         </div>
-      </div>
     <% } %>      
-      
-<!--
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <img src="../../rsz_p1.jpg" class="img-responsive1" alt="Pr_Image2">
-          <div class="caption">
-            <h5>ספריי קירור</h5>
-            <h6>23.40 ש"ח</h6>
-            <a href="#" class="btn btn-default" role="button">הוסף לסל</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <img src="../../rsz_p2.jpg" class="img-responsive1" alt="Pr_Image3">
-          <div class="caption">
-            <h5>תחבושת אלסטית</h5>
-            <h6>10.5 ש"ח</h6>
-            <a href="#" class="btn btn-default" role="button">הוסף לסל</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <img src="../../rsz_p3.jpg" class="img-responsive1" alt="Pr_Image4">
-          <div class="caption">
-            <h5>ברנשליד לכוויות</h5>
-            <h6>56 ש"ח</h6>
-            <a href="#" class="btn btn-default" role="button">הוסף לסל</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <img src="../../rsz_p4.jpg" class="img-responsive1" alt="Pr_Image5">
-          <div class="caption">
-            <h5>מדחום</h5>
-            <h6>20 ש"ח</h6>
-            <a href="#" class="btn btn-default" role="button">הוסף לסל</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <img src="../../rsz_p5.jpg" class="img-responsive1" alt="Pr_Image6">
-          <div class="caption">
-            <h5>סביעור</h5>
-            <h6>22.20 ש"ח</h6>
-            <a href="#" class="btn btn-default" role="button">הוסף לסל</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <img src="../../rsz_p6.jpg" class="img-responsive1" alt="Pr_Image7">
-          <div class="caption">
-            <h5>תרסיס ברנשליד</h5>
-            <h6>45 ש"ח</h6>
-            <a href="#" class="btn btn-default" role="button">הוסף לסל</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="thumbnail">
-          <img src="../../rsz_p7.jpg" class="img-responsive1" alt="Pr_Image8">
-          <div class="caption">
-            <h5>כלודין</h5>
-            <h6>16.40 ש"ח</h6>
-            <a href="#" class="btn btn-default" role="button">הוסף לסל</a>
-          </div>
-        </div>
-      </div>
--->
-    </div>
+    <div class="clearfix"></div>
+  </div>
 </div>
+
+<script src="../../js/medicalProducts.js"></script>

@@ -8,6 +8,7 @@ const express    = require('express'),
   port           = process.env.PORT || 8080,
   expressLayouts = require('express-ejs-layouts'),
   mongoose       = require('mongoose');
+  mongoose.Promise = global.Promise;
   passport       = require('passport');
   bodyParser     = require('body-parser'),
   session        = require('express-session'),

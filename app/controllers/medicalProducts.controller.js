@@ -3,7 +3,7 @@ const Cart = require('../models/cart');
 
 module.exports = {
   showMedicalProducts: showMedicalProducts,
-    addToCart: addToCart
+  addToCart: addToCart
 }
 
 
@@ -24,29 +24,29 @@ function showMedicalProducts(req, res) {
 }
 
 
-
-
-
+/**
+ * Add product to cart
+ */
 function addToCart(req,res){ 
    Product.findOne({slug: req.params.slug},(err,product)=>
         {
-            // add a product to cart
-            const cart= new Cart({
-             name: product.name,
+          // add a product to cart
+          const cart= new Cart({
+            name: product.name,
             description: product.description
-            });
+          });
         
-            // save product
-             cart.save((err) => {
-                if (err)
-                  throw err;
+          // save product
+          cart.save((err) => {
+            if (err)
+              throw err;
 
-            // set a successful flash message
-            req.flash('success', 'Successfuly add new product!');
+          // set a successful flash message
+          req.flash('success', 'Successfuly add new product!');
 
-            // redirect to the newly created product
-           // res.redirect(`/cart/${product.slug}`);
-            res.redirect(`/cart`);
+          // redirect to the newly created product
+          // res.redirect(`/cart/${product.slug}`);
+          res.redirect(`/cart`);
           });
          });   
 }
@@ -107,15 +107,3 @@ function addToCart(req,res){
 //
 //
 //
-
-
-
-//module.exports = {
-//
-//showMedicalProducts: (req, res) => {
-//    res.render('pages/medicalProducts');
-//  }
-//
-//  
-//
-//};

@@ -3,7 +3,10 @@ const mongoose = require('mongoose'),
 
 // create a schema
 const userSchema = new Schema({
-  username: String,
+  username: {
+    type: String,
+    unique: true
+  },
   firstname: String,
   lastname:String,
   password:String,
