@@ -34,11 +34,13 @@ function sendRequest(req, res) {
         pass: 'mary010293'
     }
   }));
+  
+    console.log('name is:' + req.body.name);
   var mailOptions = {
-    from: 'miryam993@gmail.com', // sender address
-    to: 'miryam993@gmail.com', // list of receivers
-    subject: 'Email Example', // Subject line
-    text: "text" //, // plaintext body
+    from: req.body.email, // sender address
+    to: 'tamimamo@gmail.com', // list of receivers
+    subject: 'מייל מהאתר הדרך להציל חיים', // Subject line
+    text: " נשלח מאת: "+req.body.name+"\n כתובת מייל: "+req.body.email+"\n תוכן ההודעה: "+req.body.query // plaintext body
   };
   transporter.sendMail(mailOptions, function(error, info){
       if(error){
