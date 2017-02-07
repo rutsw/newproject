@@ -10,7 +10,9 @@ const productSchema = new Schema({
   },
   description: String,
   price: String,
-  stockpile: String
+  stockpile: String,
+  recommended: String,
+  imgName: String
 });
 
 // middleware -----

@@ -27,9 +27,8 @@ const express = require('express'),
 
 
   // main routes
-  //router.get('/', mainController.showMain);
-  //router.get('/main', mainController.showMain);
   router.get('/', mainController.showProducts);
+  router.get('/send', mainController.sendRequest);
   //router.get('/main/{firstname}', mainController.showName);
 
   // contact routes

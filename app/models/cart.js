@@ -10,6 +10,7 @@ const cartSchema = new Schema({
   },
   description: String,
   price: String,
+  imgName: String,
   amount: String
 });
 

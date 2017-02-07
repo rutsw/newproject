@@ -33,7 +33,8 @@ function addToCart(req,res){
           // add a product to cart
           const cart= new Cart({
             name: product.name,
-            description: product.description
+            description: product.description,
+            imgName: product.imgName
           });
         
           // save product
@@ -47,6 +48,7 @@ function addToCart(req,res){
           // redirect to the newly created product
           // res.redirect(`/cart/${product.slug}`);
           res.redirect(`/cart`);
+          //res.redirect(`/medicalProducts`);
           });
          });   
 }

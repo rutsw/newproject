@@ -16,6 +16,8 @@ const express    = require('express'),
   flash          = require('connect-flash'),
   expressValidator = require('express-validator'),
   morgan         = require('morgan'),
+  nodemailer     = require('nodemailer'),
+  smtpTransport  = require('nodemailer-smtp-transport'),
   session        = require('express-session'),
 
 

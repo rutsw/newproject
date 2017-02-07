@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../../../cartStyle.css" >
+<link rel="stylesheet" href="../../css/cartStyle.css" >
 
 <div class="container text-center">
     <div class="row">
@@ -18,7 +18,7 @@
         <tbody>
             <% for (var product of products) { %>
                 <tr>
-                    <td><%= product.name %></td>
+                    <td><img id="myImg" src="../../<%= product.imgName %>.jpg"><%= product.name %></td>
                     <td><%= product.description %></td>
                     <td>
                         <a href="/cart/<%= product.slug %>" class="btn btn-sm btn-primary">לרכישה אנא צרו קשר</a>  

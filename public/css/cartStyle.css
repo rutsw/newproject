@@ -19,3 +19,11 @@
 .table{
     text-align: center;
 }
+
+#myImg{
+    max-width: 20%;
+    max-height: 20%;
+    height: auto;
+    display:inherit;
+    border-radius: 2px;
+}
