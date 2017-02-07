@@ -58,7 +58,7 @@ function processRegister(req, res) {
 
 	    // redirect to the newly created product
 	   // res.redirect(`/cart/${product.slug}`);
-	    res.redirect(`/main`);
+	    res.redirect(`/`);
 	});
 }
 
