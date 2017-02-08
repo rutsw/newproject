@@ -21,12 +21,12 @@ function sendRequest(req, res) {
     }
   }));
   
-  console.log('name is:' + req.body.name);
+  
   var mailOptions = {
     from: req.body.email, // sender address
     to: 'tamimamo@gmail.com', // list of receivers
     subject: 'מייל מהאתר הדרך להציל חיים', // Subject line
-    text: " נשלח מאת: "+req.body.name+"\n כתובת מייל: "+req.body.email+"\n טלפון: "+req.body.phone+"\n תוכן ההודעה: "+req.body.message // plaintext body
+    text: " נשלח מאת: "+req.body.name+"\n כתובת מייל: "+req.body.email+"\n טלפון: "+req.body.phone+"\n נושא: "+req.body.subject+"\n תוכן ההודעה: "+req.body.message // plaintext body
   };
   transporter.sendMail(mailOptions, function(error, info){
       if(error){

@@ -33,7 +33,7 @@ const express = require('express'),
 
   // contact routes
   router.get('/contact', contactController.showContact);
-  router.post('/send', contactController.sendRequest);
+  router.post('/sendContact', contactController.sendRequest);
 
   // medical products routes
   router.get('/medicalProducts', medicalProductsController.showMedicalProducts);
