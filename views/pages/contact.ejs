@@ -27,12 +27,12 @@
             </div>
             <div class="col-md-8">
                 <div class="well well-sm">
-                    <form>
+                     <form action="/send" method="POST">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="name">הודעה</label>
-                                    <textarea name="message" id="message" class="form-control" rows="12" cols="25" required="required" placeholder="תוכן ההודעה"></textarea>
+                                    <textarea class="form-control" name="message" id="message" rows="12" cols="25" required="required" placeholder="תוכן ההודעה"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -40,34 +40,36 @@
                                     <label for="name">שם</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
-                                        <input type="text" class="form-control" id="name" placeholder="הכנס שם" required="required" />
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="הכנס שם" required="required" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">טלפון</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-                                        <input type="text" class="form-control" id="phone" placeholder="הכנס מספר טלפון" required="required" />
+                                        <input type="text" class="form-control" name="phone" id="phone" placeholder="הכנס מספר טלפון" required="required" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">כתובת מייל</label>
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                                        <input type="email" class="form-control" id="email" placeholder="הכנס כתובת מייל" required="required" />
+                                        <input type="email" class="form-control" name="email" id="email" placeholder="הכנס כתובת מייל" required="required" />
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="subject">נושא</label>
                                     <select id="subject" name="subject" class="form-control" required="required">
-                                        <option value="na" selected="">בחר:</option>
-                                        <option value="service">ציוד רפואי</option>
-                                        <option value="suggestions">קורסים והדרכות</option>
+                                        <option value="chosse" selected="">בחר:</option>
+                                        <option value="service1">ציוד רפואי</option>
+                                        <option value="service2">קורסים והדרכות</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-left" id="btnContactUs">שלח פניה</button>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary pull-left" id="btnContactUs">שלח פניה</button>
+                                </div>
                             </div>
                         </div>
                     </form>
