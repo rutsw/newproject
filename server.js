@@ -43,6 +43,11 @@ app.use(express.static(__dirname + '/pdf'));
 // set ejs as our templating engine
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
+//admin routes
+app.get('/admin', function(req, res) {
+  res.render('admin', { layout: 'admin' });
+});
+        
 
 
 // connect to our database

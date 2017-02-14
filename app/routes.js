@@ -12,11 +12,15 @@ const express = require('express'),
   recommendationController = require('./controllers/recommendation.controller'),
   cartController = require('./controllers/cart.controller'),
   medicalProductsController = require('./controllers/medicalProducts.controller'),
-  onlineCourseController = require('./controllers/onlineCourse.controller');
+  onlineCourseController = require('./controllers/onlineCourse.controller'),
+
+//admin controllers
+  mainadminController = require('./admin/main_admin.controller');
 
   // export router
   module.exports = router;
-
+//==================================================================================
+//client routes
   // define routes
   //layout routs
   router.get('/login', layoutController.showLogin);
@@ -73,3 +77,9 @@ const express = require('express'),
 
   // show a single product
   router.get('/cart/:slug', cartController.showSingle);
+//====================================================================================
+
+//admin routes
+// main routes
+  router.get('/admin/main_admin', mainadminController.showPage);
+//  router.post('/send', mainController.sendRequest);

@@ -30,6 +30,7 @@ html, body  {
 }
 
 .col-sm-6-contact{
+  max-width: 100%;
   float: right;
 }
 
@@ -44,6 +45,17 @@ html, body  {
     display:block;
     padding-right: 35%;
     padding-left: 35%;
+    margin: 0;
+}
+
+.img-responsive-2{
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    display:block;
+    padding-right: 0;
+    padding-left: 0;
+    margin:0;
 }
 
 .col-md-12_index{
