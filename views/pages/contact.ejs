@@ -31,8 +31,17 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <label for="subject">נושא</label>
+                                    <select id="subject" name="subject" class="form-control" required="required">
+                                        <option value="chosse" selected="">בחר:</option>
+                                        <option value="service1">ציוד רפואי</option>
+                                        <option value="service2">קורסים והדרכות</option>
+                                        <option value="service2">ציוד כיבוי אש</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="name">הודעה</label>
-                                    <textarea class="form-control" name="message" id="message" rows="12" cols="25" required="required" placeholder="תוכן ההודעה"></textarea>
+                                    <textarea class="form-control" name="message" id="message" rows="9" cols="25" required="required" placeholder="תוכן ההודעה"></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -41,6 +50,13 @@
                                     <div class="input-group">
                                         <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span></span>
                                         <input type="text" class="form-control" name="name" id="name" placeholder="הכנס שם" required="required" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="text">שם ארגון</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-globe"></span></span>
+                                        <input type="text" class="form-control" name="organization_name" id="organization_name" placeholder="הכנס שם ארגון" required="required" />
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -57,14 +73,6 @@
                                         <input type="email" class="form-control" name="email" id="email" placeholder="הכנס כתובת מייל" required="required" />
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="subject">נושא</label>
-                                    <select id="subject" name="subject" class="form-control" required="required">
-                                        <option value="chosse" selected="">בחר:</option>
-                                        <option value="service1">ציוד רפואי</option>
-                                        <option value="service2">קורסים והדרכות</option>
-                                    </select>
-                                </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-group">
@@ -77,4 +85,16 @@
             </div>
         </div>
     </div>
+</div>
+
+<div class="container text-center">
+    <br><br>
+    <div class="row">
+        <legend><h2><strong>בין לקוחותינו:</strong></h2></legend>
+        <br>
+        <div class="col-sm-12-image">
+            <img src="../../our_customers.jpg" class="img-responsive2" alt="our customers">
+        </div>
+    </div>
+    <br><br>
 </div>

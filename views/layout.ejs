@@ -5,8 +5,8 @@
         <title>יוסי עמר| הדרך להציל חיים</title>
 
         <!-- css -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
+        <link rel="stylesheet" href="../../css/bootstrap.min.css">
         <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">        
         <link rel="stylesheet" href="../../css/style.css">
     </head>
@@ -19,7 +19,7 @@
             </div>
             <div class="col-sm-6-contact">
                 <p>שירות לקוחות: 02-9404444</p>
-                <a href="admin"><img src="/../../user.png" class="img-responsive-2"  alt="user_image"></a> 
+                <a href="admin"><img src="/../../user.png" class="img-responsive-2" alt="user_image"></a> 
             </div>
             <br>
         </div>
@@ -44,7 +44,29 @@
                                 <ul class="nav navbar-nav navbar-right" >
                                     <li class="active"><a href="/">ראשי</a></li>
                                     <li><a href ="/about">אודות</a></li>
-                                    <li><a href ="/courses">קורסים והדרכות</a></li>
+                                    <li class="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> קורסים והדרכות <span class="caret"></span></a>
+                                        <li class="dropdown dropdown-submenu">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> קורסים לקהל הרחב <span class="caret"></span></a>
+                                                <ul class="dropdown-menu">  
+                                                    <li><a href="/4hCourse">קורס עזרה ראשונה 4 שעות</a></li>
+                                                    <li><a href="/8hCourse">קורס עזרה ראשונה 8 שעות</a></li>
+                                                    <li><a href="/22hCourse">קורס עזרה ראשונה 22 שעות</a></li>
+                                                    <li><a href="/28hCourse">קורס עזרה ראשונה 28 שעות</a></li>
+                                                    <li><a href="/44hCourse">קורס עזרה ראשונה 44 שעות</a></li>
+                                                    <li><a href="/60hCourse">קורס עזרה ראשונה 60 שעות</a></li>
+                                                    <li><a href="/4hBabyCourse">קורס מע"ר בפעוטות 4 שעות</a></li>
+                                                    <li><a href="/groupCourses">קורסים לקבוצות</a></li>
+                                                </ul>
+                                        </li>
+                                        <li class="dropdown dropdown-submenu">
+                                            <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> קורסים לצוותים רפואיים <span class="caret"></span></a>
+                                                 <ul class="dropdown-menu">
+                                                    <li><a href="/paramedicCourse">קורס חובש נהג אמבולנס</a></li>
+                                                    <li><a href="/medicalTeamsCourse">הכשרות לצוותי רפואה</a></li>
+                                                </ul>
+                                        </li>
+                                    </li>
                                     <li><a href="/medicalProducts">ציוד רפואי</a></li>
                                     <li class="dropdown">
                                         <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> אישורים והמלצות <span class="caret"></span></a>
@@ -82,8 +104,8 @@
             </form>
         </footer>
         
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       <script src="../../js/jquery.min.js"></script>
+       <script src="../../js/bootstrap.min.js"></script>
        
     </body>
 </html>
