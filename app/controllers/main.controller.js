@@ -1,8 +1,8 @@
 const Product = require('../models/product');
 module.exports = {
 
-	 showProducts: showProducts,
-   sendRequest: sendRequest
+    showProducts: showProducts,
+    sendRequest: sendRequest
 };
 
 
@@ -36,7 +36,7 @@ function sendRequest(req, res) {
   }));
   
     console.log('name is:' + req.body.name);
-  var mailOptions = {
+    var mailOptions = {
     from: req.body.email, // sender address
     to: 'tamimamo@gmail.com', // list of receivers
     subject: 'מייל מהאתר הדרך להציל חיים', // Subject line

@@ -19,7 +19,7 @@ function showMedicalProducts(req, res) {
     }
 
     // return a view with data
-    res.render('pages/medicalProducts', { products: products });
+    res.render('pages/medicalProduct', { products: products });
   });
 }
 
