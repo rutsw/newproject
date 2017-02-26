@@ -1,5 +1,5 @@
 module.exports = {
-  	// show the about page
+  	// show the courses page
 	showCourses: (req, res) => {
    	res.render('pages/courses');
   }

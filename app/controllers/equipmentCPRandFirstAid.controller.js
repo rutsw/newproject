@@ -1,8 +1,8 @@
 module.exports = {
 
-  // show the medical furniture page
-	showEquipmentCPRandFirsAid: (req, res) => {
-    res.render('pages/equipmentCPRandFirsAid');
+  // show the equipment CPR and first aid page
+	showEquipmentCPRandFirstAid: (req, res) => {
+    res.render('pages/equipmentCPRandFirstAid');
   }
 
 };

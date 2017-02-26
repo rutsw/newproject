@@ -2,12 +2,22 @@
   const express = require('express'),
   router = express.Router(),
 
+  //client controllers
   layoutController = require('./controllers/layout.controller'),
   registerController = require('./controllers/register.controller'),
   mainController = require('./controllers/main.controller'),
   contactController = require('./controllers/contact.controller'),
   aboutController = require('./controllers/about.controller'),
   coursesController = require('./controllers/courses.controller'),
+  fHCourseController = require('./controllers/4hCourse.controller'),
+  eHCourseController = require('./controllers/8hCourse.controller'),
+  ttHCourseController = require('./controllers/22hCourse.controller'),
+  ffHCourseController = require('./controllers/44hCourse.controller'),
+  sHCourseController = require('./controllers/60hCourse.controller'),
+  fHBabyCourseController = require('./controllers/4hBabyCourse.controller'),
+  medicalTeamsCourseController = require('./controllers/medicalTeamsCourse.controller'),
+  paramedicCourseController = require('./controllers/paramedicCourse.controller'),
+        
   approvalsController = require('./controllers/approvals.controller'),
   recommendationController = require('./controllers/recommendation.controller'),
   cartController = require('./controllers/cart.controller'),
@@ -17,7 +27,7 @@
   equipmentCPRandFirstAidController = require('./controllers/equipmentCPRandFirstAid.controller'),
   trainingandSimulationEquipmentController = require('./controllers/trainingandSimulationEquipment.controller'),
   firstAidKitsController = require('./controllers/firstAidKits.controller'),
-  onlineCourseController = require('./controllers/onlineCourse.controller'),
+  onlineCourseController = require('./controllers/onlineCourse.controller');
 
   //admin controllers
   mainadminController = require('./admin/main_admin.controller');
@@ -61,7 +71,7 @@
   router.get('/firstAidKits', firstAidKitsController.showFirstAidKits);
 
   //equipment CPR & first aid routes
-  router.get('/equipmentCPRandFirstAid', equipmentCPRandFirstAidController.showeEquipmentCPRandFirstAid);
+  //router.get('/equipmentCPRandFirstAid', equipmentCPRandFirstAidController.showeEquipmentCPRandFirstAid);
 
   //online course routes
   router.get('/onlineCourse', onlineCourseController.showOnlineCourse);
@@ -70,7 +80,31 @@
   router.get('/about', aboutController.showAbout);
 
   //courses routes
-  router.get('/courses', coursesController.showCourses);
+  //router.get('/courses', coursesController.showCourses);
+
+  //4 hour courses routes
+  router.get('/4hCourse', fHCourseController.show4hCourse);
+
+  //8 hour courses routes
+  router.get('/8hCourse', eHCourseController.show8hCourse);
+
+  //22 hour courses routes
+  router.get('/22hCourse', ttHCourseController.show22hCourse);
+
+  //44 hour courses routes
+  router.get('/44hCourse', ffHCourseController.show44hCourse);
+
+  //60 hour courses routes
+  router.get('/60hCourse', sHCourseController.show60hCourse);
+
+  //4 hour baby courses routes
+  router.get('/4hBabyCourse', fHBabyCourseController.show4hBabyCourse);
+
+  //medical teams courses routes
+  router.get('/medicalTeamsCourse', medicalTeamsCourseController.showMedicalTeamsCourse);
+
+  //paramedic courses routes
+  router.get('/paramedicCourse', paramedicCourseController.showParamedicCourse);
 
   //approvals routes
   router.get('/approvals', approvalsController.showApprovals);

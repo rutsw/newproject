@@ -1,6 +1,6 @@
 module.exports = {
 
-  // show the medical furniture page
+    // show the training & simulation equipment page
 	showTrainingandSimulationEquipment: (req, res) => {
     res.render('pages/trainingandSimulationEquipment');
   }

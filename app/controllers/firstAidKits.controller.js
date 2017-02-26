@@ -1,7 +1,7 @@
 module.exports = {
 
-  // show the medical furniture page
-	showFirsAidKits: (req, res) => {
+  // show the first aid kits page
+	showFirstAidKits: (req, res) => {
     res.render('pages/firstAidKits');
   }
 
