@@ -44,10 +44,10 @@ app.use(express.static(__dirname + '/pdf'));
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
 //admin routes
-app.get('/admin', function(req, res) {
-  res.render('admin', { layout: 'admin' });
-});
-        
+//app.get('/main_admin', function(req, res) {
+//  res.render('admin_side/admin', { layout: 'admin_side/admin' });
+//});
+//        
 
 
 // connect to our database

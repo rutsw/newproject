@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="../../css/cartStyle.css" >
+
+<div class="container text-center">
+    <div class="row">
+<!--
+        <div class="col-md-12_cart">
+            <p class="cart">עגלת הקניות שלי</p>
+        </div>
+-->
+    </div>
+
+    <br><br>
+    <table class="table table-bordered table-hover table-striped">
+        <thead>
+            <tr>
+                <th><center>שם מוצר</center></th>
+                <th><center>תאור</center></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for (var product of products) { %>
+                <tr>
+                    <td><img id="myImg" src="../../<%= product.imgName %>.jpg"><%= product.name %></td>
+                    <td><%= product.description %></td>
+                    <td>
+                        <a href="/cart/<%= product.slug %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
+                    </td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</div>
+
+
+

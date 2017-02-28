@@ -1,13 +1,55 @@
-
+const Product = require('../models/product');
 const User = require('../models/user');
 
 module.exports = {
   	showPage:showPage,
+    deleteProduct:deleteProduct,
+    addProduct:addProduct,
+    updateProductDetails:updateProductDetails,
+    userlist:userlist
+    
 }
 
 //show the login page
 function showPage(req, res){
-	res.render('admin/main_admin');
+//	res.render('admin/main_admin');
+    res.render('admin_side/admin_pages/main_admin', { layout: 'admin_side/admin'});
+}
+
+//show the deleteproduct page
+function deleteProduct(req, res){
+    Product.find({}, (err, products) => {
+    if (err) {
+      res.status(404);
+      res.send('Products not found!');
+    }
+
+    // return a view with data
+    res.render('admin_side/admin_pages/admin_deleteProduct', {layout: 'admin_side/admin' , products:products});
+  });   
+}
+
+//show the deleteproduct page
+function addProduct(req, res){
+//	res.render('admin/main_admin');
+    res.render('admin_side/admin_pages/admin_addProduct', {layout: 'admin_side/admin'});
+}
+
+//show the updateProductDetails page
+function updateProductDetails(req, res){
+//	res.render('admin/main_admin');
+    res.render('admin_side/admin_pages/admin_updateProductDetails', {layout: 'admin_side/admin'});
+}
+
+//show the updateProductDetails page
+function userlist(req, res){
+      User.find({}, (err, users) => {
+    if (err) {
+      res.status(404);
+      res.send('Users not found!');
+    }
+    res.render('admin_side/admin_pages/admin_userlist', {layout: 'admin_side/admin', users:users});
+  });
 }
 
 

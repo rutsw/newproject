@@ -12,10 +12,10 @@ const express = require('express'),
   recommendationController = require('./controllers/recommendation.controller'),
   cartController = require('./controllers/cart.controller'),
   medicalProductsController = require('./controllers/medicalProducts.controller'),
-  onlineCourseController = require('./controllers/onlineCourse.controller'),
+  onlineCourseController = require('./controllers/onlineCourse.controller');
 
 //admin controllers
-  mainadminController = require('./admin/main_admin.controller');
+ mainadminController = require('./admin/main_admin.controller');
 
   // export router
   module.exports = router;
@@ -81,5 +81,17 @@ const express = require('express'),
 
 //admin routes
 // main routes
-  router.get('/admin/main_admin', mainadminController.showPage);
+  router.get('/main_admin', mainadminController.showPage);
 //  router.post('/send', mainController.sendRequest);
+
+//add product 
+router.get('/admin_addProduct', mainadminController.addProduct);
+
+//delete product 
+router.get('/admin_deleteProduct', mainadminController.deleteProduct);
+
+//update product 
+router.get('/admin_updateProductDetails', mainadminController.updateProductDetails);
+
+//delete product 
+router.get('/admin_userlist', mainadminController.userlist);
