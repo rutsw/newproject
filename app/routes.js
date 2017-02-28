@@ -142,11 +142,9 @@
 
 //====================================================================================
 
-<<<<<<< HEAD
 //admin routes
 // main routes
-  router.get('/main_admin', mainadminController.showPage);
-//  router.post('/send', mainController.sendRequest);
+router.get('/main_admin', mainadminController.showPage);
 
 //add product 
 router.get('/admin_addProduct', mainadminController.addProduct);
@@ -159,8 +157,4 @@ router.get('/admin_updateProductDetails', mainadminController.updateProductDetai
 
 //delete product 
 router.get('/admin_userlist', mainadminController.userlist);
-=======
-  //admin routes
-  //main routes
-  router.get('/admin/main_admin', mainadminController.showPage);
->>>>>>> origin/master
+
