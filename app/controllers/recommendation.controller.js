@@ -1,5 +1,6 @@
 module.exports = {
-	// show the about page
+    
+	// show the recommendation page
 	showRecommendation: (req, res) => {
     	res.render('pages/recommendation');
   	}

@@ -1,6 +1,6 @@
 module.exports = {
 
-  // show the about page
+  // show the approvals page
 	showApprovals: (req, res) => {
     res.render('pages/approvals');
   }
