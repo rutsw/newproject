@@ -17,28 +17,20 @@
   fHBabyCourseController = require('./controllers/4hBabyCourse.controller'),
   medicalTeamsCourseController = require('./controllers/medicalTeamsCourse.controller'),
   paramedicCourseController = require('./controllers/paramedicCourse.controller'),
-        
   approvalsController = require('./controllers/approvals.controller'),
   recommendationController = require('./controllers/recommendation.controller'),
   cartController = require('./controllers/cart.controller'),
-<<<<<<< HEAD
-  medicalProductsController = require('./controllers/medicalProducts.controller'),
-  onlineCourseController = require('./controllers/onlineCourse.controller');
-
-//admin controllers
- mainadminController = require('./admin/main_admin.controller');
-=======
+  onlineCourseController = require('./controllers/onlineCourse.controller'),
   medicalEquipmentController = require('./controllers/medicalEquipment.controller'),
   medicalProductController = require('./controllers/medicalProduct.controller'),
   medicalFurnitureController = require('./controllers/medicalFurniture.controller'),
   equipmentCPRandFirstAidController = require('./controllers/equipmentCPRandFirstAid.controller'),
   trainingandSimulationEquipmentController = require('./controllers/trainingandSimulationEquipment.controller'),
   firstAidKitsController = require('./controllers/firstAidKits.controller'),
-  onlineCourseController = require('./controllers/onlineCourse.controller');
 
   //admin controllers
   mainadminController = require('./admin/main_admin.controller');
->>>>>>> origin/master
+
 
   //export router
   module.exports = router;
