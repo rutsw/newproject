@@ -18,7 +18,7 @@
         <tbody>
             <% for (var product of products) { %>
                 <tr>
-                    <td><img id="myImg" src="../../<%= product.imgName %>.jpg"><%= product.name %></td>
+                    <td><img id="myImg" src="../../<%=product.category %>/<%= product.imgName %>.jpg"><%= product.name %></td>
                     <td></br></br><%= product.description %></td>
                     <td>
                         </br></br>

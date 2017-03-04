@@ -12,7 +12,8 @@ const productSchema = new Schema({
   price: String,
   stockpile: String,
   recommended: String,
-  imgName: String
+  imgName: String,
+  category: String
 });
 
 // middleware -----
