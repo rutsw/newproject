@@ -13,7 +13,7 @@ module.exports = {
 //show the login page
 function showPage(req, res){
 //	res.render('admin/main_admin');
-    res.render('admin_side/admin_pages/main_admin', { layout: 'admin_side/admin'});
+    res.render('admin_side/admin_pages/main_admin', { layout: 'admin_side/admin' });
 }
 
 //show the deleteproduct page
@@ -23,16 +23,15 @@ function deleteProduct(req, res){
       res.status(404);
       res.send('Products not found!');
     }
-
+    
     // return a view with data
-    res.render('admin_side/admin_pages/admin_deleteProduct', {layout: 'admin_side/admin' , products:products});
+    res.render('admin_side/admin_pages/admin_deleteProduct', {layout: 'admin_side/admin' , products:products , user : req.user});
   });   
 }
 
 //show the deleteproduct page
 function addProduct(req, res){
-//	res.render('admin/main_admin');
-    res.render('admin_side/admin_pages/admin_addProduct', {layout: 'admin_side/admin'});
+    res.render('admin_side/admin_pages/admin_addProduct', {layout: 'admin_side/admin' });
 }
 
 //show the updateProductDetails page

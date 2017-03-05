@@ -10,15 +10,22 @@ module.exports = {
  * Show all products
  */
 function showProducts(req, res) {
-  // get all products   
+  // get all products
+  var title="";
   Product.find({}, (err, products) => {
     if (err) {
       res.status(404);
       res.send('Products not found!');
     }
-
+    if (req.isAuthenticated()){
+        var title= req.user.local.username +" ,שלום";
+        res.render('pages/main', { products: products ,title: title });
+    }
     // return a view with data
-    res.render('pages/main', { products: products });
+    else{
+        res.render('pages/main', { products: products , title: title  });
+    }
+//    res.render('pages/main', { products: products });
   });
 }
 

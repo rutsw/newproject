@@ -3,35 +3,58 @@ require('dotenv').config();
 
 
 // grab our dependencies
-const express    = require('express'),
-  app            = express(),
-  port           = process.env.PORT || 8080,
-  expressLayouts = require('express-ejs-layouts'),
-  mongoose       = require('mongoose');
+var express    = require('express');
+ var app            = express();
+ var port           = process.env.PORT || 8080;
+ var expressLayouts = require('express-ejs-layouts');
+var  mongoose       = require('mongoose');
   mongoose.Promise = global.Promise;
-  passport       = require('passport');
-  bodyParser     = require('body-parser'),
-  session        = require('express-session'),
-  cookieParser   = require('cookie-parser'),
-  flash          = require('connect-flash'),
-  expressValidator = require('express-validator'),
-  morgan         = require('morgan'),
-  nodemailer     = require('nodemailer'),
-  smtpTransport  = require('nodemailer-smtp-transport'),
-  session        = require('express-session'),
+var  passport       = require('passport');
+var  bodyParser     = require('body-parser');
+ var session        = require('express-session');
+ var cookieParser   = require('cookie-parser');
+ var flash          = require('connect-flash');
+ var expressValidator = require('express-validator');
+ var morgan         = require('morgan');
+ var nodemailer     = require('nodemailer');
+var  smtpTransport  = require('nodemailer-smtp-transport');
+var  session        = require('express-session');
 
 
 // configure our application ===================
-// set sessions and cookie parser
-app.use(expressValidator());
-app.use(cookieParser());//read coo
+      
+require('./config/passport')(passport); // pass passport for configuration
+
+
+// set up our express application
+app.use(morgan('dev')); // log every request to the console
+app.use(cookieParser()); // read cookies (needed for auth)
+app.use(bodyParser.json()); // get information from html forms
+app.use(bodyParser.urlencoded({ extended: true }));
+
+
+
+// required for passport
 app.use(session({
-  secret: process.env.SECRET, 
-  cookie: { maxAge: 60000 },
-  resave: false,    // forces the session to be saved back to the store
-  saveUninitialized: false  // dont save unmodified
+    secret: 'ilovescotchscotchyscotchscotch', // session secret
+    resave: true,
+    saveUninitialized: true
 }));
-app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use conn
+
+
+//// set sessions and cookie parser
+//app.use(expressValidator());
+//app.use(cookieParser());//read coo
+//app.use(session({
+//  secret: process.env.SECRET, 
+//  cookie: { maxAge: 60000 },
+//  resave: false,    // forces the session to be saved back to the store
+//  saveUninitialized: false  // dont save unmodified
+//}));
+//app.use(flash());
 
 
 // tell express where to look for static assets
@@ -43,11 +66,7 @@ app.use(express.static(__dirname + '/pdf'));
 // set ejs as our templating engine
 app.set('view engine', 'ejs');
 app.use(expressLayouts);
-//admin routes
-//app.get('/main_admin', function(req, res) {
-//  res.render('admin_side/admin', { layout: 'admin_side/admin' });
-//});
-//        
+        
 
 
 // connect to our database
@@ -57,7 +76,9 @@ mongoose.connect(process.env.DB_URI);
 app.use(bodyParser.urlencoded({extended: true}));
 
 // set the routes =============================
-app.use(require('./app/routes'));
+//app.use(require('./app/routes'));
+require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
+
 
 
 // start our server ===========================

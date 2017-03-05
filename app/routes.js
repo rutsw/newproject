@@ -1,6 +1,189 @@
-  //create a new express router
-  const express = require('express'),
-  router = express.Router(),
+ module.exports = function(app, passport) {
+
+// normal routes ===============================================================
+
+    // show the home page (will also have our login links)
+    app.get('/main_admin', function(req, res) {
+        res.render('pages/index.ejs');
+    });
+
+    // PROFILE SECTION =========================
+//    app.get('/profile', isLoggedIn, function(req, res) {
+//        res.render('pages/profile.ejs', {layout:'admin_side/admin' , user : req.user });
+//    });
+
+    // LOGOUT ==============================
+    app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
+    });
+
+// =============================================================================
+// AUTHENTICATE (FIRST LOGIN) ==================================================
+// =============================================================================
+
+    // locally --------------------------------
+        // LOGIN ===============================
+        // show the login form
+        app.get('/login', function(req, res) {
+            res.render('pages/signin.ejs', {message: req.flash('loginMessage') });
+        });
+
+        // process the login form
+        app.post('/login', passport.authenticate('local-login', {
+            successRedirect : '/', // redirect to the secure profile section
+            failureRedirect : '/login', // redirect back to the signup page if there is an error
+            failureFlash : true // allow flash messages
+        }));
+
+        // SIGNUP =================================
+        // show the signup form
+        app.get('/register', function(req, res) {
+            res.render('pages/register.ejs', { message: req.flash('signupMessage') });
+        });
+
+        // process the signup form
+        app.post('/register', passport.authenticate('local-signup', {
+            successRedirect : '/', // redirect to the secure profile section
+            failureRedirect : '/register', // redirect back to the signup page if there is an error
+            failureFlash : true // allow flash messages
+        }));
+
+    // facebook -------------------------------
+
+        // send to facebook to do the authentication
+        app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+
+        // handle the callback after facebook has authenticated the user
+        app.get('/auth/facebook/callback',
+            passport.authenticate('facebook', {
+                successRedirect : '/profile',
+                failureRedirect : '/'
+            }));
+
+    // twitter --------------------------------
+
+        // send to twitter to do the authentication
+        app.get('/auth/twitter', passport.authenticate('twitter', { scope : 'email' }));
+
+        // handle the callback after twitter has authenticated the user
+        app.get('/auth/twitter/callback',
+            passport.authenticate('twitter', {
+                successRedirect : '/profile',
+                failureRedirect : '/'
+            }));
+
+
+    // google ---------------------------------
+
+        // send to google to do the authentication
+        app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+        // the callback after google has authenticated the user
+        app.get('/auth/google/callback',
+            passport.authenticate('google', {
+                successRedirect : '/profile',
+                failureRedirect : '/'
+            }));
+
+// =============================================================================
+// AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
+// =============================================================================
+
+    // locally --------------------------------
+        app.get('/connect/local', function(req, res) {
+            res.render('pages/connect-local.ejs', { message: req.flash('loginMessage') });
+        });
+        app.post('/connect/local', passport.authenticate('local-signup', {
+            successRedirect : '/profile', // redirect to the secure profile section
+            failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
+            failureFlash : true // allow flash messages
+        }));
+
+    // facebook -------------------------------
+
+        // send to facebook to do the authentication
+        app.get('/connect/facebook', passport.authorize('facebook', { scope : 'email' }));
+
+        // handle the callback after facebook has authorized the user
+        app.get('/connect/facebook/callback',
+            passport.authorize('facebook', {
+                successRedirect : '/profile',
+                failureRedirect : '/'
+            }));
+
+    // twitter --------------------------------
+
+        // send to twitter to do the authentication
+        app.get('/connect/twitter', passport.authorize('twitter', { scope : 'email' }));
+
+        // handle the callback after twitter has authorized the user
+        app.get('/connect/twitter/callback',
+            passport.authorize('twitter', {
+                successRedirect : '/profile',
+                failureRedirect : '/'
+            }));
+
+
+    // google ---------------------------------
+
+        // send to google to do the authentication
+        app.get('/connect/google', passport.authorize('google', { scope : ['profile', 'email'] }));
+
+        // the callback after google has authorized the user
+        app.get('/connect/google/callback',
+            passport.authorize('google', {
+                successRedirect : '/profile',
+                failureRedirect : '/'
+            }));
+
+// =============================================================================
+// UNLINK ACCOUNTS =============================================================
+// =============================================================================
+// used to unlink accounts. for social accounts, just remove the token
+// for local account, remove email and password
+// user account will stay active in case they want to reconnect in the future
+
+    // local -----------------------------------
+    app.get('/unlink/local', isLoggedIn, function(req, res) {
+        var user            = req.user;
+        user.local.email    = undefined;
+        user.local.password = undefined;
+        user.save(function(err) {
+            res.redirect('/pages/profile');
+        });
+    });
+
+    // facebook -------------------------------
+    app.get('/unlink/facebook', isLoggedIn, function(req, res) {
+        var user            = req.user;
+        user.facebook.token = undefined;
+        user.save(function(err) {
+            res.redirect('/pages/profile');
+        });
+    });
+
+    // twitter --------------------------------
+    app.get('/unlink/twitter', isLoggedIn, function(req, res) {
+        var user           = req.user;
+        user.twitter.token = undefined;
+        user.save(function(err) {
+            res.redirect('/pages/profile');
+        });
+    });
+
+    // google ---------------------------------
+    app.get('/unlink/google', isLoggedIn, function(req, res) {
+        var user          = req.user;
+        user.google.token = undefined;
+        user.save(function(err) {
+            res.redirect('/pages/profile');
+        });
+    });
+
+////create a new express app
+//  const express = require('express'),
+//  app = express.app(),
 
   //client controllers
   layoutController = require('./controllers/layout.controller'),
@@ -32,121 +215,136 @@
   mainadminController = require('./admin/main_admin.controller');
 
 
-  //export router
-  module.exports = router;
+  //export app
+//  module.exports = app;
 
 //==================================================================================
   
   //client routes
   //define routes
   //layout routs
-  router.get('/login', layoutController.showLogin);
-  
-  //register routes
-  router.get('/register', registerController.showRegister);
-  router.post('/register', registerController.processRegister);
+//  app.get('/login', layoutController.showLogin);
+//  
+//  //register routes
+//  app.get('/register', registerController.showRegister);
+//  app.post('/register', registerController.processRegister);
 
   //main routes
-  router.get('/', mainController.showProducts);
-  router.post('/send', mainController.sendRequest);
+  app.get('/', mainController.showProducts);
+  app.post('/send', mainController.sendRequest);
 
   //contact routes
-  router.get('/contact', contactController.showContact);
-  router.post('/sendContact', contactController.sendRequest);
+  app.get('/contact', contactController.showContact);
+  app.post('/sendContact', contactController.sendRequest);
 
   //medical products routes
-  router.get('/medicalProduct', medicalProductController.showMedicalProducts);
-  router.get('/medicalProduct/:slug/add', medicalProductController.addToCart);
+  app.get('/medicalProduct', medicalProductController.showMedicalProducts);
+  app.get('/medicalProduct/:slug/add', medicalProductController.addToCart);
 
   //medical equipment routes
-  router.get('/medicalEquipment', medicalEquipmentController.showMedicalEquipment);
+  app.get('/medicalEquipment', medicalEquipmentController.showMedicalEquipment);
 
   //medical furniture routes
-  router.get('/medicalFurniture', medicalFurnitureController.showMedicalFurniture);
+  app.get('/medicalFurniture', medicalFurnitureController.showMedicalFurniture);
 
   //training & simulation equipment routes
-  router.get('/trainingandSimulationEquipment', trainingandSimulationEquipmentController.showTrainingandSimulationEquipment);
+  app.get('/trainingandSimulationEquipment', trainingandSimulationEquipmentController.showTrainingandSimulationEquipment);
 
   //first aid kits routes
-  router.get('/firstAidKits', firstAidKitsController.showFirstAidKits);
+  app.get('/firstAidKits', firstAidKitsController.showFirstAidKits);
 
   //equipment CPR & first aid routes
-  //router.get('/equipmentCPRandFirstAid', equipmentCPRandFirstAidController.showeEquipmentCPRandFirstAid);
+  //app.get('/equipmentCPRandFirstAid', equipmentCPRandFirstAidController.showeEquipmentCPRandFirstAid);
 
   //online course routes
-  router.get('/onlineCourse', onlineCourseController.showOnlineCourse);
+  app.get('/onlineCourse', onlineCourseController.showOnlineCourse);
 
   //about routes
-  router.get('/about', aboutController.showAbout);
+  app.get('/about', aboutController.showAbout);
 
   //courses routes
-  //router.get('/courses', coursesController.showCourses);
+  //app.get('/courses', coursesController.showCourses);
 
   //4 hour courses routes
-  router.get('/4hCourse', fHCourseController.show4hCourse);
+  app.get('/4hCourse', fHCourseController.show4hCourse);
 
   //8 hour courses routes
-  router.get('/8hCourse', eHCourseController.show8hCourse);
+  app.get('/8hCourse', eHCourseController.show8hCourse);
 
   //22 hour courses routes
-  router.get('/22hCourse', ttHCourseController.show22hCourse);
+  app.get('/22hCourse', ttHCourseController.show22hCourse);
 
   //44 hour courses routes
-  router.get('/44hCourse', ffHCourseController.show44hCourse);
+  app.get('/44hCourse', ffHCourseController.show44hCourse);
 
   //60 hour courses routes
-  router.get('/60hCourse', sHCourseController.show60hCourse);
+  app.get('/60hCourse', sHCourseController.show60hCourse);
 
   //4 hour baby courses routes
-  router.get('/4hBabyCourse', fHBabyCourseController.show4hBabyCourse);
+  app.get('/4hBabyCourse', fHBabyCourseController.show4hBabyCourse);
 
   //medical teams courses routes
-  router.get('/medicalTeamsCourse', medicalTeamsCourseController.showMedicalTeamsCourse);
+  app.get('/medicalTeamsCourse', medicalTeamsCourseController.showMedicalTeamsCourse);
 
   //paramedic courses routes
-  router.get('/paramedicCourse', paramedicCourseController.showParamedicCourse);
+  app.get('/paramedicCourse', paramedicCourseController.showParamedicCourse);
 
   //approvals routes
-  router.get('/approvals', approvalsController.showApprovals);
+  app.get('/approvals', approvalsController.showApprovals);
 
   //recommendation routes
-  router.get('/recommendation', recommendationController.showRecommendation);
+  app.get('/recommendation', recommendationController.showRecommendation);
 
   //cart routes
-  router.get('/cart', cartController.showProducts);
+  app.get('/cart', cartController.showProducts);
 
   //seed products
-  router.get('/cart/seed', cartController.seedProducts);
+  app.get('/cart/seed', cartController.seedProducts);
 
   //create product
-  router.get('/cart/create', cartController.showCreate);
-  router.post('/cart/create', cartController.processCreate);
+  app.get('/cart/create', cartController.showCreate);
+  app.post('/cart/create', cartController.processCreate);
 
   //edit product
-  router.get('/cart/:slug/edit', cartController.showEdit);
-  router.post('/cart/:slug', cartController.processEdit);
+  app.get('/cart/:slug/edit', cartController.showEdit);
+  app.post('/cart/:slug', cartController.processEdit);
 
   //delete product
-  router.get('/cart/:slug/delete', cartController.deleteProduct);
+  app.get('/cart/:slug/delete', cartController.deleteProduct);
 
   //show a single product
-  router.get('/cart/:slug', cartController.showSingle);
+  app.get('/cart/:slug', cartController.showSingle);
 
 //====================================================================================
 
 //admin routes
 // main routes
-router.get('/main_admin', mainadminController.showPage);
+//app.get('/main_admin', mainadminController.showPage);
 
 //add product 
-router.get('/admin_addProduct', mainadminController.addProduct);
+app.get('/admin_addProduct',  mainadminController.addProduct);
+     
+     
+//     app.get('/profile', isLoggedIn, function(req, res) {
+//        res.render('pages/profile.ejs', {layout:'admin_side/admin' , user : req.user });
+//    });
 
 //delete product 
-router.get('/admin_deleteProduct', mainadminController.deleteProduct);
+app.get('/admin_deleteProduct',isLoggedIn, mainadminController.deleteProduct);
 
 //update product 
-router.get('/admin_updateProductDetails', mainadminController.updateProductDetails);
+app.get('/admin_updateProductDetails',isLoggedIn, mainadminController.updateProductDetails);
 
 //delete product 
-router.get('/admin_userlist', mainadminController.userlist);
+app.get('/admin_userlist',isLoggedIn, mainadminController.userlist);
 
+};
+
+// route middleware to ensure user is logged in
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+
+//     return next();
+    res.redirect('/');
+}
