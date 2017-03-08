@@ -39,9 +39,9 @@
 
         // SIGNUP =================================
         // show the signup form
-        app.get('/register', function(req, res) {
-            res.render('pages/register.ejs', { message: req.flash('signupMessage') });
-        });
+//        app.get('/register', function(req, res) {
+//            res.render('pages/register.ejs', { message: req.flash('signupMessage') });
+//        });
 
         // process the signup form
         app.post('/register', passport.authenticate('local-signup', {
@@ -227,7 +227,7 @@
   app.get('/login', layoutController.showLogin);
 //  
 //  //register routes
-//  app.get('/register', registerController.showRegister);
+  app.get('/register', registerController.showRegister);
 //  app.post('/register', registerController.processRegister);
 
   //main routes

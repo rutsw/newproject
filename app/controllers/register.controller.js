@@ -13,9 +13,28 @@ function showLogin(req, res){
 
 // show the register page
 function showRegister(req, res){
-	res.render('pages/register', {
-    		errors: req.flash('errors')
- 	});
+    
+    var userstat_si_so="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
+    var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">/הרשם</a>";
+    
+    //check if the user is conected
+    if (req.isAuthenticated()){
+        userstat_su_un = " שלום, "+req.user.local.username;
+        userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
+        
+        res.render('pages/register', {userstat_su_un:userstat_su_un ,userstat_si_so:userstat_si_so,
+                                      errors: req.flash('errors'),message: req.flash('signupMessage')});
+    }
+      
+    // return a view with data in case user didn't connect
+    else{
+        
+        res.render('pages/register', { userstat_su_un: userstat_su_un ,userstat_si_so:userstat_si_so ,
+                                      errors: req.flash('errors'),message: req.flash('signupMessage')  });
+    }
+//	res.render('pages/register', {
+//    		errors: req.flash('errors')
+// 	});
 }
 
 
