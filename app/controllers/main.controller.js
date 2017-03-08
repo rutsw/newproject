@@ -1,4 +1,6 @@
 const Product = require('../models/product');
+
+
 module.exports = {
 
     showProducts: showProducts,
@@ -6,32 +8,39 @@ module.exports = {
 };
 
 
-/**
+/*
  * Show all products
  */
+
 function showProducts(req, res) {
-  // get all products
-  var title="<a class=\"index\" id=\"signup\" href=\"/register\">/הרשם</a>";
-    var userstat="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
+  
+  var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">/הרשם</a>";
+  var userstat_si_so="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
+// get all products
   Product.find({}, (err, products) => {
     if (err) {
       res.status(404);
       res.send('Products not found!');
     }
+      
     //check if the user is conected
     if (req.isAuthenticated()){
-         title= " ,שלום"+req.user.local.username;
-        userstat= "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
-        res.render('pages/main', { products: products ,title: title ,userstat:userstat});
+        userstat_su_un = " ,שלום"+req.user.local.username;
+        userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
+        
+        res.render('pages/main', { products: products ,userstat_su_un:userstat_su_un ,userstat_si_so:userstat_si_so});
     }
+      
     // return a view with data in case user didn't connect
     else{
-        res.render('pages/main', { products: products , title: title ,userstat:userstat  });
-    }
+        
+        res.render('pages/main', { products: products , userstat_su_un: userstat_su_un ,userstat_si_so:userstat_si_so  });
+        }
   });
 }
 
-/**
+
+/*
  * Send request
  */
 function sendRequest(req, res) {
