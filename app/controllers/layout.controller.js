@@ -7,18 +7,13 @@ module.exports = {
 
 //show the login page
 function showLogin(req, res){
-    var userstat="";
-    var title="";
-//    req.bodyParser.getElementById(signin).style.display="none";
+    var userstat="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
+    var title="<a class=\"index\" id=\"signup\" href=\"/register\">/הרשם</a>";
+
      if(req.isAuthenticated()){
-////       req.bodyParser.getElementById(signin).style.display="none";
-          userstat="<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
-//         
-    }
-//	res.redirect('/');
-    
-       
-        res.render('pages/signin.ejs', {message: req.flash('loginMessage'), title:title , userstat:userstat});
+          userstat="<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";    
+    }      
+     res.render('pages/signin.ejs', {message: req.flash('loginMessage'), title:title , userstat:userstat});
        
 }
 

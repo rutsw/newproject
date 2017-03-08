@@ -11,8 +11,8 @@ module.exports = {
  */
 function showProducts(req, res) {
   // get all products
-  var title="";
-    var userstat="";
+  var title="<a class=\"index\" id=\"signup\" href=\"/register\">/הרשם</a>";
+    var userstat="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
   Product.find({}, (err, products) => {
     if (err) {
       res.status(404);
@@ -20,7 +20,7 @@ function showProducts(req, res) {
     }
     //check if the user is conected
     if (req.isAuthenticated()){
-         title= req.user.local.username +" ,שלום";
+         title= " ,שלום"+req.user.local.username;
         userstat= "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
         res.render('pages/main', { products: products ,title: title ,userstat:userstat});
     }
