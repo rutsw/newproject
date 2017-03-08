@@ -12,20 +12,22 @@ module.exports = {
 function showProducts(req, res) {
   // get all products
   var title="";
+    var userstat="";
   Product.find({}, (err, products) => {
     if (err) {
       res.status(404);
       res.send('Products not found!');
     }
+    //check if the user is conected
     if (req.isAuthenticated()){
-        var title= req.user.local.username +" ,שלום";
-        res.render('pages/main', { products: products ,title: title });
+         title= req.user.local.username +" ,שלום";
+        userstat= "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
+        res.render('pages/main', { products: products ,title: title ,userstat:userstat});
     }
-    // return a view with data
+    // return a view with data in case user didn't connect
     else{
-        res.render('pages/main', { products: products , title: title  });
+        res.render('pages/main', { products: products , title: title ,userstat:userstat  });
     }
-//    res.render('pages/main', { products: products });
   });
 }
 

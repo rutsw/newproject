@@ -1,5 +1,5 @@
  module.exports = function(app, passport) {
-
+     
 // normal routes ===============================================================
 
     // show the home page (will also have our login links)
@@ -25,9 +25,10 @@
     // locally --------------------------------
         // LOGIN ===============================
         // show the login form
-        app.get('/login', function(req, res) {
-            res.render('pages/signin.ejs', {message: req.flash('loginMessage') });
-        });
+//        app.get('/login', function(req, res) {
+//            var title="";
+//            res.render('pages/signin.ejs', {message: req.flash('loginMessage'), title:title});
+//        });
 
         // process the login form
         app.post('/login', passport.authenticate('local-login', {
@@ -223,7 +224,7 @@
   //client routes
   //define routes
   //layout routs
-//  app.get('/login', layoutController.showLogin);
+  app.get('/login', layoutController.showLogin);
 //  
 //  //register routes
 //  app.get('/register', registerController.showRegister);
