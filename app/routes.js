@@ -258,16 +258,14 @@
   app.get('/firstAidKits', firstAidKitsController.showFirstAidKits);
 
   //equipment CPR & first aid routes
-  //app.get('/equipmentCPRandFirstAid', equipmentCPRandFirstAidController.showeEquipmentCPRandFirstAid);
+  app.get('/equipmentCPRandFirstAid', equipmentCPRandFirstAidController.showEquipmentCPRandFirstAid);
+  app.get('/equipmentCPRandFirstAid/:slug/add', equipmentCPRandFirstAidController.addToCart);
 
   //online course routes
   app.get('/onlineCourse', onlineCourseController.showOnlineCourse);
 
   //about routes
   app.get('/about', aboutController.showAbout);
-
-  //courses routes
-  //app.get('/courses', coursesController.showCourses);
 
   //4 hour courses routes
   app.get('/4hCourse', fHCourseController.show4hCourse);
