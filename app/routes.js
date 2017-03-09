@@ -244,9 +244,12 @@
 
   //medical equipment routes
   app.get('/medicalEquipment', medicalEquipmentController.showMedicalEquipment);
+  app.get('/medicalEquipment/:slug/add', medicalEquipmentController.addToCart);
 
   //medical furniture routes
   app.get('/medicalFurniture', medicalFurnitureController.showMedicalFurniture);
+  app.get('/medicalFurniture/:slug/add', medicalFurnitureController.addToCart);
+
 
   //training & simulation equipment routes
   app.get('/trainingandSimulationEquipment', trainingandSimulationEquipmentController.showTrainingandSimulationEquipment);
