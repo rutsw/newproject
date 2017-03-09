@@ -2,8 +2,8 @@ const Product = require('../models/product');
 const Cart = require('../models/cart');
 
 module.exports = {
-<<<<<<< HEAD
-  showMedicalFurniture: showMedicalFurniture
+  showMedicalFurniture: showMedicalFurniture,
+  addToCart: addToCart
 }
 
 
@@ -13,41 +13,26 @@ function showMedicalFurniture(req, res){
     var userstat_si_so="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
     var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">/הרשם</a>";
     
+      // get all products   
+    Product.find({category: "medical furniture"}, (err, products) => {
+    if (err) {
+      res.status(404);
+      res.send('Products not found!');
+    }
+    
     //check if the user is conected
     if (req.isAuthenticated()){
         userstat_su_un = " שלום, "+req.user.local.username;
         userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
         
-        res.render('pages/medicalFurniture', {userstat_su_un:userstat_su_un ,userstat_si_so:userstat_si_so});
+        res.render('pages/medicalFurniture', {products: products, userstat_su_un:userstat_su_un ,userstat_si_so:userstat_si_so});
     }
       
     // return a view with data in case user didn't connect
     else{
         
-        res.render('pages/medicalFurniture', { userstat_su_un: userstat_su_un ,userstat_si_so:userstat_si_so  });
+        res.render('pages/medicalFurniture', {products: products, userstat_su_un: userstat_su_un ,userstat_si_so:userstat_si_so  });
     }
-    
-}
-
-=======
-  showMedicalFurniture: showMedicalFurniture,
-  addToCart: addToCart
-}
-
-
-/**
- * Show all products
- */
-function showMedicalFurniture(req, res) {
-  // get all products   
-  Product.find({category: "medical furniture"}, (err, products) => {
-    if (err) {
-      res.status(404);
-      res.send('Products not found!');
-    }
-
-    // return a view with data
-    res.render('pages/medicalFurniture', { products: products });
   });
 }
 
@@ -80,4 +65,4 @@ function addToCart(req,res){
           });
          });   
 }
->>>>>>> origin/master
+
