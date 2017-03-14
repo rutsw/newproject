@@ -12,19 +12,31 @@
     </head>
 
     <body> 
-        <div class="col-md-12_index">  
-            <div class="col-sm-6-sign">
-<!--                user status - signup- username-->
-                <%- userstat_su_un %> 
-<!--                user status - signin- signout-->
-                <%- userstat_si_so %>   
-            </div>
-            <div class="col-sm-6-contact">
-                <p>שירות לקוחות: 02-9404444</p>
-                <a href="main_admin"><img src="/../../user.png" class="img-responsive-2"  alt="user_image"></a>
-            </div>
-            <br>
+        <div class="col-md-12_index">
+<!--            <div class="container">-->
+                <div class="row">
+                    <div class="col-md-2" style="float:left;">
+        <!--                user status - signup- username-->
+                        <%- userstat_su_un %> 
+        <!--                user status - signin- signout-->
+                        <%- userstat_si_so %>   
+                    </div>
+                    <div class="col-md-9">
+                        <p>שירות לקוחות: 02-9404444</p>
+                    </div>
+                    <div class="col-md-1">
+                        <a href="main_admin"><img src="/../../user.png" class="img-responsive-2"  alt="user_image" ></a>
+                    </div>
+                </div>
+<!--            </div>-->
         </div>
+        
+        
+        
+        
+        
+        
+        
         
         <div class="brand">
             <img src="/../../logoTransperentFormat.png" class="img-responsive" alt="logo_image">

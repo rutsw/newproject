@@ -58,6 +58,10 @@ html, body  {
     margin:0;
 }
 
+.img{
+    margin:0px;
+}
+
 .col-md-12_index{
     display: block;
     position: relative;
@@ -157,5 +161,11 @@ html, body  {
     -webkit-border-radius: 6px 0 6px 6px;
     -moz-border-radius: 6px 0 6px 6px;
     border-radius: 6px 0 6px 6px;
+}
+
+.col-md-1{
+    float: left;
+    margin: 0px;
+    
 }
 
