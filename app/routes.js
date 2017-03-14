@@ -214,6 +214,7 @@
 
   //admin controllers
   mainadminController = require('./admin/main_admin.controller');
+  addProductdAdminController = require('./admin/admin_addProduct.controller');
 
 
   //export app
@@ -304,8 +305,8 @@
   app.get('/cart/seed', cartController.seedProducts);
 
   //create product
-  app.get('/cart/create', cartController.showCreate);
-  app.post('/cart/create', cartController.processCreate);
+//  app.get('/cart/create', cartController.showCreate);
+//  app.post('/cart/create', cartController.processCreate);
 
   //edit product
   app.get('/cart/:slug/edit', cartController.showEdit);
@@ -333,7 +334,8 @@ app.get('/main_admin', mainadminController.showPage);
 
 
 //add product 
-app.get('/admin_addProduct',  mainadminController.addProduct);
+app.get('/admin_addProduct',  addProductdAdminController.addProduct);
+app.post('/addProduct', addProductdAdminController.processCreate);
      
      
 //     app.get('/profile', isLoggedIn, function(req, res) {
