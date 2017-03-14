@@ -22,7 +22,7 @@ function showRegister(req, res){
         userstat_su_un = " שלום, "+req.user.local.username;
         userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
         
-        res.render('pages/register', {userstat_su_un:userstat_su_un ,userstat_si_so:userstat_si_so});
+        res.render('pages/register', {message: req.flash('signupMessage'),userstat_su_un:userstat_su_un ,userstat_si_so:userstat_si_so});
 //                                     ,'errors: req.flash('errors')});
         // res.render('pages/register', {userstat_su_un:userstat_su_un ,userstat_si_so:userstat_si_so,
                                      // errors: req.flash('errors'),message: req.flash('signupMessage')});
@@ -31,7 +31,7 @@ function showRegister(req, res){
     // return a view with data in case user didn't connect
     else{
         
-        res.render('pages/register', { userstat_su_un: userstat_su_un ,userstat_si_so:userstat_si_so });
+        res.render('pages/register', {message: req.flash('signupMessage'), userstat_su_un: userstat_su_un ,userstat_si_so:userstat_si_so });
 //                                      ,errors: req.flash('errors') });
     }
 //	res.render('pages/register', {

@@ -3,9 +3,9 @@
 // normal routes ===============================================================
 
     // show the home page (will also have our login links)
-    app.get('/main_admin', function(req, res) {
-        res.render('pages/index.ejs');
-    });
+//    app.get('/main_admin', function(req, res) {
+//        res.render('pages/index.ejs' );
+//    });
 
     // PROFILE SECTION =========================
 //    app.get('/profile', isLoggedIn, function(req, res) {
@@ -321,7 +321,16 @@
 
 //admin routes
 // main routes
-//app.get('/main_admin', mainadminController.showPage);
+app.get('/main_admin', mainadminController.showPage);
+     
+     
+// process the login form
+        app.post('/adminlogin', passport.authenticate('local-login', {
+            successRedirect : '/admin_deleteProduct', // redirect to the secure profile section
+            failureRedirect : '/main_admin', // redirect back to the signup page if there is an error
+            failureFlash : true // allow flash messages
+        }));
+
 
 //add product 
 app.get('/admin_addProduct',  mainadminController.addProduct);
@@ -332,16 +341,15 @@ app.get('/admin_addProduct',  mainadminController.addProduct);
 //    });
 
 //delete product 
-app.get('/admin_deleteProduct',isLoggedIn, mainadminController.deleteProduct);
+app.get('/admin_deleteProduct', mainadminController.deleteProduct);
 
 //update product 
-app.get('/admin_updateProductDetails',isLoggedIn, mainadminController.updateProductDetails);
+app.get('/admin_updateProductDetails', mainadminController.updateProductDetails);
 
 //delete product 
-app.get('/admin_userlist',isLoggedIn, mainadminController.userlist);
+app.get('/admin_userlist', mainadminController.userlist);
 
 };
-
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())
