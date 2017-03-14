@@ -48,6 +48,7 @@ function processRegister(req, res) {
 	req.checkBody('username', 'UserName is required.').notEmpty();
 	req.checkBody('firstname', 'firsName is required.').notEmpty();
 	req.checkBody('lastname', 'lastName is required.').notEmpty();
+	req.checkBody('telephone', 'telephone is required.').notEmpty();
 	req.checkBody('password', 'password is required.').notEmpty();
 	req.checkBody('confirmpassword', 'confirm-password is required.').notEmpty();
 	req.checkBody('email', 'mail is required.').notEmpty();
@@ -65,6 +66,7 @@ function processRegister(req, res) {
 	 	username: req.body.username,
 	    firstname: req.body.firstname,
 	    lastname: req.body.lastname,
+        telephone: req.body.telephone,
 	    password: req.body.password,
 	    email: req.body.email
 	});
