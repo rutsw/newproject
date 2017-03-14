@@ -216,6 +216,7 @@
   mainadminController = require('./admin/main_admin.controller');
   addProductdAdminController = require('./admin/admin_addProduct.controller');
   deleteProductdAdminController = require('./admin/admin_deleteProduct.controller');
+  userListAdminController = require('./admin/admin_userList.controller');
 
 
   //export app
@@ -351,8 +352,9 @@ app.get('/deleteProduct/:slug/delete',  deleteProductdAdminController.deleteProd
 //update product 
 app.get('/admin_updateProductDetails', mainadminController.updateProductDetails);
 
-//delete product 
-app.get('/admin_userlist', mainadminController.userlist);
+//user list
+app.get('/admin_userlist', userListAdminController.showUserList);
+app.get('/deleteUser/:username/delete', userListAdminController.deleteUser);
 
 };
 // route middleware to ensure user is logged in

@@ -21,10 +21,12 @@
             <% for (var user of users) { %>
                 <tr>
                     <td><%= user.local.username %></td>
-                    <td><%= user.local.email %></td>
+                    <td><h5><%= user.local.email %></h5><br\><h5><%= user.local.telephone %></h5></td>
+<!--
                     <td>
-                        <a href="/cart/<%= user.slug %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
+                        <a href="/deleteUser/<!--%= user.local.username %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
                     </td>
+-->
                 </tr>
             <% } %>
         </tbody>
