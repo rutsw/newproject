@@ -4,7 +4,7 @@ const User = require('../models/user');
 module.exports = {
   	showPage:showPage,
     deleteProduct:deleteProduct,
-    addProduct:addProduct,
+//    addProduct:addProduct,
     updateProductDetails:updateProductDetails,
     userlist:userlist
     
@@ -51,10 +51,10 @@ function deleteProduct(req, res){
   });   
 }
 
-//show the deleteproduct page
-function addProduct(req, res){
-    res.render('admin_side/admin_pages/admin_addProduct', {layout: 'admin_side/admin' });
-}
+////show the deleteproduct page
+//function addProduct(req, res){
+//    res.render('admin_side/admin_pages/admin_addProduct', {layout: 'admin_side/admin' });
+//}
 
 //show the updateProductDetails page
 function updateProductDetails(req, res){

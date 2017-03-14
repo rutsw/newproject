@@ -39,23 +39,23 @@ function addProduct(req, res){
  */
 function processCreate(req, res) {
   // validate information
-//  req.checkBody('name', 'Name is required.').notEmpty();
-//  req.checkBody('price', 'Price is required.').notEmpty();
-//  req.checkBody('serialNumber', 'serial Number is required.').notEmpty();
-//  req.checkBody('description', 'Description is required.').notEmpty();
-//  req.checkBody('category', 'Category is required.').notEmpty();
-//  req.checkBody('recommended', 'Recommended is required.').notEmpty();
-//  req.checkBody('stockpile', 'Stockpile is required.').notEmpty();
+  req.checkBody('name', 'Name is required.').notEmpty();
+  req.checkBody('price', 'Price is required.').notEmpty();
+  req.checkBody('serialNumber', 'serial Number is required.').notEmpty();
+  req.checkBody('description', 'Description is required.').notEmpty();
+  req.checkBody('category', 'Category is required.').notEmpty();
+  req.checkBody('recommended', 'Recommended is required.').notEmpty();
+  req.checkBody('stockpile', 'Stockpile is required.').notEmpty();
     
     // if the product not in stockpile
   if(req.body.stockpile.value=='yes'){
-//          req.checkBody('amount', 'Amount is required.').notEmpty();
+      req.checkBody('amount', 'Amount is required.').notEmpty();
           var amount = req.body.amount;
     }
     else 
         var amount=0;
 
-   if there are errors, redirect and save errors to flash
+   //if there are errors, redirect and save errors to flash
   const errors = req.validationErrors();
   console.log(errors);
   if (errors) {
