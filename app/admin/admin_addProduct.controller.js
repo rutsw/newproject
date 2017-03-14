@@ -40,23 +40,41 @@ function addProduct(req, res){
 function processCreate(req, res) {
   // validate information
   req.checkBody('name', 'Name is required.').notEmpty();
+  req.checkBody('price', 'Price is required.').notEmpty();
+  req.checkBody('serialNumber', 'serial Number is required.').notEmpty();
   req.checkBody('description', 'Description is required.').notEmpty();
-  req.checkBody('name', 'Name is required.').notEmpty();
-  req.checkBody('description', 'Description is required.').notEmpty();
+  req.checkBody('category', 'Category is required.').notEmpty();
+  req.checkBody('recommended', 'Recommended is required.').notEmpty();
+  req.checkBody('stockpile', 'Stockpile is required.').notEmpty();
+    
+    // if the product not in stockpile
+  if(req.body.stockpile.value=='yes'){
+          req.checkBody('amount', 'Amount is required.').notEmpty();
+          var amount = req.body.amount;
+    }
+    else 
+        var amount=0;
 
   // if there are errors, redirect and save errors to flash
   const errors = req.validationErrors();
   console.log(errors);
   if (errors) {
     req.flash('errors', errors.map(err => err.msg));
-    return res.redirect('/cart/create');
+    return res.redirect('/addProduct');
   }
 
+    
   // add a new product
   const product = new Product({
     name: req.body.name,
-    description: req.body.description
-  });
+    description: req.body.description,
+    price: req.body.price,
+    stockpile: req.body.stockpile,
+    amount:amount,
+    recommended: req.body.recommended,
+    imgName: req.body.serialNumber,
+    category: req.body.category
+});
 
   // save product
 product.save((err) => {
@@ -68,6 +86,6 @@ product.save((err) => {
 
     // redirect to the newly created product
    // res.redirect(`/cart/${product.slug}`);
-    res.redirect(`/cart`);
+    res.redirect(`/admin_deleteProduct`);
   });
 }

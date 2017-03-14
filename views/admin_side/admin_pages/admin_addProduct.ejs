@@ -17,45 +17,44 @@
             <div class="form-group">
                 <label>הזן שם מוצר</label>
                 <br/>
-                <h6>שם מוצר יהיה בפורמט הבא: שם המוצר מספר סידורי של המוצר </h6>
-                <input type="text" name="name" class="form-control">
+                <input id="name" type="text" name="name" class="form-control" required="required">
             </div>
             
             <div class="form-group">
                 <label>הזן מספר סידורי למוצר</label>
                 <br/>
-                <h6> המספר הסידורי של המוצר צריך להיות זהה למספר התמונה שמעלים ל -DB</h6>
-                <input type="number" name="serialNumber" class="form-control">
+                <h6> המספר הסידורי של המוצר זהה למספר התמונה שמעלים ל -DB</h6>
+                <input id="serialNumber" type="number" name="serialNumber" class="form-control" >
             </div>
             
             <div class="form-group">
                 <label>הזן מחיר למוצר</label>
-                <input type="text" name="price" class="form-control">
+                <input id="price" type="text" name="price" class="form-control">
             </div>
             
             <div class="form-group">
                 <label>הזן תיאור למוצר</label>
-                <textarea name="description" rows="5" class="form-control"></textarea>
+                <textarea id="description" name="description" rows="5" class="form-control"></textarea>
             </div>
                 
             <div class="form-group">
-                <label for="subject">קטגוריית המוצר</label>
-                <select id="subject" name="category" class="form-control" required="required">
+                <label for="category">קטגוריית המוצר</label>
+                <select id="category" name="category" class="form-control" required="required">
                     <option value="chosse" selected="">בחר:</option>
-                    <option value="category1">ציוד רפואי</option>
-                    <option value="category2">ריהוט רפואי</option>
-                    <option value="category3">מכשור רפואי</option>
-                    <option value="category4">ערכות עזרה ראשונה</option>
-                    <option value="category5">ציוד החייאה ועזרה ראשונה</option>
-                    <option value="category6">ציוד הדרכה וסימולציה</option>
+                    <option value="medical products">ציוד רפואי</option>
+                    <option value="medical furniture">ריהוט רפואי</option>
+                    <option value="medical equipment">מכשור רפואי</option>
+                    <option value="first aid kits">ערכות עזרה ראשונה</option>
+                    <option value="equipment cpr">ציוד החייאה ועזרה ראשונה</option>
+                    <option value="trainingand equipment">ציוד הדרכה וסימולציה</option>
                 </select>
             </div>
             
             <div class="form-group">
-                <label for="subject">האם מוצר מומלץ?</label>
+                <label for="recommended">האם מוצר מומלץ?</label>
                 <br/>
-                <h6 for="subject">הגדרת מוצר כמומלץ תציג את המוצר בדף הבית של האתר </h6>
-                <select id="subject" name="recommended" class="form-control" required="required">
+                <h6 for="recommended">הגדרת מוצר כמומלץ תציג את המוצר בדף הבית של האתר </h6>
+                <select id="recommended" name="recommended" class="form-control" required="required">
                     <option value="chosse" selected="">בחר:</option>
                     <option value="yes">כן</option>
                     <option value="no">לא</option>
@@ -63,14 +62,18 @@
             </div>
             
             <div class="form-group">
-                <label for="subject">האם מוצר במלאי?</label>
-                <select id="subject" name="stockpile" class="form-control" required="required">
+                <label for="stockpile">האם מוצר במלאי?</label>
+                <select id="stockpile" name="stockpile" class="form-control" required="required">
                     <option value="chosse" selected="">בחר:</option>
                     <option value="yes">כן</option>
                     <option value="no">לא</option>
                 </select>
             </div>
-                
+            
+            <div class="form-group">
+                <label>הזן כמות במלאי</label>
+                <input id="amount" type="number" name="amount" class="form-control">
+            </div>  
 
             <div class="form-group">
                 <button type="submit" class="btn btn-success btn-lg">Create</button>

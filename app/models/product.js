@@ -11,6 +11,7 @@ const productSchema = new Schema({
   description: String,
   price: String,
   stockpile: String,
+  amount : Number,
   recommended: String,
   imgName: String,
   category: String
