@@ -18,7 +18,15 @@
         <tbody>
             <% for (var product of products) { %>
                 <tr>
-                    <td><img id="myImg" src="../../<%= product.imgName %>.jpg"><%= product.name %></td>
+                    <%if(product.category == "medical equipment"){%>
+                    <td><img id="myImg" src="../../MedicalEquipment/<%= product.imgName %>.jpg"><%= product.name %></td>
+                     <% } %>
+                    <%if(product.category == "medical product"){%>
+                    <td><img id="myImg" src="../../MedicalProduct/<%= product.imgName %>.jpg"><%= product.name %></td>
+                     <% } %>
+                    <%if(product.category == "medical furniture"){%>
+                    <td><img id="myImg" src="../../medicalFurniture/<%= product.imgName %>.jpg"><%= product.name %></td>
+                     <% } %>
                     <td><%= product.description %></td>
                     <td>
                         <a href="/cart/<%= product.slug %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
