@@ -2,14 +2,10 @@ const Product = require('../models/product');
 const User = require('../models/user');
 
 module.exports = {
-//  	showPage:showPage,
-//    deleteProduct:deleteProduct,
     addProduct:addProduct,
-//    showCreate:showCreate,
     processCreate:processCreate
     
 }
-
 
 
 //show the addproduct page
@@ -43,6 +39,8 @@ function addProduct(req, res){
  */
 function processCreate(req, res) {
   // validate information
+  req.checkBody('name', 'Name is required.').notEmpty();
+  req.checkBody('description', 'Description is required.').notEmpty();
   req.checkBody('name', 'Name is required.').notEmpty();
   req.checkBody('description', 'Description is required.').notEmpty();
 

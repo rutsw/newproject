@@ -66,4 +66,11 @@ img {
     margin-right: 0;
 }
 
+.col-sm-offset-3{
+    float: right;
+    width: 50%;
+}
 
+label{
+    float: right;
+}
