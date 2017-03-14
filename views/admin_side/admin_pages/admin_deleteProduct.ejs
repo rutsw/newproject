@@ -21,7 +21,7 @@
                     <td><img id="myImg" src="../../<%= product.category %>/<%= product.imgName %>.jpg"><%= product.name %></td>
                     <td><%= product.description %></td>
                     <td>
-                        <a href="/cart/<%= product.slug %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
+                        <a href="/deleteProduct/<%= product.slug %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
                     </td>
                 </tr>
             <% counter=counter+1 %>

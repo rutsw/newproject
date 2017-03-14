@@ -19,9 +19,8 @@
             <% for (var product of products) { %>
                 <tr>
                     <td><img id="myImg" src="../../<%=product.category %>/<%= product.imgName %>.jpg"><%= product.name %></td>
-                    <td></br></br><%= product.description %></td>
+                    <td><%= product.description %></td>
                     <td>
-                        </br></br>
                         <a href="/cart/<%= product.slug %>" class="btn btn-sm btn-primary">לרכישה אנא צרו קשר</a>  
                         <a href="/cart/<%= product.slug %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
                     </td>

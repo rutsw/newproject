@@ -215,6 +215,7 @@
   //admin controllers
   mainadminController = require('./admin/main_admin.controller');
   addProductdAdminController = require('./admin/admin_addProduct.controller');
+  deleteProductdAdminController = require('./admin/admin_deleteProduct.controller');
 
 
   //export app
@@ -343,7 +344,9 @@ app.post('/addProduct', addProductdAdminController.processCreate);
 //    });
 
 //delete product 
-app.get('/admin_deleteProduct', mainadminController.deleteProduct);
+app.get('/admin_deleteProduct',  deleteProductdAdminController.showDeleteProduct);
+app.get('/deleteProduct/:slug/delete',  deleteProductdAdminController.deleteProduct);
+     
 
 //update product 
 app.get('/admin_updateProductDetails', mainadminController.updateProductDetails);
