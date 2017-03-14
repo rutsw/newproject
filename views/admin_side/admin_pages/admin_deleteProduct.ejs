@@ -24,14 +24,14 @@
                         <a href="/cart/<%= product.slug %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
                     </td>
                 </tr>
-            <% var counter=counter.value+1 %>
+            <% counter=counter+1 %>
             <% } %>
         </tbody>
     </table>
     
     <div class="row">
         <div class="col-md-12_cart">
-            <p class="cart"><%=  counter.value %></p>
+            <p class="cart"><%=  counter %></p>
         </div>
     </div>
 </div>
