@@ -16,8 +16,8 @@ function showProducts(req, res) {
   
   var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">/הרשם</a>";
   var userstat_si_so="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
-// get all products
-  Product.find({category: "medical product"}, (err, products) => {
+// get allonly products that recommended to the user 
+  Product.find({recommended: "yes"}, (err, products) => {
     if (err) {
       res.status(404);
       res.send('Products not found!');
