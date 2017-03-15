@@ -1,10 +1,11 @@
 const Product = require('../models/product');
 const User = require('../models/user');
 
+
+
 module.exports = {
     addProduct:addProduct,
-    processCreate:processCreate
-    
+    processCreate:processCreate   
 }
 
 
@@ -13,7 +14,10 @@ function addProduct(req, res){
     if (req.isAuthenticated()){
         if(req.user.local.isadmin)
             {
-                res.render('admin_side/admin_pages/admin_addProduct', {layout: 'admin_side/admin',errors: req.flash('errors')});
+                res.render('admin_side/admin_pages/admin_addProduct', 
+                           {layout: 'admin_side/admin',
+                            sidebar: sidebar,
+                            errors: req.flash('errors')});
             }
         else{
             res.redirect('/');

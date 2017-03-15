@@ -31,7 +31,11 @@ function showUserList(req, res){
       if (req.isAuthenticated()){
         if(req.user.local.isadmin)
             {
-                res.render('admin_side/admin_pages/admin_userlist', {layout: 'admin_side/admin' , users:users , user : req.user});
+                res.render('admin_side/admin_pages/admin_userlist', 
+                           {layout: 'admin_side/admin', 
+                            sidebar: sidebar, 
+                            users:users, 
+                            user : req.user});
             }
         else{
             res.redirect('/');

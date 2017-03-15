@@ -21,7 +21,11 @@ function showDeleteProduct(req, res){
       if (req.isAuthenticated()){
         if(req.user.local.isadmin)
             {
-                res.render('admin_side/admin_pages/admin_deleteProduct', {layout: 'admin_side/admin' , products:products , user : req.user});
+                res.render('admin_side/admin_pages/admin_deleteProduct',
+                           {layout: 'admin_side/admin',
+                            sidebar: sidebar,
+                            products:products, 
+                            user : req.user});
             }
         else{
             res.redirect('/');
