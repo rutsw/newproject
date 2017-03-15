@@ -337,7 +337,7 @@ app.get('/main_admin', mainadminController.showPage);
 
 //add product 
 app.get('/admin_addProduct',  addProductdAdminController.addProduct);
-app.post('/addProduct', addProductdAdminController.processCreate);
+app.post('/addNewProduct', addProductdAdminController.processCreate);
      
      
 //     app.get('/profile', isLoggedIn, function(req, res) {
