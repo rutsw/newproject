@@ -254,9 +254,9 @@
   app.get('/medicalFurniture', medicalFurnitureController.showMedicalFurniture);
   app.get('/medicalFurniture/:slug/add', medicalFurnitureController.addToCart);
 
-
   //training & simulation equipment routes
   app.get('/trainingandSimulationEquipment', trainingandSimulationEquipmentController.showTrainingandSimulationEquipment);
+  app.get('/trainingandSimulationEquipment/:slug/add', trainingandSimulationEquipmentController.addToCart);
 
   //first aid kits routes
   app.get('/firstAidKits', firstAidKitsController.showFirstAidKits);
