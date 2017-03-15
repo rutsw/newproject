@@ -46,7 +46,7 @@ function processCreate(req, res) {
   req.checkBody('name', 'Name is required.').notEmpty();
   req.checkBody('price', 'Price is required.').notEmpty();
   req.checkBody('serialNumber', 'serial Number is required.').notEmpty();
-  req.checkBody('description', 'Description is required.').notEmpty();
+ 
   req.checkBody('category', 'Category is required.').notEmpty();
   req.checkBody('recommended', 'Recommended is required.').notEmpty();
   req.checkBody('stockpile', 'Stockpile is required.').notEmpty();
