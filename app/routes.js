@@ -308,8 +308,8 @@
   app.get('/cart/seed', cartController.seedProducts);
 
   //create product
-//  app.get('/cart/create', cartController.showCreate);
-//  app.post('/cart/create', cartController.processCreate);
+  //app.get('/cart/create', cartController.showCreate);
+ //app.post('/cart/create', cartController.processCreate);
 
   //edit product
   app.get('/cart/:slug/edit', cartController.showEdit);
@@ -327,6 +327,7 @@
 // main routes
 app.get('/login_admin', loginAdminController.showPage);
 app.get('/main_admin', loginAdminController.showMainPage);    
+
      
 // process the login form
         app.post('/adminlogin', passport.authenticate('local-login', {
