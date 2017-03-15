@@ -14,7 +14,7 @@
     <% for (var product of products) { %>
         <div class="img-responsive1">
           <div class="thumbnail">
-            <img id="myImg" src="../../MedicalFurniture/<%= product.imgName%>.jpg" alt="<%= product.name %>">
+            <img id="myImg" src="../../<%= product.category%>/<%= product.imgName%>.jpg" alt="<%= product.name %>">
             <!-- The Modal -->
             <div id="myModal" class="modal">
               <span class="close">&times;</span>
