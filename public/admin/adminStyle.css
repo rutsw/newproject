@@ -57,6 +57,14 @@ img {
     padding: 0;
 }
 
+.imgt {
+    width: 50px;
+    height: 50px;
+/*    vertical-align: text-top;*/
+    margin: 0;
+    padding: 0;
+}
+
 .img-responsive{
     max-width: 30%;
     max-height: 30%;
@@ -73,4 +81,8 @@ img {
 
 label{
     float: right;
+}
+
+.col-md-9{
+    padding: 0;
 }

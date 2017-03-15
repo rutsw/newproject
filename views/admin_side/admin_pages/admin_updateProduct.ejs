@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="../../css/editProductStyle.css" >
+
+ <div class="row">
+        <div class="col-md-12_edit">
+            <p class="edit">עריכת <%= product.name %> </p>
+        </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+        <% if (errors.length > 0) { %>
+            <div class="alert alert-danger">
+                <% for (error of errors) { %>
+                    <%= error %><br>
+                <% } %>
+            </div>
+        <% } %>
+        
+        <form action="/admin_updateProduct/<%= product.slug %>" method="POST">
+            <div class="form-group">
+                <label>ערוך שם מוצר</label>
+                <input type="text" name="name" class="form-control" value="<%= product.name %>">
+            </div>
+            
+            <div class="form-group">
+                <label>ערוך מספר סידורי למוצר</label>
+                <input id="serialNumber" type="number" name="serialNumber" class="form-control" value="<%= product.imgName %>" >
+            </div>
+            
+             <div class="form-group">
+                <label>ערוך מחיר מוצר</label>
+                <input id="price" type="text" name="price" class="form-control" value="<%= product.price %>" >
+            </div>
+            
+            
+            <div class="form-group">
+                <label>ערוך תיאור למוצר</label>
+                <textarea id="description" name="description" rows="5" class="form-control"><%= product.description %></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="category">ערוך קטגוריית המוצר</label>
+                <select id="category" name="category" class="form-control" required="required">
+                    <option value="chosse" selected=""><%= product.category%></option>
+                    <option value="medical product">ציוד רפואי</option>
+                    <option value="medical furniture">ריהוט רפואי</option>
+                    <option value="medical equipment">מכשור רפואי</option>
+                    <option value="first aid kits">ערכות עזרה ראשונה</option>
+                    <option value="equipment cpr">ציוד החייאה ועזרה ראשונה</option>
+                    <option value="trainingand equipment">ציוד הדרכה וסימולציה</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="recommended">האם מוצר מומלץ?</label>
+                <select id="recommended" name="recommended" class="form-control" required="required">
+                    <option value="chosse" selected=""><%= product.recommended %></option>
+                    <option value="yes">כן</option>
+                    <option value="no">לא</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="stockpile">האם מוצר במלאי?</label>
+                <select id="stockpile" name="stockpile" class="form-control" required="required">
+                    <option value="chosse" selected=""><%= product.stockpile %></option>
+                    <option value="yes">כן</option>
+                    <option value="no">לא</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>ערוך כמות במלאי</label>
+                <input id="amount" type="number" name="amount" class="form-control" value="<%= product.amount %>">
+            </div>
+            
+            
+            <div class="form-group">
+                <button type="submit" class="btn btn-success btn-lg">ערוך</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

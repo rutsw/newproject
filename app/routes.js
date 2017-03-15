@@ -217,6 +217,7 @@
   addProductdAdminController = require('./admin/admin_addProduct.controller');
   deleteProductdAdminController = require('./admin/admin_deleteProduct.controller');
   userListAdminController = require('./admin/admin_userList.controller');
+  updateProductAdminController = require('./admin/admin_updateProduct.controller');
 
 
   //export app
@@ -350,7 +351,10 @@ app.get('/deleteProduct/:slug/delete',  deleteProductdAdminController.deleteProd
      
 
 //update product 
-app.get('/admin_updateProductDetails', loginAdminController.updateProductDetails);
+//app.get('/admin_updateProductDetails', loginAdminController.updateProductDetails);
+app.get('/updateProduct/:slug/update', updateProductAdminController.showUpdateProduct);
+app.post('/admin_updateProduct/:slug', updateProductAdminController.updateProduct);    
+     
 
 //user list
 app.get('/admin_userlist', userListAdminController.showUserList);

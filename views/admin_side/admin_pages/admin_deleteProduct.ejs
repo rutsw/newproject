@@ -18,10 +18,13 @@
         <tbody>
             <% for (var product of products) { %>
                 <tr>
-                    <td><img id="myImg" src="../../<%= product.category %>/<%= product.imgName %>.jpg"><%= product.name %></td>
-                    <td><%= product.description %></td>
+                    <td><img class="imgt" id="myImg" src="../../<%= product.category %>/<%= product.imgName %>.jpg"><h4><%= product.name %></h4></td>
+                    <td><h5><%= product.description %></h5></td>
                     <td>
                         <a href="/deleteProduct/<%= product.slug %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
+                    </td>
+                    <td>
+                        <a href="/updateProduct/<%= product.slug %>/update" class="btn btn-sm btn-primary">עדכון</a>
                     </td>
                 </tr>
             <% counter=counter+1 %>
