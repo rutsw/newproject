@@ -213,7 +213,7 @@
   firstAidKitsController = require('./controllers/firstAidKits.controller'),
 
   //admin controllers
-  mainadminController = require('./admin/main_admin.controller');
+  loginAdminController = require('./admin/login_admin.controller');
   addProductdAdminController = require('./admin/admin_addProduct.controller');
   deleteProductdAdminController = require('./admin/admin_deleteProduct.controller');
   userListAdminController = require('./admin/admin_userList.controller');
@@ -324,13 +324,13 @@
 
 //admin routes
 // main routes
-app.get('/main_admin', mainadminController.showPage);
-     
+app.get('/login_admin', loginAdminController.showPage);
+app.get('/main_admin', loginAdminController.showMainPage);    
      
 // process the login form
         app.post('/adminlogin', passport.authenticate('local-login', {
-            successRedirect : '/admin_deleteProduct', // redirect to the secure profile section
-            failureRedirect : '/main_admin', // redirect back to the signup page if there is an error
+            successRedirect : '/main_admin', // redirect to the secure profile section
+            failureRedirect : '/login_admin', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
 
@@ -350,7 +350,7 @@ app.get('/deleteProduct/:slug/delete',  deleteProductdAdminController.deleteProd
      
 
 //update product 
-app.get('/admin_updateProductDetails', mainadminController.updateProductDetails);
+app.get('/admin_updateProductDetails', loginAdminController.updateProductDetails);
 
 //user list
 app.get('/admin_userlist', userListAdminController.showUserList);

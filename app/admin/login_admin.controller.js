@@ -3,8 +3,7 @@ const User = require('../models/user');
 
 module.exports = {
   	showPage:showPage,
- //   deleteProduct:deleteProduct,
-//    addProduct:addProduct,
+  	showMainPage:showMainPage,
     updateProductDetails:updateProductDetails,
     userlist:userlist
     
@@ -20,7 +19,23 @@ function isLoggedIn(req, res, next) {
 
 //show the login page
 function showPage(req, res){
-    res.render('admin_side/admin_pages/main_admin', { layout: 'admin_side/admin' });
+    res.render('admin_side/admin_pages/login_admin', { layout: 'admin_side/admin' });
+}
+
+//show the main page
+function showMainPage(req, res){
+     if (req.isAuthenticated()){
+        if(req.user.local.isadmin)
+            {
+                res.render('admin_side/admin_pages/main_admin', {layout: 'admin_side/admin' , username: req.user.local.username});
+            }
+        else{
+            res.redirect('/');
+        }
+      }
+      else{
+          res.redirect('/');
+      }
 }
 
 
