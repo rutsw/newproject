@@ -15,7 +15,7 @@ function showTrainingandSimulationEquipment(req, res){
   var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">הרשם/</a>";
     
   // get all products   
-  Product.find({category: "training and simulation equipment"}, (err, products) => {
+  Product.find({category: "trainingand equipment"}, (err, products) => {
     if (err) {
       res.status(404);
       res.send('Products not found!');
