@@ -307,8 +307,8 @@
   app.get('/cart/seed', cartController.seedProducts);
 
   //create product
-//  app.get('/cart/create', cartController.showCreate);
-//  app.post('/cart/create', cartController.processCreate);
+  //app.get('/cart/create', cartController.showCreate);
+ //app.post('/cart/create', cartController.processCreate);
 
   //edit product
   app.get('/cart/:slug/edit', cartController.showEdit);
@@ -323,7 +323,7 @@
 //====================================================================================
 
 //admin routes
-// main routes
+//main routes
 app.get('/main_admin', mainadminController.showPage);
      
      
