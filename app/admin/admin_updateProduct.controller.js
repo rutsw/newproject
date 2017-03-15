@@ -56,7 +56,7 @@ function showUpdateProduct(req, res){
 function updateProduct(req, res) {
   // validate information
   req.checkBody('name', 'Name is required.').notEmpty();
-  req.checkBody('description', 'Description is required.').notEmpty();
+//  req.checkBody('description', 'Description is required.').notEmpty();
 
   // if there are errors, redirect and save errors to flash
   const errors = req.validationErrors();
@@ -70,6 +70,12 @@ function updateProduct(req, res) {
     // updating that product
     product.name        = req.body.name;
     product.description = req.body.description;
+    product.price       = req.body.price;
+    product.recommended = req.body.recommended;
+    product.imgName     = req.body.serialNumber;
+    product.category    = req.body.category;
+    product.stockpile   = req.body.stockpile;
+    product.amount      = req.body.amount;
 
     product.save((err) => {
       if (err)

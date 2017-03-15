@@ -10,7 +10,7 @@
                 <a href="admin_userlist">רשימת משתמשים</a>
             </li>
             <li>
-                <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+                <a href="/logout">התנתק</a>
             </li>
 
         </ul>
