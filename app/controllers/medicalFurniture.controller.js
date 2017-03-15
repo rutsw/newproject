@@ -14,7 +14,7 @@ module.exports = {
 function showMedicalFurniture(req, res) {
     
     var userstat_si_so="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
-    var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">/הרשם</a>";
+    var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">הרשם/</a>";
     
       // get all products   
     Product.find({category: "medical furniture"}, (err, products) => {

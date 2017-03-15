@@ -7,7 +7,7 @@ module.exports = {
 function showFirstAidKits(req, res){
     
     var userstat_si_so="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
-    var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">/הרשם</a>";
+    var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">הרשם/</a>";
     
     //check if the user is conected
     if (req.isAuthenticated()){
