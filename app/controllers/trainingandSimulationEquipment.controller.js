@@ -17,6 +17,7 @@ function showTrainingandSimulationEquipment(req, res){
   // get all products   
 
   Product.find({category: "trainingand equipment"}, (err, products) => {
+
     if (err) {
       res.status(404);
       res.send('Products not found!');

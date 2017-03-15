@@ -64,7 +64,7 @@ function processCreate(req, res) {
   console.log(errors);
   if (errors) {
     req.flash('errors', errors.map(err => err.msg));
-    return res.redirect('/addNewProduct');
+    return res.redirect('/admin_addProduct');
   }
 
     
