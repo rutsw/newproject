@@ -43,6 +43,8 @@
     max-width: 100%;
     max-height: 100%;
     margin-right: 0px;
+    border: 0px;
+    
 }
 
 div.img img {
@@ -79,10 +81,9 @@ div.img img {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
-/*
-    height: 300px;
-    width: 300px;
-*/
+    height: 150px;
+    width: 180px;
+
 }
 
 #myImg:hover {opacity: 0.7;}
@@ -163,4 +164,12 @@ div.img img {
     .modal-content {
         width: 100%;
     }
+}
+
+.btn-default{
+    border:0px;
+    border-radius: 0px;
+    background-color: #a80202;
+    color:aliceblue;
+    font-size: 15px;
 }
