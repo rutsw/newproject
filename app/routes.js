@@ -307,10 +307,6 @@
   //seed products
   app.get('/cart/seed', cartController.seedProducts);
 
-  //create product
-  //app.get('/cart/create', cartController.showCreate);
- //app.post('/cart/create', cartController.processCreate);
-
   //edit product
   app.get('/cart/:slug/edit', cartController.showEdit);
   app.post('/cart/:slug', cartController.processEdit);

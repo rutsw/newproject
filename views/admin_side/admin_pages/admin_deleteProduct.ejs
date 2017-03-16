@@ -8,7 +8,10 @@
     </div>
 
     <br><br>
-    <table class="table table-bordered table-hover table-striped">
+    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="הכנס שם מוצר לחיפוש">
+
+    <br><br>
+    <table id="productTable" class="table table-bordered table-hover table-striped">
         <thead>
             <tr>
                 <th><center>שם מוצר</center></th>
@@ -20,10 +23,10 @@
                 <tr>
                     <td><img class="imgt" id="myImg" src="../../<%= product.category %>/<%= product.imgName %>.jpg"><h4><%= product.name %></h4></td>
                     <td><h5><%= product.description %></h5></td>
-                    <td>
+                    <td><br>
                         <a href="/deleteProduct/<%= product.slug %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
                     </td>
-                    <td>
+                    <td><br>
                         <a href="/updateProduct/<%= product.slug %>/update" class="btn btn-sm btn-primary">עדכון</a>
                     </td>
                 </tr>
@@ -39,5 +42,27 @@
     </div>
 </div>
 
+<script>
+function myFunction() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("productTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+</script>
 
 
