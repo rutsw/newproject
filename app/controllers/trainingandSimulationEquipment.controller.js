@@ -23,7 +23,7 @@ function showTrainingandSimulationEquipment(req, res){
       res.send('Products not found!');
     }
     
-      //check if the user is conected
+    // check if the user is conected
     if (req.isAuthenticated()){
         userstat_su_un = " ,שלום"+req.user.local.username;
         userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
@@ -32,8 +32,7 @@ function showTrainingandSimulationEquipment(req, res){
     }
       
     // return a view with data in case user didn't connect
-    else{
-        
+    else{   
         res.render('pages/trainingandSimulationEquipment', { products: products , userstat_su_un: userstat_su_un ,userstat_si_so:userstat_si_so  });
         }
   });
@@ -51,6 +50,7 @@ function addToCart(req,res){
             name: product.name,
             description: product.description,
             price: product.price,
+            category: product.category,
             imgName: product.imgName
           });
         
@@ -63,9 +63,7 @@ function addToCart(req,res){
           req.flash('success', 'Successfuly add new product!');
 
           // redirect to the newly created product
-          // res.redirect(`/cart/${product.slug}`);
           res.redirect(`/cart`);
-          //res.redirect(`/medicalProducts`);
           });
          });   
 }

@@ -30,7 +30,6 @@ function showMedicalEquipment(req, res){
 
         // return a view with data in case user didn't connect
         else{
-
             res.render('pages/medicalEquipment', {products: products, userstat_su_un: userstat_su_un ,userstat_si_so:userstat_si_so  });
         }
     });   
@@ -47,6 +46,7 @@ function addToCart(req,res){
             name: product.name,
             description: product.description,
             price: product.price,
+            category: product.category,
             imgName: product.imgName
           });
         
@@ -57,11 +57,8 @@ function addToCart(req,res){
 
           // set a successful flash message
           req.flash('success', 'Successfuly add new product!');
-
           // redirect to the newly created product
-          // res.redirect(`/cart/${product.slug}`);
           res.redirect(`/cart`);
-          //res.redirect(`/medicalProducts`);
           });
          });   
 }
