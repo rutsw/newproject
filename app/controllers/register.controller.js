@@ -1,4 +1,4 @@
-const User = require('../models/user');
+const User= require('../models/user');
 
 module.exports = {
   showRegister:showRegister,
@@ -61,7 +61,7 @@ function processRegister(req, res) {
 	    return res.redirect('/register');
 	}
 
-	// add a new product
+	// add a new user
 	const user = new User({
 	 	username: req.body.username,
 	    firstname: req.body.firstname,
@@ -71,14 +71,14 @@ function processRegister(req, res) {
 	    email: req.body.email
 	});
 
-	// save product
+	// save user
 	user.save((err) => {
 		if (err)
 	      throw err;
 
 	 	// set a successful flash message
 	    req.flash('success', 'Successfuly created new user!');
-
+        
 	    // redirect to the newly created product
 	   // res.redirect(`/cart/${product.slug}`);
 	    res.redirect(`/`);

@@ -1,5 +1,10 @@
+const Product   = require('../models/product');
+const Cart      = require('../models/cart');
+const Recengine = require('../models/recengine');
+
 module.exports = {
-  showFirstAidKits: showFirstAidKits
+  showFirstAidKits: showFirstAidKits,
+  addToCart:addToCart
 }
 
 
@@ -24,4 +29,61 @@ function showFirstAidKits(req, res){
     }
     
 }
+
+/**
+ * Add product to cart
+ */
+function addToCart(req,res){ 
+   Product.findOne({slug: req.params.slug},(err,product)=>
+        {
+          // add a product to cart
+          const cart= new Cart({
+            name: product.name,
+            description: product.description,
+            category: product.category,
+            price: product.price,
+            amount: product.amount,
+            stockpile: product.stockpile,
+            imgName: product.imgName
+          });
+        
+          // save product
+          cart.save((err) => {
+            if (err)
+                req.flash('success', 'Successfuly add new product!');
+//              throw err;
+
+          // set a successful flash message
+          req.flash('success', 'Successfuly add new product!');
+
+   //************* Recommendation******************** 
+        if (req.isAuthenticated()){
+
+            // if the user didn't add that product before     
+           Recengine.find({username:req.user.local.email , productName: product.name},(err, recegine)=>{
+                    // add a recommendation to reqenging
+                  const recengine= new Recengine({
+                    username: req.user.local.email,
+                    product: product.imgName,
+                    productName: product.name
+                  });
+
+
+                  // save product
+                  recengine.save((err) => {
+                    if (err)
+                        req.flash('success', 'Recommendation already exist!');
+
+                  // set a successful flash message
+                  req.flash('success', 'Successfuly add new recommendation!');
+                  });
+            });       
+        }
+
+        res.redirect(`/cart`);
+          
+       });
+    });
+}
+
 
