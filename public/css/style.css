@@ -65,7 +65,7 @@ html, body  {
 .col-md-12_index{
     display: block;
     position: relative;
-    background-color: #c80000;
+    background-color: #a80202;
     height:40px;
     padding: 20px;
     color:beige;
@@ -110,7 +110,7 @@ html, body  {
   padding-bottom: 30px;
   padding-top: 30px;
   padding-right: 10px;
-  background: #c80000;
+  background: #a80202;
   color:beige;
 }
 
