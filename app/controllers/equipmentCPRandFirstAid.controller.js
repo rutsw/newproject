@@ -48,6 +48,7 @@ function addToCart(req,res){
           const cart= new Cart({
             name: product.name,
             description: product.description,
+            price: product.price,
             imgName: product.imgName
           });
         
