@@ -4,7 +4,6 @@ const Cart = require('../models/cart');
 module.exports = {
   showEquipmentCPRandFirstAid: showEquipmentCPRandFirstAid,
   addToCart: addToCart
-
 }
 
 
@@ -15,7 +14,7 @@ function showEquipmentCPRandFirstAid(req, res){
     var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">הרשם/</a>";
     
     // get all products   
-    Product.find({category: "equipment CPR and first aid"}, (err, products) => {
+    Product.find({category: "equipment cpr"}, (err, products) => {
         if (err) {
           res.status(404);
           res.send('Products not found!');

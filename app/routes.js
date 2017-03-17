@@ -208,7 +208,7 @@
   medicalEquipmentController = require('./controllers/medicalEquipment.controller'),
   medicalProductController = require('./controllers/medicalProduct.controller'),
   medicalFurnitureController = require('./controllers/medicalFurniture.controller'),
-  equipmentCPRandFirstAidController = require('./controllers/equipmentCPRandFirstAid.controller'),
+  equipmentCPRFirstAidController = require('./controllers/equipmentCPRFirstAid.controller'),
   trainingandSimulationEquipmentController = require('./controllers/trainingandSimulationEquipment.controller'),
   firstAidKitsController = require('./controllers/firstAidKits.controller'),
 
@@ -260,10 +260,12 @@
 
   //first aid kits routes
   app.get('/firstAidKits', firstAidKitsController.showFirstAidKits);
+  app.get('/firstAidKits/:slug/add', firstAidKitsController.addToCart);
 
+ 
   //equipment CPR & first aid routes
-  app.get('/equipmentCPRandFirstAid', equipmentCPRandFirstAidController.showEquipmentCPRandFirstAid);
-  app.get('/equipmentCPRandFirstAid/:slug/add', equipmentCPRandFirstAidController.addToCart);
+  app.get('/equipmentCPRFirstAid', equipmentCPRFirstAidController.showEquipmentCPRFirstAid);
+  app.get('/equipmentCPRFirstAid/:slug/add', equipmentCPRFirstAidController.addToCart);
 
   //online course routes
   app.get('/onlineCourse', onlineCourseController.showOnlineCourse);
