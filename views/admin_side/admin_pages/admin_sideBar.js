@@ -4,7 +4,7 @@
                 <a href="admin_addProduct">הוספת מוצר</a>
             </li>
             <li>
-                <a href="admin_deleteProduct">רשימת מוצרים</a>
+                <a href="admin_productsList">רשימת מוצרים</a>
             </li>           
             <li>
                 <a href="admin_userlist">רשימת משתמשים</a>

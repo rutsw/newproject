@@ -2,15 +2,15 @@ const Product = require('../models/product');
 const User = require('../models/user');
 
 module.exports = {
-  	showDeleteProduct:showDeleteProduct,
+  	showProductsList:showProductsList,
     deleteProduct:deleteProduct,
    
 }
 
 
 
-//show the deleteproduct page
-function showDeleteProduct(req, res){
+//show the Products List page
+function showProductsList(req, res){
             
     Product.find({}, (err, products) => {
     if (err) {
@@ -21,7 +21,7 @@ function showDeleteProduct(req, res){
       if (req.isAuthenticated()){
         if(req.user.local.isadmin)
             {
-                res.render('admin_side/admin_pages/admin_deleteProduct',
+                res.render('admin_side/admin_pages/admin_productsList',
                            {layout: 'admin_side/admin',
                             sidebar: sidebar,
                             products:products, 
@@ -48,7 +48,7 @@ function deleteProduct(req, res) {
     // set flash data
     // redirect back to the cart page
     req.flash('success', 'Product deleted!');
-    res.redirect('/admin_deleteProduct');
+    res.redirect('/admin_productsList');
   });
 }
 

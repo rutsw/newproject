@@ -215,7 +215,7 @@
   //admin controllers
   loginAdminController = require('./admin/login_admin.controller');
   addProductdAdminController = require('./admin/admin_addProduct.controller');
-  deleteProductdAdminController = require('./admin/admin_deleteProduct.controller');
+  productsListAdminController = require('./admin/admin_productsList.controller');
   userListAdminController = require('./admin/admin_userList.controller');
   updateProductAdminController = require('./admin/admin_updateProduct.controller');
 
@@ -345,8 +345,8 @@ app.post('/addNewProduct', addProductdAdminController.processCreate);
 //    });
 
 //delete product 
-app.get('/admin_deleteProduct',  deleteProductdAdminController.showDeleteProduct);
-app.get('/deleteProduct/:slug/delete',  deleteProductdAdminController.deleteProduct);
+app.get('/admin_productsList',  productsListAdminController.showProductsList);
+app.get('/deleteProduct/:slug/delete',  productsListAdminController.deleteProduct);
      
 
 //update product 

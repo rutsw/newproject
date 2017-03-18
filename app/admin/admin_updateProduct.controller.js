@@ -84,7 +84,7 @@ function updateProduct(req, res) {
       // success flash message
       // redirect back to the /cart
       req.flash('success', 'Successfully updated product.');
-      res.redirect('/admin_deleteProduct');
+      res.redirect('/admin_productsList');
     });
   });
 }

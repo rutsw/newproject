@@ -90,6 +90,6 @@ product.save((err) => {
 
     // redirect to the newly created product
    // res.redirect(`/cart/${product.slug}`);
-    res.redirect(`/admin_deleteProduct`);
+    res.redirect(`/admin_productsList`);
   });
 }
