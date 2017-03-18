@@ -3,6 +3,7 @@ const mongoose = require('mongoose'),
 
 // create a schema
 const cartSchema = new Schema({
+  username: String,
   name: String,
   slug: {
     type: String,
