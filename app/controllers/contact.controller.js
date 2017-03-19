@@ -1,3 +1,6 @@
+var nodemailer     = require('nodemailer');
+var  smtpTransport  = require('nodemailer-smtp-transport');
+
 module.exports = {
 	showContact: showContact,
     sendRequest: sendRequest

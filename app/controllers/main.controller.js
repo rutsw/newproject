@@ -1,5 +1,6 @@
 const Product = require('../models/product');
-
+var nodemailer     = require('nodemailer');
+var  smtpTransport  = require('nodemailer-smtp-transport');
 
 module.exports = {
 
@@ -47,8 +48,8 @@ function sendRequest(req, res) {
   var transporter = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
     auth: {
-        user: 'miryam993@gmail.com',
-        pass: 'mary010293'
+        user: 'tamimamo@gmail.com',
+        pass: '23051994'
     }
   }));
   

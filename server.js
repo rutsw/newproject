@@ -34,7 +34,8 @@ app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 
-
+//app.use(nodemailer);
+//app.use(smtpTransport);
 
 // required for passport
 app.use(session({
