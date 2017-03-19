@@ -39,6 +39,12 @@
     color:white;
 }
 
+.p_href{
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}
+
 .p_text{
     position: static;
     text-align: center;
