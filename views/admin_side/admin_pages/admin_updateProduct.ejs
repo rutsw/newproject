@@ -41,20 +41,20 @@
             <div class="form-group">
                 <label for="category">ערוך קטגוריית המוצר</label>
                 <select id="category" name="category" class="form-control" required="required">
-                    <option value="chosse" selected=""><%= product.category%></option>
-                    <option value="medical product">ציוד רפואי</option>
-                    <option value="medical furniture">ריהוט רפואי</option>
-                    <option value="medical equipment">מכשור רפואי</option>
-                    <option value="first aid kits">ערכות עזרה ראשונה</option>
-                    <option value="equipment cpr">ציוד החייאה ועזרה ראשונה</option>
-                    <option value="trainingand equipment">ציוד הדרכה וסימולציה</option>
+                    <option value="<%= product.category%>" selected=""><%= product.category%></option>
+                    <option value="medical product"><p>ציוד רפואי</p></option>
+                    <option value="medical furniture"><p>ריהוט רפואי</p></option>
+                    <option value="medical equipment"><p>מכשור רפואי</p></option>
+                    <option value="first aid kits"><p>ערכות עזרה ראשונה</p></option>
+                    <option value="equipment cpr"><p>ציוד החייאה ועזרה ראשונה</p></option>
+                    <option value="trainingand equipment"><p>ציוד הדרכה וסימולציה</p></option>
                 </select>
             </div>
             
             <div class="form-group">
                 <label for="recommended">האם המוצר מומלץ?</label>
                 <select id="recommended" name="recommended" class="form-control" required="required">
-                    <option value="chosse" selected=""><%= product.recommended %></option>
+                    <option value="<%= product.recommended %>" selected=""><%= product.recommended %></option>
                     <option value="yes">כן</option>
                     <option value="no">לא</option>
                 </select>
@@ -63,7 +63,7 @@
             <div class="form-group">
                 <label for="stockpile">האם המוצר במלאי?</label>
                 <select id="stockpile" name="stockpile" class="form-control" required="required">
-                    <option value="chosse" selected=""><%= product.stockpile %></option>
+                    <option value="<%= product.stockpile %>" selected=""><%= product.stockpile %></option>
                     <option value="yes">כן</option>
                     <option value="no">לא</option>
                 </select>
