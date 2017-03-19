@@ -9,7 +9,7 @@
     </div>
 
     <br><br>
-    <input type="text" id="myInput" onkeyup="myFunction()" placeholder="הכנס שם מוצר לחיפוש">
+    <input type="text" id="myInput" onkeyup="searchProduct()" placeholder="הכנס שם מוצר לחיפוש">
 
     <br><br>
     <table id="productTable" class="table table-bordered table-hover table-striped">
@@ -17,6 +17,9 @@
             <tr>
                 <th><center>שם מוצר</center></th>
                 <th><center>תאור</center></th>
+                <th><center>מחיר</center></th>
+                <th><center>כמות במלאי</center></th>
+                
             </tr>
         </thead>
         <tbody>
@@ -24,6 +27,8 @@
                 <tr>
                     <td><img class="imgt" id="myImg" src="../../<%= product.category %>/<%= product.imgName %>.jpg"><h4><%= product.name %></h4></td>
                     <td><h5><%= product.description %></h5></td>
+                    <td><h5><%= product.price %></h5></td>
+                    <td><h5><%= product.amount %></h5></td>
                     <td><br>
                         <a href="/deleteProduct/<%= product.slug %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
                     </td>
