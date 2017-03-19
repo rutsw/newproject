@@ -121,6 +121,13 @@ html, body  {
     
 }
 
+.dropdown-toggle{
+    float: right;
+}
+
+.dropdown-subsub {
+    float: right;
+}
 
 .dropdown-submenu {
     position: relative;
