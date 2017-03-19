@@ -24,7 +24,7 @@ var userstat_si_so="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר<
       
     //check if the user is conected
     if (req.isAuthenticated()){
-        userstat_su_un = " ,שלום"+req.user.local.username;
+        userstat_su_un = " שלום "+req.user.local.username;
         userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
         
         res.render('pages/main', { products: products ,userstat_su_un:userstat_su_un ,userstat_si_so:userstat_si_so});

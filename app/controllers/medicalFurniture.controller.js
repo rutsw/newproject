@@ -29,7 +29,7 @@ function showMedicalFurniture(req, res) {
     //check if the user is conected
 
     if (req.isAuthenticated()){
-        userstat_su_un = " שלום, "+req.user.local.username;
+        userstat_su_un = " שלום "+req.user.local.username;
         userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
         
 
