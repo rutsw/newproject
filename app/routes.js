@@ -196,6 +196,7 @@
   fHCourseController = require('./controllers/4hCourse.controller'),
   eHCourseController = require('./controllers/8hCourse.controller'),
   ttHCourseController = require('./controllers/22hCourse.controller'),
+  thHCourseController = require('./controllers/28hCourse.controller'),
   ffHCourseController = require('./controllers/44hCourse.controller'),
   sHCourseController = require('./controllers/60hCourse.controller'),
   fHBabyCourseController = require('./controllers/4hBabyCourse.controller'),
@@ -281,6 +282,9 @@
 
   //22 hour courses routes
   app.get('/22hCourse', ttHCourseController.show22hCourse);
+     
+  //28 hour courses routes
+  app.get('/28hCourse', thHCourseController.show28hCourse);
 
   //44 hour courses routes
   app.get('/44hCourse', ffHCourseController.show44hCourse);
