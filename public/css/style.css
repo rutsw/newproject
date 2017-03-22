@@ -276,5 +276,17 @@ li.active
 }
 
 
+/*.accessibility-font {
+// First font-size fallback to older browsers
+    font-size: 1.25em;
+    font-size: 1.25rem;
+}
+
+.accessibility-contrast {
+    color: #fff;
+    background: #000;
+}*/
+
+
 
 

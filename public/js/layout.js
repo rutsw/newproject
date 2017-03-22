@@ -19,6 +19,27 @@
 //  
 //});
 
+/*$(document).ready(function() {
+    accessibilityButtons();
+})
+
+accessibilityButtons({
+    font: {
+        nameButtonIncrease: '+A', // Default 
+        ariaLabelButtonIncrease: 'Increase Font', // Default 
+        nameButtonDecrease: '-A', // Default 
+        ariaLabelButtonDecrease: 'Decrease Font' // Default 
+    },
+
+    contrast: {
+        nameButtonAdd: 'Add Contrast', // Default 
+        ariaLabelButtonAdd: 'Add Contrast', // Default 
+        nameButtonRemove: 'Remove Contrast', // Default 
+        ariaLabelButtonRemove: 'Remove Contrast' // Default 
+    }
+});
+*/
+
 jQuery(document).ready(function($){
 	// browser window scroll (in pixels) after which the "back to top" link is shown
 	var offset = 300,
