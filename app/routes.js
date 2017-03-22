@@ -311,7 +311,8 @@
   app.get('/cart', cartController.showProducts);
 
   //seed products
-  app.get('/cart/seed', cartController.seedProducts);
+//  app.get('/cart/seed', cartController.seedProducts);
+  app.get('/cart/seed', cartController.seedSuggestions);
 
   //edit product
   app.get('/cart/:slug/edit', cartController.showEdit);

@@ -1,16 +1,20 @@
 const Product = require('../models/cart');
 const Recengine = require('../models/recengine');
+const Suggestion = require('../models/suggestions');
+const async = require('async');
 
 
 module.exports = {
   showProducts: showProducts,
   showSingle: showSingle,
-  seedProducts: seedProducts,
+//  seedProducts: seedProducts,
   showCreate: showCreate,
   processCreate: processCreate,
   showEdit: showEdit,
   processEdit: processEdit,
-  deleteProduct: deleteProduct
+  deleteProduct: deleteProduct,
+  seedSuggestions: seedSuggestions
+    
 }
 
 /**
@@ -20,32 +24,29 @@ function showProducts(req, res) {
     
     var userstat_si_so="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
     var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">הרשם/</a>";
-    
-//    // get all products   
-//      Product.find({}, (err, products) => {
-//        if (err) {
-//          res.status(404);
-//          res.send('Products not found!');
-//        }
           
         //check if the user is conected
         if (req.isAuthenticated()){
             userstat_su_un = " שלום "+req.user.local.username;
             userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
-            var array="oky";
-            
-              Recengine.find({}).exec(function(err, array){
+          
+            // get the products that users "like"
+            var array="";
+             Recengine.find({},function(err, array){
                 if (err) {
                   res.status(404);
                   res.send('recengines not found!');
-                  }       
-//                 console.log('array:'+array);
-                  fs.writeFile('data/recengine.json', array, (err) => {
+                  } 
+                  if(array){
+                      array = JSON.stringify(array);
+                      fs.writeFile('data/recengine.json', array , (err) => {
                                   if (err) throw err;
-                               console.log('It\'s saved!');
                            }); 
-              });
-               
+                    }
+
+                  });
+            
+            
             
               // get all products   
               Product.find({username: req.user.local.email}, (err, products) => {
@@ -90,28 +91,28 @@ function showSingle(req, res) {
   });
 }
 
-/**
- * Seed the database
- */
-function seedProducts(req, res) {
-  // create some products
-  const products = [
-    { name: 'Plasters', description: '100 NIS.' },
-    { name: 'Defibrilator', description: '800 NIS, SELF PICKUP.' },
-    { name: 'Rescue Bag', description: '1000 NIS, FREE SHIPMENT' }
-    ];
-
-  // use the Product model to insert/save
-  Product.remove({}, () => {
-    for (product of products) {
-      var newProduct = new Product(product);
-      newProduct.save();
-    }
-  });
-
-  // seeded!
-  res.send('Database seeded!');
-}
+///**
+// * Seed the database
+// */
+//function seedProducts(req, res) {
+//  // create some products
+//  const products = [
+//    { name: 'Plasters', description: '100 NIS.' },
+//    { name: 'Defibrilator', description: '800 NIS, SELF PICKUP.' },
+//    { name: 'Rescue Bag', description: '1000 NIS, FREE SHIPMENT' }
+//    ];
+//
+//  // use the Product model to insert/save
+//  Product.remove({}, () => {
+//    for (product of products) {
+//      var newProduct = new Product(product);
+//      newProduct.save();
+//    }
+//  });
+//
+//  // seeded!
+//  res.send('Database seeded!');
+//}
 
 
 /////////////////////////////////////////////////////////////////////
@@ -216,4 +217,30 @@ function deleteProduct(req, res) {
     req.flash('success', 'Product deleted!');
     res.redirect('/cart');
   });
+}
+
+/**
+ * Seed the database
+ */
+function seedSuggestions(req, res) {
+    // seed the suggestion db
+    fs = require('fs');
+    fs.readFile('data/db-suggestions.json', 'utf8', function (err,suggestions) {
+      if (err) {
+        return console.log(err);
+      }
+          
+         var arrays = JSON.parse(suggestions);
+          // use the Product model to insert/save
+          Suggestion.remove({}, () => {
+            for (array of arrays) {
+              var newSuggestion = new Suggestion(array);
+              newSuggestion.save();
+            }
+          });
+
+  // seeded!
+  res.redirect('/cart');
+
+  });       
 }
