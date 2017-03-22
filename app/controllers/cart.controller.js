@@ -1,4 +1,6 @@
 const Product = require('../models/cart');
+const Recengine = require('../models/recengine');
+
 
 module.exports = {
   showProducts: showProducts,
@@ -30,6 +32,20 @@ function showProducts(req, res) {
         if (req.isAuthenticated()){
             userstat_su_un = " שלום "+req.user.local.username;
             userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
+            var array="oky";
+            
+              Recengine.find({}).exec(function(err, array){
+                if (err) {
+                  res.status(404);
+                  res.send('recengines not found!');
+                  }       
+//                 console.log('array:'+array);
+                  fs.writeFile('data/recengine.json', array, (err) => {
+                                  if (err) throw err;
+                               console.log('It\'s saved!');
+                           }); 
+              });
+               
             
               // get all products   
               Product.find({username: req.user.local.email}, (err, products) => {
