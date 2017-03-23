@@ -32,3 +32,37 @@
 
 
 
+<div class="container text-center">
+    <br><br>
+    <legend><h2><strong><%= title %></strong></h2></legend>
+    <br>
+
+    <div class="row">
+      <br><br>
+      <% for (var suggestion of suggestions) { %>
+        <% for (var sug of suggestion.suggestions) { %>
+          <div class="img-responsive1">
+            <div class="thumbnail">
+             <img id="myImg2" src="../../<%= sug.category%>/<%= sug.product%>.jpg" alt="<%= sug.name %>">                         
+              <!-- The Modal -->
+              <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+                <img class="modal-content" id="img01">
+                <div id="caption1"></div>
+              </div>
+
+              <div class="caption">
+                <h5><%= sug.name %></h5>
+                <h6><%= sug.price %></h6>
+                <a href="/<%= sug.category%>/get" class="btn btn-default" role="button">לצפייה</a>
+              </div>
+              
+            </div>
+          </div>
+      <% } %>   
+    <% } %>
+      <div class="clearfix"></div>
+    </div>
+</div>
+
+<script src="../../js/medicalProducts.js"></script>

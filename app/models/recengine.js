@@ -4,7 +4,7 @@ const mongoose = require('mongoose'),
 // create a schema
 const recengineSchema = new Schema({
   username: String,
-  product: Number,
+  product: String,
   productName:String
 });
 

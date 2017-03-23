@@ -4,7 +4,10 @@ const mongoose = require('mongoose'),
 // create a schema
 const suggestionSchema = new Schema({
   username: String,
-  suggestions: [{ product:Number,
+  suggestions: [{ product:String,
+                  category: String,
+                  name :String,
+                  price : String,
                   weight :Number
                 }],
   id:Number

@@ -245,27 +245,33 @@
 
   //medical products routes
   app.get('/medicalProduct', medicalProductController.showMedicalProducts);
+  app.get('/medical%20product/get', medicalProductController.showMedicalProducts);
   app.get('/medicalProduct/:slug/add', medicalProductController.addToCart);
 
   //medical equipment routes
   app.get('/medicalEquipment', medicalEquipmentController.showMedicalEquipment);
+  app.get('/medical%20equipment/get', medicalEquipmentController.showMedicalEquipment);
   app.get('/medicalEquipment/:slug/add', medicalEquipmentController.addToCart);
 
   //medical furniture routes
   app.get('/medicalFurniture', medicalFurnitureController.showMedicalFurniture);
+  app.get('/medical%20furniture/get', medicalFurnitureController.showMedicalFurniture);
   app.get('/medicalFurniture/:slug/add', medicalFurnitureController.addToCart);
 
   //training & simulation equipment routes
   app.get('/trainingandSimulationEquipment', trainingandSimulationEquipmentController.showTrainingandSimulationEquipment);
+  app.get('/trainingand%20equipment/get', trainingandSimulationEquipmentController.showTrainingandSimulationEquipment);
   app.get('/trainingandSimulationEquipment/:slug/add', trainingandSimulationEquipmentController.addToCart);
 
   //first aid kits routes
   app.get('/firstAidKits', firstAidKitsController.showFirstAidKits);
+  app.get('/firstAidKits/get', firstAidKitsController.showFirstAidKits);
   app.get('/firstAidKits/:slug/add', firstAidKitsController.addToCart);
 
  
   //equipment CPR & first aid routes
   app.get('/equipmentCPRFirstAid', equipmentCPRFirstAidController.showEquipmentCPRFirstAid);
+  app.get('/equipment%20cpr/get', equipmentCPRFirstAidController.showEquipmentCPRFirstAid);
   app.get('/equipmentCPRFirstAid/:slug/add', equipmentCPRFirstAidController.addToCart);
 
   //online course routes

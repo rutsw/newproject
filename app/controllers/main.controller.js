@@ -16,6 +16,26 @@ module.exports = {
 function showProducts(req, res) {
 var userstat_si_so="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
   var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">הרשם/</a>";
+    
+    
+    // get the products that users "like"
+//            var array="";
+//             Product.find({},function(err, array){
+//                if (err) {
+//                  res.status(404);
+//                  res.send('recengines not found!');
+//                  } 
+//                  if(array){
+//                      array = JSON.stringify(array);
+//                      fs.writeFile('data/products.json', array , (err) => {
+//                                  if (err) throw err;
+//                           }); 
+//                    }
+//
+//                  });
+    
+    
+    
 // get allonly products that recommended to the user 
   Product.find({recommended: "yes"}, (err, products) => {
     if (err) {

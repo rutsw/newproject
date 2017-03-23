@@ -24,30 +24,15 @@ function showProducts(req, res) {
     
     var userstat_si_so="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
     var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">הרשם/</a>";
+    var suggestions = "" , title = "";
+    
           
         //check if the user is conected
         if (req.isAuthenticated()){
             userstat_su_un = " שלום "+req.user.local.username;
             userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
-          
-            // get the products that users "like"
-            var array="";
-             Recengine.find({},function(err, array){
-                if (err) {
-                  res.status(404);
-                  res.send('recengines not found!');
-                  } 
-                  if(array){
-                      array = JSON.stringify(array);
-                      fs.writeFile('data/recengine.json', array , (err) => {
-                                  if (err) throw err;
-                           }); 
-                    }
-
-                  });
-            
-            
-            
+            title ="מומלץ בשבילך..."
+              
               // get all products   
               Product.find({username: req.user.local.email}, (err, products) => {
                 if (err) {
@@ -55,9 +40,19 @@ function showProducts(req, res) {
                   res.send('Products not found!');
                   }
                   
-                res.render('pages/cart', { products: products ,userstat_su_un:userstat_su_un ,userstat_si_so:userstat_si_so});
-                
-           });
+                  Suggestion.find({username: req.user.local.email}, (err, suggestions) => {
+                if (err) {
+                  res.status(404);
+                  res.send('Products not found!');
+                  }
+//                   res.json(suggestions);
+                   
+                            
+                 res.render('pages/cart', { products: products, suggestions:suggestions, title:title,  userstat_su_un:userstat_su_un,userstat_si_so:userstat_si_so});
+              });
+//            }
+          }); 
+//        });
         } // return a view with data in case user didn't connect
         else{
             
@@ -68,7 +63,8 @@ function showProducts(req, res) {
                   res.send('Products not found!');
                   }
                   
-                res.render('pages/cart', { products: products ,userstat_su_un:userstat_su_un ,userstat_si_so:userstat_si_so});
+                res.render('pages/cart', { products: products,suggestions:suggestions, title:title,
+                                          userstat_su_un:userstat_su_un ,userstat_si_so:userstat_si_so});
                 
            });
 
