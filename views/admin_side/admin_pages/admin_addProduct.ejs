@@ -62,7 +62,7 @@
             
             <div class="form-group">
                 <label for="stockpile">האם המוצר במלאי?</label>
-                <select id="stockpile" name="stockpile" class="form-control" required="required">
+                <select id="stockpile" name="stockpile" class="form-control" onclick="check()" required="required">
                     <option value="chosse" selected="">בחר:</option>
                     <option value="yes">כן</option>
                     <option value="no">לא</option>
@@ -81,3 +81,13 @@
         </form>
     </div>
 </div>
+
+<!--script>
+    function check() {
+        var c = document.getSelection("stockpile");
+        if c == "no"
+            {
+                amount.set
+            }
+    }
+</script-->

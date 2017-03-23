@@ -348,8 +348,9 @@ app.post('/addNewProduct', addProductdAdminController.processCreate);
 //    res.render('pages/profile.ejs', {layout:'admin_side/admin' , user : req.user });
 //});
 
-//delete product 
+//show product 
 app.get('/admin_productsList',  productsListAdminController.showProductsList);
+//app.get('/displayProduct',  productsListAdminController.showProducts);
 app.get('/deleteProduct/:slug/delete',  productsListAdminController.deleteProduct);
      
 

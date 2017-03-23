@@ -42,54 +42,54 @@ function addProduct(req, res){
  * Process the creation form
  */
 function processCreate(req, res) {
-  // validate information
-  req.checkBody('name', 'Name is required.').notEmpty();
-  req.checkBody('price', 'Price is required.').notEmpty();
-  req.checkBody('serialNumber', 'serial Number is required.').notEmpty();
- 
-  req.checkBody('category', 'Category is required.').notEmpty();
-  req.checkBody('recommended', 'Recommended is required.').notEmpty();
-  req.checkBody('stockpile', 'Stockpile is required.').notEmpty();
-    
-    // if the product not in stockpile
-  if(req.body.stockpile.value=='yes'){
-      req.checkBody('amount', 'Amount is required.').notEmpty();
-          var amount = req.body.amount;
-    }
-    else 
-        var amount=0;
+      // validate information
+      req.checkBody('name', 'Name is required.').notEmpty();
+      req.checkBody('price', 'Price is required.').notEmpty();
+      req.checkBody('serialNumber', 'serial Number is required.').notEmpty();
 
-   //if there are errors, redirect and save errors to flash
-  const errors = req.validationErrors();
-  console.log(errors);
-  if (errors) {
-    req.flash('errors', errors.map(err => err.msg));
-    return res.redirect('/admin_addProduct');
-  }
+      req.checkBody('category', 'Category is required.').notEmpty();
+      req.checkBody('recommended', 'Recommended is required.').notEmpty();
+      req.checkBody('stockpile', 'Stockpile is required.').notEmpty();
 
-    
-  // add a new product
-  const product = new Product({
-    name: req.body.name,
-    description: req.body.description,
-    price: req.body.price,
-    stockpile: req.body.stockpile,
-    amount:amount,
-    recommended: req.body.recommended,
-    imgName: req.body.serialNumber,
-    category: req.body.category
-});
+        // if the product not in stockpile
+      if(req.body.stockpile.value=='yes'){
+          req.checkBody('amount', 'Amount is required.').notEmpty();
+              var amount = req.body.amount;
+        }
+        else 
+            var amount=0;
 
-  // save product
-product.save((err) => {
-    if (err)
-      throw err;
+       //if there are errors, redirect and save errors to flash
+      const errors = req.validationErrors();
+      console.log(errors);
+      if (errors) {
+        req.flash('errors', errors.map(err => err.msg));
+        return res.redirect('/admin_addProduct');
+      }
 
-    // set a successful flash message
-    req.flash('success', 'Successfuly created new product!');
 
-    // redirect to the newly created product
-   // res.redirect(`/cart/${product.slug}`);
-    res.redirect(`/admin_productsList`);
-  });
+      // add a new product
+      const product = new Product({
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        stockpile: req.body.stockpile,
+        amount:amount,
+        recommended: req.body.recommended,
+        imgName: req.body.serialNumber,
+        category: req.body.category
+    });
+
+      // save product
+    product.save((err) => {
+        if (err)
+          throw err;
+
+        // set a successful flash message
+        req.flash('success', 'Successfuly created new product!');
+
+        // redirect to the newly created product
+       // res.redirect(`/cart/${product.slug}`);
+        res.redirect(`/admin_productsList`);
+      });
 }

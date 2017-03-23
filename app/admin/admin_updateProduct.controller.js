@@ -3,7 +3,7 @@ const User = require('../models/user');
 
 module.exports = {
   	showUpdateProduct:showUpdateProduct,
-    updateProduct:updateProduct,
+    updateProduct:updateProduct
    
 }
 
