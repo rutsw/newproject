@@ -130,7 +130,7 @@ div.img img {
 
 /* Caption of Modal Image */
 #caption {
-    margin: auto;
+   margin: auto;
     display: block;
     width: 80%;
     max-width: 700px;
