@@ -16,8 +16,12 @@
     margin-bottom: 12px;  
 }
 
-#th1,#th2{
+#th1{
     width: 200px;
+}
+
+#th2{
+    width: 150px;
 }
 
 #th3{

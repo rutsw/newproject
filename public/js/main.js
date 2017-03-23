@@ -3,7 +3,6 @@
 
 // Get the image and insert it inside the modal - use its "alt" text as a caption
 var img = document.querySelectorAll("#myImg");
-console.log("myImg",img);
 var i;
 for (i = 0; i < img.length; i++) {
     //img[i].style.backgroundColor = "red";

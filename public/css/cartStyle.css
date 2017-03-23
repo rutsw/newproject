@@ -26,7 +26,3 @@
     display:inherit;
     border-radius: 2px;
 }
-
-#t_name, #t_price{
-    visibility: hidden;
-}

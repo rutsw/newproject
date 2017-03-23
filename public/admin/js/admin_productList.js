@@ -21,3 +21,6 @@ function searchProduct() {
     } 
   }
 }
+
+
+//document.getElementById("amount").
