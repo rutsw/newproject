@@ -1,3 +1,6 @@
+/*var categoryImg = document.getElementById("category");
+var categoryName = document.getSelection("categoryImg");*/
+
 function searchProduct() {
   // Declare variables 
   var input, filter, table, tr, td, i;
@@ -18,3 +21,6 @@ function searchProduct() {
     } 
   }
 }
+
+
+//document.getElementById("amount").

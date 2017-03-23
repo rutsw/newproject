@@ -229,11 +229,11 @@
   //client routes
   //define routes
   //layout routs
-  app.get('/login', layoutController.showLogin);
-//  
-//  //register routes
+  app.get('/login', layoutController.showLogin); 
+     
+  //register routes
   app.get('/register', registerController.showRegister);
-//  app.post('/register', registerController.processRegister);
+  //app.post('/register', registerController.processRegister);
 
   //main routes
   app.get('/', mainController.showProducts);
@@ -333,30 +333,31 @@
 //====================================================================================
 
 //admin routes
-// main routes
+//main routes
 app.get('/login_admin', loginAdminController.showPage);
 app.get('/main_admin', loginAdminController.showMainPage);    
 
      
-// process the login form
-        app.post('/adminlogin', passport.authenticate('local-login', {
-            successRedirect : '/main_admin', // redirect to the secure profile section
-            failureRedirect : '/login_admin', // redirect back to the signup page if there is an error
-            failureFlash : true // allow flash messages
-        }));
+//process the login form
+app.post('/adminlogin', passport.authenticate('local-login', {
+    successRedirect : '/main_admin', // redirect to the secure profile section
+    failureRedirect : '/login_admin', // redirect back to the signup page if there is an error
+    failureFlash : true // allow flash messages
+}));
 
 
 //add product 
-app.get('/admin_addProduct',  addProductdAdminController.addProduct);
+app.get('/admin_addProduct', addProductdAdminController.addProduct);
 app.post('/addNewProduct', addProductdAdminController.processCreate);
      
      
-//     app.get('/profile', isLoggedIn, function(req, res) {
-//        res.render('pages/profile.ejs', {layout:'admin_side/admin' , user : req.user });
-//    });
+//app.get('/profile', isLoggedIn, function(req, res) {
+//    res.render('pages/profile.ejs', {layout:'admin_side/admin' , user : req.user });
+//});
 
-//delete product 
+//show product 
 app.get('/admin_productsList',  productsListAdminController.showProductsList);
+//app.get('/displayProduct',  productsListAdminController.showProducts);
 app.get('/deleteProduct/:slug/delete',  productsListAdminController.deleteProduct);
      
 
@@ -371,6 +372,7 @@ app.get('/admin_userlist', userListAdminController.showUserList);
 app.get('/deleteUser/:username/delete', userListAdminController.deleteUser);
 
 };
+
 // route middleware to ensure user is logged in
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated())

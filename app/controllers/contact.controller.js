@@ -10,12 +10,12 @@ module.exports = {
 function showContact(req, res) {
     
     var userstat_si_so="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
-    var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">הרשם/</a>";
+    var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">הרשם</a>"+" | ";
     
     //check if the user is conected
     if (req.isAuthenticated()){
-        userstat_su_un = " שלום "+req.user.local.username;
-        userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
+        userstat_su_un = " שלום "+req.user.local.username+" | ";
+        userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">התנתק</a>";
         
         res.render('pages/contact', {userstat_su_un:userstat_su_un ,userstat_si_so:userstat_si_so});
     }
@@ -36,15 +36,15 @@ function sendRequest(req, res) {
   var transporter = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
     auth: {
-        user: 'miryam993@gmail.com',
-        pass: 'mary010293'
+        user: 'tamimamo@gmail.com',
+        pass: '23051994'
     }
   }));
   
   
   var mailOptions = {
     from: req.body.email, // sender address
-    to: 'tamimamo@gmail.com', // list of receivers
+    to: 'miryam993@gmail.com', // list of receivers
     subject: 'מייל מהאתר הדרך להציל חיים', // Subject line
     text: " נשלח מאת: "+req.body.name+"\n ארגון: "+req.body.organization_name+"\n כתובת מייל: "
     +req.body.email+"\n טלפון: "+req.body.phone+"\n נושא: "+req.body.subject+"\n תוכן ההודעה: "+req.body.message // plaintext body

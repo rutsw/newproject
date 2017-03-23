@@ -8,14 +8,6 @@
 <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
 
-
-        <!--% if (errors.length > 0) { %>
-            <div class="alert alert-danger">
-                <!--% for (error of errors) { %>
-                    <!--%= error %><br>
-                <!--% } %>
-            </div>
-        <!--% } %-->
          <% if (message.length > 0) { %>
               <div class="alert alert-danger"><%= message %></div>
         <% } %>
@@ -24,37 +16,37 @@
         <form action="/register" method="POST" id="register-form" onsubmit="return checkForm(this);">
             <div class="form-group">
                 <label>שם משתמש</label>
-                <input type="text" name="username" class="form-control" id="username" placeholder="הכנס שם משתמש" required data-required-msg="Display Name is required">
+                <input type="text" name="username" class="form-control" id="username" placeholder="הכנס שם משתמש" pattern="^[a-zA-Z0-9-_\.]{6,20}$" title="מינימום 6 תוים, ללא רווחים" required="required">
             </div>
 
             <div class="form-group">
                 <label>שם פרטי</label>
-                <input type="text" name="firstname" class="form-control" id="firstname" placeholder="הכנס שם פרטי" required="required">
+                <input type="text" name="firstname" class="form-control" id="firstname" placeholder="הכנס שם פרטי" pattern="[^0-9]+" title="אותיות בלבד" maxlength="20" required="required">
             </div>
 
             <div class="form-group">
                 <label>שם משפחה</label>
-                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="הכנס שם משפחה" required="required">
+                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="הכנס שם משפחה" pattern="[^0-9]+" title="אותיות בלבד" maxlength="20" required="required">
             </div>
             
             <div class="form-group">
-                <label>טלפון</label>
-                <input type="number" name="telephone" class="form-control" id="telephone" placeholder="הכנס מספר טלפון" required="required">
+                <label>פלאפון</label>
+                <input type="text" name="telephone" class="form-control" id="telephone" placeholder="הכנס מספר פלאפון" pattern="05\d{1}[\-]\d{7}" required="required">
             </div>
 
             <div class="form-group">
                 <label>סיסמא</label>
-                <input type="password" name="password" class="form-control" id="password", placeholder="הכנס סיסמא" required="required">
+                <input type="password" name="password" class="form-control" id="password" placeholder="הכנס סיסמא" required="required">
             </div>
 
             <div class="form-group">
                 <label>אשר סיסמא</label>
-                <input type="password" name="confirmpassword" class="form-control" id="confirmpassword", placeholder="הכנס סיסמא שנית" required="required">
+                <input type="password" name="confirmpassword" class="form-control" id="confirmpassword" placeholder="הכנס סיסמא שנית" required="required">
             </div>
 
             <div class="form-group">
                 <label>מייל</label>
-                <input type="email" name="email" class="form-control" id="email", placeholder="הכנס מייל" required="required">
+                <input type="email" name="email" class="form-control" id="email" placeholder="הכנס מייל" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required="required">
             </div>
 
             <div class="form-group">
@@ -65,62 +57,7 @@
     </div>
 </div>
 
-<script>
- function checkForm(form)
-  {
-    if(form.username.value == "") {
-      alert("Error: Username cannot be blank!");
-      form.username.focus();
-      return false;
-    }
-    re = /^\w+$/;
-    if(!re.test(form.username.value)) {
-      alert("Error: Username must contain only letters, numbers and underscores!");
-      form.username.focus();
-      return false;
-    }
-
-    if(form.password.value != "" && form.password.value == form.confirmpassword.value) {
-      if(form.password.value.length < 6) {
-        alert("Error: Password must contain at least six characters!");
-        form.password.focus();
-        return false;
-      }
-      if(form.password.value == form.username.value) {
-        alert("Error: Password must be different from Username!");
-        form.password.focus();
-        return false;
-      }
-      re = /[0-9]/;
-      if(!re.test(form.password.value)) {
-        alert("Error: password must contain at least one number (0-9)!");
-        form.password.focus();
-        return false;
-      }
-//      re = /[a-z]/;
-//      if(!re.test(form.password.value)) {
-//        alert("Error: password must contain at least one lowercase letter (a-z)!");
-//        form.password.focus();
-//        return false;
-//      }
-//      re = /[A-Z]/;
-//      if(!re.test(form.password.value)) {
-//        alert("Error: password must contain at least one uppercase letter (A-Z)!");
-//        form.password.focus();
-//        return false;
-//      }
-    } else {
-      alert("Error: Please check that you've entered and confirmed your password!");
-      form.password.focus();
-      return false;
-    }
-    
-
-    alert("You entered a valid password: " + form.password.value);
-    return true;
-  }
-    
-</script>
+<script src="../../js/register.js"></script>
 
 
 

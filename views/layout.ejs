@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -7,11 +6,16 @@
         <!-- css -->
         <link rel="stylesheet" href="../../css/bootstrap.css">
         <link rel="stylesheet" href="../../css/bootstrap.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Arimo" rel="stylesheet">        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arimo">        
         <link rel="stylesheet" href="../../css/style.css">
+        <!--link rel="stylesheet" href="../../css/accessibility-buttons.css">
+        <link rel="stylesheet" href="../../css/accessibility-buttons.min.css"-->
+   
     </head>
 
     <body> 
+        <!--div id="top"></div-->
+        
         <div class="col-md-12_index">
             <div class="row">
                 <div class="col-md-2" style="float:left;">
@@ -30,7 +34,7 @@
         </div>
         
         <div class="brand">
-            <img src="/../../logoTransperentFormat.png" class="img-responsive" alt="logo_image">
+            <a href="/"><img src="/../../logoTransperentFormat.png" class="img-responsive" alt="logo_image"></a>
         </div>
 
         <!-- header -->
@@ -94,18 +98,45 @@
                                     <li><a href="/onlineCourse">קורס מתוקשב</a></li>
                                     <li><a href="/contact">צור קשר</a></li>
                                     <li><a href="/cart">סל קניות</a></li>
+                                    <li>
+                                        <!--search with out site-->
+                                           <!--<iframe style="width:375px; height:35px; margin:5px;" frameborder=0 allowtransparency=yes scrolling=no src="//search.digitalpoint.com/iframe.php?site=yosiamar.azurewebsites.net&b=1&l=1&y=1"></iframe>-->
+
+                                            <!--code-->
+                                            <!--form method=GET id="find" name="find" action="http://www.google.com/search">
+                                            <table bgcolor="ffffff"><tr>
+                                                <td width="60%">
+                                                    <a href="http://www.google.com/">
+                                                    <img src="./images/google.gif" alt="Google" align="absmiddle" border="0"></a>
+                                                    <input type="text" name="q" id="q" size=31 maxlength=255 value="site:www.freewebspaces.bguphys" lang="he" dir="rtl">
+                                                    <input type="hidden" name="hl" value="he" dir="rtl" lang="he">
+                                                    <input type="hidden" name="oe" value="utf-8">
+                                                    <input type="hidden" name="ie" value="utf-8">
+                                                    <input type="submit" name="btnG" value="Google Search" lang="he" dir="rtl">
+                                                </td>
+                                            </tr></table>
+                                            </form-->
+                                    </li>
                                 </ul>
+                       
                             </div><!--/.nav-collapse -->
-<!--                    </div>-->
+                        <!--</div>-->
                 </div>
             </div>
         </div>
-
+        
         <!-- main -->
         <main id="site-main">
+            
+             <!--div>
+                <button type="button" aria-label="Increase Font" id="accessibility-font" class="js-acessibility">+A</button>
+                <button type="button" aria-label="Add Contrast" id="accessibility-contrast" class="js-acessibility">Add Contrast</button>
+            </div-->
+            
             <div class="container">
                 <%- body %>
             </div>
+            <a href="#0" class="cd-top">Top</a>
         </main>
 
         <!-- fotter -->
@@ -123,6 +154,12 @@
        <script src="../../js/jquery.min.js"></script>
        <script src="../../js/bootstrap.min.js"></script>
        <script src="../../js/layout.js"></script>
+       <!--script src="../../js/accessibility-buttons.js"></script>
+       <script src="../../js/accessibility-buttons.min.js"></script>
+       <script src="../../js/scripts.js"></script>
+       <script src="../../js/scripts.min.js"></script-->
+
+
        
     </body>
 </html>

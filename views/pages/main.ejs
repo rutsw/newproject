@@ -4,14 +4,14 @@
     <div class="row">
       
         <div class="col-sm-4">
-            <form action="/send" method="POST">
-                <div class="form-group"><div id="errn" style="font-size:12px; display:inline"></div>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="שם" required="required">
+            <form name="contact" action="/send" method="POST">
+                <div class="form-group"><div id="errn"></div>
+                    <input type="text" class="form-control" name="name" id="name" pattern="[^0-9]+" title="אותיות בלבד" maxlength="20" placeholder="שם" required="required">
                 </div>
-                <div class="form-group"><div id="erre" style="font-size:12px; display:inline"></div>
+                <div class="form-group"><div id="erre"></div>
                     <input type="email" class="form-control" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="כתובת מייל" required="required">
                 </div>
-                <div class="form-group"><div id="errq" style="font-size:12px; display:inline"></div>
+                <div class="form-group"><div id="errq"></div>
                     <textarea class="form-control" name="query" id="query" placeholder="תוכן ההודעה" rows="5" cols="20" required="required"></textarea>
                 </div>     
                 <div class="form-group">

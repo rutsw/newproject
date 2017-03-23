@@ -9,26 +9,42 @@
     </div>
 
     <br><br>
+    
+    <!--form action="/displayProduct" method="POST">
+    <div class="form-group">
+        <label for="category">קטגוריית המוצר</label>
+        <select id="category" name="category" class="form-control" required="required">
+            <option value="chosse" selected="">בחר:</option>
+            <option value="medical product">ציוד רפואי</option>
+            <option value="medical furniture">ריהוט רפואי</option>
+            <option value="medical equipment">מכשור רפואי</option>
+            <option value="first aid kits">ערכות עזרה ראשונה</option>
+            <option value="equipment cpr">ציוד החייאה ועזרה ראשונה</option>
+            <option value="trainingand equipment">ציוד הדרכה וסימולציה</option>
+        </select>
+    </div>
+    </form-->
+    
     <input type="text" id="myInput" onkeyup="searchProduct()" placeholder="הכנס שם מוצר לחיפוש">
 
     <br><br>
     <table id="productTable" class="table table-bordered table-hover table-striped">
         <thead>
             <tr>
-                <th><center>שם מוצר</center></th>
-                <th><center>תאור</center></th>
-                <th><center>מחיר</center></th>
-                <th><center>כמות במלאי</center></th>
+                <th id="th1"><center>שם מוצר</center></th>
+                <th id="th2"><center>תאור</center></th>
+                <th id=th3><center>מחיר</center></th>
+                <th id="th4"><center>כמות במלאי</center></th>
                 
             </tr>
         </thead>
         <tbody>
             <% for (var product of products) { %>
                 <tr>
-                    <td><img class="imgt" id="myImg" src="../../<%= product.category %>/<%= product.imgName %>.jpg"><h4><%= product.name %></h4></td>
-                    <td><h5><%= product.description %></h5></td>
-                    <td><h5><%= product.price %></h5></td>
-                    <td><h5><%= product.amount %></h5></td>
+                    <td><img class="imgt" id="myImg" src="../../<%= product.category %>/<%= product.imgName %>.jpg"><h5><%= product.name %></h5></td>
+                    <td><br><h5><%= product.description %></h5></td>
+                    <td><br><h5><%= product.price %></h5></td>
+                    <td><br><h5><%= product.amount %></h5></td>
                     <td><br>
                         <a href="/deleteProduct/<%= product.slug %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
                     </td>
