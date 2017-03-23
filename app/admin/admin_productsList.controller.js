@@ -3,10 +3,9 @@ const User = require('../models/user');
 
 module.exports = {
   	showProductsList:showProductsList,
-    deleteProduct:deleteProduct,
+    deleteProduct:deleteProduct
    
 }
-
 
 
 //show the Products List page
