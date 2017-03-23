@@ -15,7 +15,7 @@ module.exports = {
 
 function showProducts(req, res) {
 var userstat_si_so="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר</a>";
-  var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">הרשם/</a>";
+  var userstat_su_un="<a class=\"index\" id=\"signup\" href=\"/register\">הרשם</a>"+" | ";
 // get allonly products that recommended to the user 
   Product.find({recommended: "yes"}, (err, products) => {
     if (err) {
@@ -25,8 +25,8 @@ var userstat_si_so="<a class=\"index\" id=\"signin\" href=\"/login\">התחבר<
       
     //check if the user is conected
     if (req.isAuthenticated()){
-        userstat_su_un = " שלום "+req.user.local.username;
-        userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">/התנתק</a>";
+        userstat_su_un = " שלום "+req.user.local.username+" | ";
+        userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">התנתק</a>";
         
         res.render('pages/main', { products: products ,userstat_su_un:userstat_su_un ,userstat_si_so:userstat_si_so});
     }
