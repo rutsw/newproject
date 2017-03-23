@@ -33,20 +33,17 @@
     }
 }
 
+.form-group{
+    font-size:12px; 
+    display:block;
+}
+
 .thumbnail{
-<<<<<<< HEAD
-    margin: auto;
-    max-width: 100%;
-    max-height: 100%;
-    margin-right: 0px;
-    border: 0px;   
-=======
 	margin: auto;
 	max-width: 75%;
 	max-height: 75%;
 	margin-right: 0px;
     border: 0px;
->>>>>>> origin/master
 }
 
 .img-responsive0{
@@ -104,10 +101,6 @@ div.img img {
     transition: 0.3s;
     height: 150px;
     width: 180px;
-<<<<<<< HEAD
-
-=======
->>>>>>> origin/master
 }
 
 #myImg:hover {opacity: 0.7;}
