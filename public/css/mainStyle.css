@@ -21,6 +21,19 @@
     }
 }
 
+@media only screen and (max-width: 700px){
+    .img-responsive1 {
+        width: 49.99999%;
+        margin: 6px 0;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .img-responsive1 {
+        width: 100%;
+    }
+}
+
 .carousel-inner img {
     width: 100%; /* Set width to 100% */
     min-height: 200px;
@@ -54,15 +67,6 @@ thumbnail{
     display:block;
 }
 
-.col-sm-12-image{
-	margin: center;
-}
-
-div.img img {
-    width: 100%;
-    height: auto;
-}
-
 .img-responsive1 {
     padding: 0 6px;
     float: left;
@@ -77,17 +81,49 @@ div.img img {
     display:block;
 }
 
-@media only screen and (max-width: 700px){
-    .img-responsive1 {
-        width: 49.99999%;
-        margin: 6px 0;
-    }
+.col-sm-12-image{
+	margin: center;
 }
 
-@media only screen and (max-width: 500px){
-    .img-responsive1 {
-        width: 100%;
-    }
+#contact{
+    margin-top: 50px;
+    background: #244b6b;
+    padding-right: 10px;
+
+}
+
+#customers{
+    background: #eaeef1;
+}
+
+.col-sm-4{
+    margin-left: 380px;
+    margin-right: 380px;
+}
+
+#product_h2{
+    color: #244b6b; 
+}
+
+#contact_h2{
+    color: white;
+}
+
+#customers_h2{
+    color: #244b6b; 
+}
+
+.form-control{
+    border-radius: 0px;
+}
+
+.a{
+    border-radius: 0px;
+}
+
+div.img img {
+    width: 100%;
+    height: auto;
 }
 
 .clearfix:after {
@@ -183,4 +219,13 @@ div.img img {
     .modal-content {
         width: 100%;
     }
+}
+
+
+.btn{
+    border:0px;
+    border-radius: 0px;
+    background-color: #d1585d;
+    color:aliceblue;
+    font-size: 15px;
 }

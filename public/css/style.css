@@ -94,7 +94,7 @@ html, body  {
 .col-md-12_index{
     display: block;
     position: relative;
-    background-color: #a80202;
+    background-color: #d1585d;
     height:50px;
     padding: 20px;
     color:beige;
@@ -134,17 +134,18 @@ html, body  {
 
 /* main section */
 #site-main  {
-  padding-top: 50px;
+    padding-top: 50px;
 }
 
 /* footer */
 #site-footer {
-  text-align: center;
-  padding-bottom: 30px;
-  padding-top: 30px;
-  padding-right: 10px;
-  background: #a80202;
-  color:beige;
+    text-align: right;
+    padding-bottom: 30px;
+    padding-top: 30px;
+    padding-right: 400px;
+    padding-left: 400px;
+    background: #363636;
+    color:beige;
 }
 
 
@@ -245,7 +246,7 @@ li.active
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
-  background: rgba(232, 98, 86, 0.8) url(../../cd-top-arrow.svg) no-repeat center 50%;
+  background: rgba(0, 0, 0, 0.9) url(../../cd-top-arrow.svg) no-repeat center 50%;
   visibility: hidden;
   opacity: 0;
   -webkit-transition: opacity .3s 0s, visibility 0s .3s;

@@ -2,25 +2,7 @@
 
 <div class="container text-center">
     <div class="row">
-      
-        <div class="col-sm-4">
-            <form name="contact" action="/send" method="POST">
-                <div class="form-group"><div id="errn"></div>
-                    <input type="text" class="form-control" name="name" id="name" pattern="[^0-9]+" title="אותיות בלבד" maxlength="20" placeholder="שם" required="required">
-                </div>
-                <div class="form-group"><div id="erre"></div>
-                    <input type="email" class="form-control" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="כתובת מייל" required="required">
-                </div>
-                <div class="form-group"><div id="errq"></div>
-                    <textarea class="form-control" name="query" id="query" placeholder="תוכן ההודעה" rows="5" cols="20" required="required"></textarea>
-                </div>     
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary pull-left">שלח פניה</button>
-                </div>
-            </form>
-        </div>
-
-        <div class="col-sm-8">
+           <div class="col-sm-12">
             <div id="myCarousel" class="carousel slide" data-ride="carousel">
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
@@ -63,11 +45,9 @@
 
 <div class="container text-center">
     <br><br>
-    <legend><h2><strong>מוצרים נבחרים</strong></h2></legend>
-    <br>
-
+    <legend><h2 id="product_h2"><strong>מוצרים נבחרים</strong></h2></legend>
     <div class="row">
-      <br><br>
+      <br>
       <% for (var product of products) { %>
           <div class="img-responsive1">
             <div class="thumbnail">
@@ -91,13 +71,34 @@
     </div>
 </div>
 
-<div class="container text-center">
+<div class="container text-center" id="contact">
+    <legend><h2 id="contact_h2">יצירת קשר</h2></legend>
+     <div class="col-sm-4">
+        <form name="contact" action="/send" method="POST">
+            <div class="form-group"><div id="errn"></div>
+                <input type="text" class="form-control" name="name" id="name" pattern="[^0-9]+" title="אותיות בלבד" maxlength="20" placeholder="שם" required="required">
+            </div>
+            <div class="form-group"><div id="erre"></div>
+                <input type="email" class="form-control" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="כתובת מייל" required="required">
+            </div>
+            <div class="form-group"><div id="errq"></div>
+                <textarea class="form-control" name="query" id="query" placeholder="תוכן ההודעה" rows="5" cols="20" required="required"></textarea>
+            </div>     
+            <div class="form-group">
+                <button type="submit" class="btn pull-left" id="a">שלח פניה</button>
+            </div>
+        </form>
+        <br><br><br>
+    </div>
+</div>  
+
+<div class="container text-center" id="customers">
     <br><br>
     <div class="row">
-        <legend><h2><strong>בין לקוחותינו:</strong></h2></legend>
+        <legend><h2 id="customers_h2"><b>בין לקוחותינו</b></h2></legend>
         <br>
         <div class="col-sm-12-image">
-            <img src="../../our_customers.jpg" class="img-responsive2" alt="Pa_Image1">
+            <img src="../../ourCustomers.png" class="img-responsive2" alt="Pa_Image1">
         </div>
     </div>
     <br><br>
