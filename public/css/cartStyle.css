@@ -160,6 +160,10 @@ div.img img {
     }
 }
 
+#suggestion_h2{
+    color: #244b6b; 
+}
+
 .btn-default{
     border:0px;
     border-radius: 0px;

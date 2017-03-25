@@ -13,7 +13,7 @@ function showLogin(req, res){
      if(req.isAuthenticated()){
           userstat_si_so=" | "+"<a class=\"index\" id=\"signout\" href=\"/logout\">התנתק</a>";    
     }      
-     res.render('pages/signin.ejs',{message: req.flash('loginMessage'), userstat_su_un:userstat_su_un, userstat_si_so:userstat_si_so});
+     res.render('pages/login.ejs',{message: req.flash('loginMessage'), userstat_su_un:userstat_su_un, userstat_si_so:userstat_si_so});
        
 }
 
