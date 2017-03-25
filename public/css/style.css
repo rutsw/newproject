@@ -113,10 +113,11 @@ html, body  {
 }
 
 .navbar-default{
-  margin: 0 auto;
-  background: white;
-  border:0;
-  padding-right: 70px;
+    margin: 0 auto;
+    background: white;
+    border:0;
+    padding-right: 15%;
+    padding-left: 15%;
 }
 
 .navbar-header{
@@ -208,8 +209,7 @@ li.active
     text-align: right;
     padding-bottom: 30px;
     padding-top: 30px;
-    padding-right: 400px;
-    padding-left: 400px;
+    padding-right: 100px;
     background: #363636;
     color:beige;
 }
