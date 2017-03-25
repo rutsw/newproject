@@ -1,0 +1,31 @@
+.col-md-12_signin{
+    display: block;
+    background-color: #244b6b;
+    height: 150px;
+}
+
+.signin {
+    position: relative;
+    left: 0;
+    top:30%;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    color:white;
+}
+
+.form-control{
+    border-radius: 0px;
+}
+
+.btn{
+    border:0px;
+    border-radius: 0px;
+    background-color: #d1585d;
+    color:aliceblue;
+    font-size: 15px;
+}
+
+.form-group-btn{
+    float: left;
+}

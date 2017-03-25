@@ -16,3 +16,30 @@
     font-size: 40px;
     color:white;
 }
+
+.btn{
+    border-color:darkgray;
+    border-radius: 0px;
+    background-color: #d1585d;
+    color:aliceblue;
+    font-size: 15px;
+}
+
+.form-control, input-group-addon{
+    border-radius: 0px;
+}
+
+#customers_h2{
+    color: #244b6b; 
+}
+
+.col-sm-12-image{
+    background: #eaeef1;
+}
+
+.img-responsive2{
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    display:block;
+}
