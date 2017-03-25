@@ -1,0 +1,17 @@
+#edit_h2{
+    color: #244b6b; 
+}
+
+.form-control{
+    border-radius: 0px;
+}
+
+.btn{
+    border: 0px;
+    border-radius: 0px;
+}
+
+.btn-success{
+    background-color: #244b6b; 
+}
+

@@ -39,3 +39,13 @@ td{
 .col-md-12_cart{
     padding: 0;
 }
+
+.btn{
+    border: 0px;
+    border-radius: 0px;
+}
+
+.btn-primary{
+    background-color: #244b6b; 
+}
+
