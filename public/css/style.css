@@ -67,14 +67,12 @@ html, body  {
   float: left; 
 }
 
-<<<<<<< HEAD
 .col-md-3{
   padding: 0; 
   width: 170px;
     height: 100px;
 }
 
-=======
 .col-md-12_index{
     display: block;
     position: relative;
@@ -87,7 +85,6 @@ html, body  {
 .index{
     color:beige;
 }
->>>>>>> origin/master
 
 .img-responsive{
     max-width: 100%;
@@ -141,7 +138,6 @@ html, body  {
   float:right;
 }
 
-<<<<<<< HEAD
 /* main section */
 #site-main  {
     padding-top: 50px;
@@ -165,8 +161,6 @@ html, body  {
     
 }
 
-=======
->>>>>>> origin/master
 .dropdown-toggle{
     float: right;
 }
