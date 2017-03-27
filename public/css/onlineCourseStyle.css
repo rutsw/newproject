@@ -29,6 +29,12 @@
     top:10%;
 }
 
+.center{
+  width: 80%;
+  margin-right:10%;
+  margin-left: 10%;
+}
+
 .about {
     position: relative;
     left: 0;

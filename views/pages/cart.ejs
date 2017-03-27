@@ -8,66 +8,66 @@
     </div>
     <br><br>
 
-    
- <%if(products!=""){%>
-    <table class="table table-bordered table-hover table-striped">
-        <thead>
-            <tr>
-                <th id="t_name"><center>שם מוצר</center></th>
-                <th id="t_price"><center>מחיר</center></th>
-            </tr>
-        </thead>
-        <tbody>
-            <% for (var product of products) { %>
+<div class="center">  
+     <%if(products!=""){%>
+        <table class="table table-bordered table-hover table-striped">
+            <thead>
                 <tr>
-                    <td><img id="myImg" src="../../<%=product.category %>/<%= product.imgName %>.jpg"><%= product.name %></td>
-                    <td><br><%= product.price %></td>
-                    <td><br>
-                        <a href="/cart/<%= product.slug %>" class="btn btn-sm btn-primary">לרכישה אנא צרו קשר</a>  
-                        <a href="/cart/<%= product.slug %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
-                    </td>
+                    <th id="t_name"><center>שם מוצר</center></th>
+                    <th id="t_price"><center>מחיר</center></th>
                 </tr>
-            <% } %>
-        </tbody>
-    </table>
-</div>
-
-
-
-<div class="container text-center">
-    <br><br>
-    <legend><h2 id="suggestion_h2"><strong><%= title %></strong></h2></legend>
-    <br>
-
-    <div class="row">
-      <br><br>
-      <% for (var suggestion of suggestions) { %>
-        <% for (var sug of suggestion.suggestions) { %>
-          <div class="img-responsive1">
-            <div class="thumbnail">
-             <img id="myImg2" src="../../<%= sug.category%>/<%= sug.product%>.jpg" alt="<%= sug.name %>">                         
-              <!-- The Modal -->
-              <div id="myModal" class="modal">
-                <span class="close">&times;</span>
-                <img class="modal-content" id="img01">
-                <div id="caption1"></div>
-              </div>
-
-              <div class="caption">
-                <h5><%= sug.name %></h5>
-                <h6><%= sug.price %></h6>
-                <a href="/<%= sug.category%>/get" class="btn btn-default" role="button">לצפייה</a>
-              </div>
-              
-            </div>
-          </div>
-      <% } %>   
-    <% } %>
-      <div class="clearfix"></div>
+            </thead>
+            <tbody>
+                <% for (var product of products) { %>
+                    <tr>
+                        <td><img id="myImg" src="../../<%=product.category %>/<%= product.imgName %>.jpg"><%= product.name %></td>
+                        <td><br><%= product.price %></td>
+                        <td><br>
+                            <a href="/cart/<%= product.slug %>" class="btn btn-sm btn-primary">לרכישה אנא צרו קשר</a>  
+                            <a href="/cart/<%= product.slug %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
+                        </td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
     </div>
-</div>
-<%}else{%>
-    <strong><p class="msg">עגלת הקניות שלך ריקה כרגע</p></strong>
-<%}%>
 
+
+
+    <div class="container text-center">
+        <br><br>
+        <legend><h2 id="suggestion_h2"><strong><%= title %></strong></h2></legend>
+        <br>
+
+        <div class="row">
+          <br><br>
+          <% for (var suggestion of suggestions) { %>
+            <% for (var sug of suggestion.suggestions) { %>
+              <div class="img-responsive1">
+                <div class="thumbnail">
+                 <img id="myImg2" src="../../<%= sug.category%>/<%= sug.product%>.jpg" alt="<%= sug.name %>">                         
+                  <!-- The Modal -->
+                  <div id="myModal" class="modal">
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img01">
+                    <div id="caption1"></div>
+                  </div>
+
+                  <div class="caption">
+                    <h5><%= sug.name %></h5>
+                    <h6><%= sug.price %></h6>
+                    <a href="/<%= sug.category%>/get" class="btn btn-default" role="button">לצפייה</a>
+                  </div>
+
+                </div>
+              </div>
+          <% } %>   
+        <% } %>
+          <div class="clearfix"></div>
+        </div>
+    </div>
+    <%}else{%>
+        <strong><p class="msg">עגלת הקניות שלך ריקה כרגע</p></strong>
+    <%}%>
+</div>
 <script src="../../js/medicalProducts.js"></script>

@@ -17,6 +17,7 @@ module.exports = {
     
 }
 
+var products="";
 /**
  * Show all products
 */

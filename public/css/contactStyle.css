@@ -1,3 +1,9 @@
+.center{
+  width: 80%;
+  margin-right:10%;
+  margin-left: 10%;
+}
+
 .col-md-12_contact{
     display: block;
     background-color: #244b6b;
@@ -35,6 +41,7 @@
 
 .col-sm-12-image{
     background: #eaeef1;
+    width: inherit;
 }
 
 .img-responsive2{
@@ -42,4 +49,5 @@
     max-height: 100%;
     height: auto;
     display:block;
+    margin: 0;
 }

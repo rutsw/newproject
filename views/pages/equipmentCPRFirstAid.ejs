@@ -9,29 +9,31 @@
       </div>
   </div>
 
-  <div class="row">
-    <br><br>
-    <% for (var product of products) { %>
-        <div class="img-responsive1">
-          <div class="thumbnail">
-            <img id="myImg" src="../../<%= product.category%>/<%= product.imgName%>.jpg" alt="<%= product.name %>">
-            <!-- The Modal -->
-            <div id="myModal" class="modal">
-              <span class="close">&times;</span>
-              <img class="modal-content" id="img01">
-              <div id="caption1"></div>
-            </div>
+    <div class="center">
+      <div class="row">
+        <br><br>
+        <% for (var product of products) { %>
+            <div class="img-responsive1">
+              <div class="thumbnail">
+                <img id="myImg" src="../../<%= product.category%>/<%= product.imgName%>.jpg" alt="<%= product.name %>">
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+                  <span class="close">&times;</span>
+                  <img class="modal-content" id="img01">
+                  <div id="caption1"></div>
+                </div>
 
-            <div class="caption">
-              <h5><%= product.name %></h5>
-              <h6>מחיר: <%= product.price %></h6>
-              <a href="/medicalEquipment/<%= product.slug %>/add" class="btn btn-default" role="button">הוסף לסל</a>
+                <div class="caption">
+                  <h5><%= product.name %></h5>
+                  <h6>מחיר: <%= product.price %></h6>
+                  <a href="/medicalEquipment/<%= product.slug %>/add" class="btn btn-default" role="button">הוסף לסל</a>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-    <% } %>      
-    <div class="clearfix"></div>
-  </div>
+        <% } %>      
+        <div class="clearfix"></div>
+      </div>
+    </div>
 </div>
 
 <script src="../../js/medicalProducts.js"></script>
