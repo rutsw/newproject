@@ -7,7 +7,9 @@
         </div>
     </div>
     <br><br>
+
     
+ <%if(products!=""){%>
     <table class="table table-bordered table-hover table-striped">
         <thead>
             <tr>
@@ -64,5 +66,8 @@
       <div class="clearfix"></div>
     </div>
 </div>
+<%}else{%>
+    <strong><p class="msg">עגלת הקניות שלך ריקה כרגע</p></strong>
+<%}%>
 
 <script src="../../js/medicalProducts.js"></script>

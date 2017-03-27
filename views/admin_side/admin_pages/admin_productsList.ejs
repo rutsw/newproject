@@ -10,23 +10,33 @@
 
     <br><br>
     
-    <!--form action="/displayProduct" method="POST">
-    <div class="form-group">
-        <label for="category">קטגוריית המוצר</label>
-        <select id="category" name="category" class="form-control" required="required">
-            <option value="chosse" selected="">בחר:</option>
-            <option value="medical product">ציוד רפואי</option>
-            <option value="medical furniture">ריהוט רפואי</option>
-            <option value="medical equipment">מכשור רפואי</option>
-            <option value="first aid kits">ערכות עזרה ראשונה</option>
-            <option value="equipment cpr">ציוד החייאה ועזרה ראשונה</option>
-            <option value="trainingand equipment">ציוד הדרכה וסימולציה</option>
-        </select>
+    <div class="col-md-9-category">
+        <form action="/displayProduct" method="POST">
+            <div class="col-md-6-category">
+                <div class="form-group">
+                    <label for="category">קטגוריית המוצר</label>
+                    <select id="category" name="category" class="form-control" required="required">
+                        <option value="chosse" selected="">בחר:</option>
+                        <option value="medical product">ציוד רפואי</option>
+                        <option value="medical furniture">ריהוט רפואי</option>
+                        <option value="medical equipment">מכשור רפואי</option>
+                        <option value="first aid kits">ערכות עזרה ראשונה</option>
+                        <option value="equipment cpr">ציוד החייאה ועזרה ראשונה</option>
+                        <option value="trainingand equipment">ציוד הדרכה וסימולציה</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                        <button type="submit" class="btn btn-md btn-success">בחר</button>
+            </div>
+        </form>
     </div>
-    </form-->
     
-    <input type="text" id="myInput" onkeyup="searchProduct()" placeholder="הכנס שם מוצר לחיפוש">
-
+    <%if(products!=""){%>
+    
+        <input type="text" id="myInput" onkeyup="searchProduct()" placeholder="הכנס שם מוצר לחיפוש">
+    
     <br><br>
     <table id="productTable" class="table table-bordered table-hover table-striped">
         <thead>
@@ -62,6 +72,8 @@
             <p class="cart"><%=  counter %></p>
         </div>
     </div>
+    
+<%}%>
 </div>
 
 <script src="../../admin/js/admin_productList.js"></script>

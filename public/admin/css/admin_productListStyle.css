@@ -14,6 +14,7 @@
     padding: 12px 20px 12px 40px; 
     border: 1px solid #ddd; 
     margin-bottom: 12px;  
+    
 }
 
 #th1{
@@ -40,6 +41,24 @@ td{
     padding: 0;
 }
 
+.col-md-6-category{
+    float: left;
+}
+
+.col-md-6-category{
+    float: right;
+}
+
+.col-md-9-category{
+    float: right;
+}
+
+.form-control{
+    border: 0px;
+    border-radius: 0px;
+/*    margin-left:20px;*/
+}
+
 .btn{
     border: 0px;
     border-radius: 0px;
@@ -48,4 +67,10 @@ td{
 .btn-primary{
     background-color: #244b6b; 
 }
+
+/*
+.col-md-9-search{
+   float: right; 
+}
+*/
 

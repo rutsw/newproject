@@ -357,7 +357,7 @@ app.post('/addNewProduct', addProductdAdminController.processCreate);
 
 //show product 
 app.get('/admin_productsList',  productsListAdminController.showProductsList);
-//app.get('/displayProduct',  productsListAdminController.showProducts);
+app.post('/displayProduct',  productsListAdminController.showProducts);
 app.get('/deleteProduct/:slug/delete',  productsListAdminController.deleteProduct);
      
 
