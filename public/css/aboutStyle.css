@@ -27,10 +27,16 @@
   margin-left: 20%;
 }
 
+.row{
+    width:101.35%;
+}
+
+
 .col-md-12_about{
     display: block;
     background-color: #244b6b;
     height: 150px;
+    
 }
 
 .about {

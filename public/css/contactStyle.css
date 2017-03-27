@@ -4,6 +4,10 @@
   margin-left: 10%;
 }
 
+.row{
+    width:101.35%;
+}
+
 .col-md-12_contact{
     display: block;
     background-color: #244b6b;

@@ -4,6 +4,10 @@
     height: 150px;
 }
 
+.row{
+    width:101.35%;
+}
+
 .courses {
     position: relative;
     left: 0;
