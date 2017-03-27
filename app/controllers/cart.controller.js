@@ -18,6 +18,7 @@ module.exports = {
 }
 
 var products="";
+var title = "";
 /**
  * Show all products
 */
@@ -34,7 +35,7 @@ function showProducts(req, res) {
 
             userstat_su_un = " שלום "+req.user.local.username+" | ";
             userstat_si_so = "<a class=\"index\" id=\"signout\" href=\"/logout\">התנתק</a>";
-            title ="מומלץ בשבילך..."
+           
  
               // get all products   
               Product.find({username: req.user.local.email}, (err, products) => {
@@ -49,7 +50,7 @@ function showProducts(req, res) {
                   res.send('Products not found!');
                   }
 //                   res.json(suggestions);
-                   
+                    title ="מומלץ בשבילך..."
                             
                  res.render('pages/cart', { products: products, suggestions:suggestions, title:title,  userstat_su_un:userstat_su_un,userstat_si_so:userstat_si_so});
               });
