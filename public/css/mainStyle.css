@@ -90,6 +90,12 @@
     display:block;
 }
 
+.col-sm-12{
+    padding-left: 0px;
+    padding-right: 0px;
+	padding: 0px:
+}
+
 .col-sm-12-image{
 	margin: center;
 }
@@ -135,7 +141,7 @@
     border-radius: 0px;
     background-color: #d1585d;
     color:aliceblue;
-    font-size: 40%;
+    font-size: 15px;
 }
 
 .a{
