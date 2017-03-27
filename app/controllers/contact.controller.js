@@ -36,15 +36,15 @@ function sendRequest(req, res) {
   var transporter = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
     auth: {
-        user: 'tamimamo@gmail.com',
-        pass: '23051994'
+        user: 'haderekh9062200@gmail.com',
+        pass: 'yossiamar'
     }
   }));
   
   
   var mailOptions = {
     from: req.body.email, // sender address
-    to: 'miryam993@gmail.com', // list of receivers
+    to: 'haderekh9062200@gmail.com', // list of receivers
     subject: 'מייל מהאתר הדרך להציל חיים', // Subject line
     text: " נשלח מאת: "+req.body.name+"\n ארגון: "+req.body.organization_name+"\n כתובת מייל: "
     +req.body.email+"\n טלפון: "+req.body.phone+"\n נושא: "+req.body.subject+"\n תוכן ההודעה: "+req.body.message // plaintext body
@@ -55,9 +55,8 @@ function sendRequest(req, res) {
           res.json({yo: 'error'});
       }else{
           console.log('Message sent: ' + info.response);
-          //res.json({yo: info.response});
       };
-      res.redirect(`/contact`);
+      res.redirect(`/`);
     });
 }
 
