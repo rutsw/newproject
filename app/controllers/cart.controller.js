@@ -211,7 +211,7 @@ function processEdit(req, res) {
  * Delete an product
  */
 function deleteProduct(req, res) {
-  Product.remove({ slug: req.params.slug }, (err) => {
+  Product.remove({ slug: req.params.slug}, (err) => {
     // set flash data
     // redirect back to the cart page
     req.flash('success', 'Product deleted!');

@@ -20,7 +20,8 @@ const cartSchema = new Schema({
 // middleware -----
 // make sure that the slug is created from the name
 cartSchema.pre('save', function(next) {
-  this.slug = slugify(this.name);
+  var text=this.name+this.username;
+  this.slug = slugify(text);
   next();
 });
 
