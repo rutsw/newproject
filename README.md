@@ -2,7 +2,7 @@
 
 Code for the Yosi Amar website.
 
-Build as final project for the department of software engineering, Azrieli - The 
+Builed as final project for the department of software engineering, Azrieli - The College of Engineering.
 
 Used technologics:
     - node.js
