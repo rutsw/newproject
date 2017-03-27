@@ -272,6 +272,12 @@ li.active
   clear: both;
 }
 
+.block{
+     width:101.2%;
+/*    padding: 0;*/
+    padding-left: 0px:
+}
+
 .cd-top {
   display: inline-block;
   height: 50px;
