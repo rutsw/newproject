@@ -15,21 +15,23 @@
         font-size:8px;
     }
 }
-@media screen and (max-width: 568px) {
-    .p_text {
-        font-size:0px;
-    }
-}
 
 @media only screen and (max-width: 700px){
     .img-responsive1 {
         width: 49.99999%;
         margin: 6px 0;
+
+    }
+    .modal-content {
+        width: 100%;
     }
 }
 
-@media only screen and (max-width: 500px){
-    .img-responsive1 {
+@media screen and (max-width: 500px) {
+    .p_text {
+        font-size:0px;
+    }
+     .img-responsive1 {
         width: 100%;
     }
 }
@@ -51,13 +53,21 @@
     display:block;
 }
 
-thumbnail{
+.row{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-left: 8%;
+}
+
+.thumbnail{
+    border: 0;
     margin: auto;
     max-width: 100%;
     max-height: 100%;
     margin-bottom: 40px;
     margin-right: 0px;
-    border: 0px;  
+   
 }
 
 .img-responsive0{
@@ -70,9 +80,8 @@ thumbnail{
 .img-responsive1 {
     padding: 0 6px;
     float: left;
-    width: 24.99999%;
-}
 
+}
 
 .img-responsive2{
     max-width: 100%;
@@ -85,20 +94,18 @@ thumbnail{
 	margin: center;
 }
 
+.col-sm-4{
+    margin-right: 32%;
+    margin-left: 32%;
+}
+
 #contact{
     margin-top: 50px;
     background: #244b6b;
-    padding-right: 10px;
-
 }
 
 #customers{
     background: #eaeef1;
-}
-
-.col-sm-4{
-    margin-left: 380px;
-    margin-right: 380px;
 }
 
 #product_h2{
@@ -113,8 +120,22 @@ thumbnail{
     color: #244b6b; 
 }
 
+.container.text-center{
+    
+    padding: 0;
+    padding-right: 0px;
+}
+
 .form-control{
     border-radius: 0px;
+}
+
+.btn{
+    border:0px;
+    border-radius: 0px;
+    background-color: #d1585d;
+    color:aliceblue;
+    font-size: 40%;
 }
 
 .a{
@@ -126,11 +147,13 @@ div.img img {
     height: auto;
 }
 
+/*
 .clearfix:after {
     content: "";
     display: table;
     clear: both;
 }
+*/
 
 #myImg {
     border-radius: 5px;
@@ -212,20 +235,4 @@ div.img img {
     color: white;
     text-decoration: none;
     cursor: pointer;
-}
-
-/* 100% Image Width on Smaller Screens */
-@media only screen and (max-width: 700px){
-    .modal-content {
-        width: 100%;
-    }
-}
-
-
-.btn{
-    border:0px;
-    border-radius: 0px;
-    background-color: #d1585d;
-    color:aliceblue;
-    font-size: 15px;
 }

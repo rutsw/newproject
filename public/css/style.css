@@ -233,6 +233,17 @@ li.active
     padding-top: 50px;
 }
 
+.container {
+  width: 100%;
+  margin:0;
+  padding: 0;
+/*  max-width: 768px;*/
+/*  margin: 2em auto;*/
+}
+
+.container.text-center {
+ padding: 0;
+}
 /* footer */
 #site-footer {
     text-align: right;
@@ -303,20 +314,6 @@ li.active
   background-color: #e86256;
   opacity: 1;
 }
-
-
-
-/*.accessibility-font {
-// First font-size fallback to older browsers
-    font-size: 1.25em;
-    font-size: 1.25rem;
-}
-
-.accessibility-contrast {
-    color: #fff;
-    background: #000;
-}*/
-
 
 
 

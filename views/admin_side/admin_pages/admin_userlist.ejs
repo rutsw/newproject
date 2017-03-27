@@ -6,19 +6,16 @@
         <thead>
             <tr>
                 <th><center>שם משתמש</center></th>
-                <th><center>פרטי משתמש</center></th>
+                <th><center>כתובת מייל</center></th>
+                <th><center>מספר פאלפון</center></th>
             </tr>
         </thead>
         <tbody>
             <% for (var user of users) { %>
                 <tr>
                     <td><%= user.local.username %></td>
-                    <td><h5><%= user.local.email %></h5><br\><h5><%= user.local.telephone %></h5></td>
-<!--
-                    <td>
-                        <a href="/deleteUser/<!--%= user.local.username %>/delete" class="btn btn-sm btn-danger">מחיקה</a>
-                    </td>
--->
+                    <td><%= user.local.email %></td>
+                    <td><%= user.local.telephone %></td>
                 </tr>
             <% } %>
         </tbody>
