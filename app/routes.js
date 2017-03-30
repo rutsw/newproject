@@ -1,34 +1,45 @@
  module.exports = function(app, passport) {
      
-// normal routes ===============================================================
+//create a new express app
+     
+  //client controllers
+  layoutController  = require('./controllers/layout.controller'),
+  registerController= require('./controllers/register.controller'),
+  mainController    = require('./controllers/main.controller'),
+  contactController = require('./controllers/contact.controller'),
+  aboutController   = require('./controllers/about.controller'),
+  coursesController = require('./controllers/courses.controller'),
+  fHCourseController= require('./controllers/4hCourse.controller'),
+  eHCourseController= require('./controllers/8hCourse.controller'),
+  ttHCourseController = require('./controllers/22hCourse.controller'),
+  thHCourseController = require('./controllers/28hCourse.controller'),
+  ffHCourseController = require('./controllers/44hCourse.controller'),
+  sHCourseController  = require('./controllers/60hCourse.controller'),
+  fHBabyCourseController = require('./controllers/4hBabyCourse.controller'),
+  medicalTeamsCourseController  = require('./controllers/medicalTeamsCourse.controller'),
+  paramedicCourseController     = require('./controllers/paramedicCourse.controller'),
+  approvalsController           = require('./controllers/approvals.controller'),
+  recommendationController  = require('./controllers/recommendation.controller'),
+  cartController            = require('./controllers/cart.controller'),
+  onlineCourseController    = require('./controllers/onlineCourse.controller'),
+  medicalEquipmentController= require('./controllers/medicalEquipment.controller'),
+  medicalProductController  = require('./controllers/medicalProduct.controller'),
+  medicalFurnitureController     = require('./controllers/medicalFurniture.controller'),
+  equipmentCPRFirstAidController = require('./controllers/equipmentCPRFirstAid.controller'),
+  firstAidKitsController         = require('./controllers/firstAidKits.controller'),
+  trainingandSimulationEquipmentController = require('./controllers/trainingandSimulationEquipment.controller'),
+  
 
-    // show the home page (will also have our login links)
-//    app.get('/main_admin', function(req, res) {
-//        res.render('pages/index.ejs' );
-//    });
+  //admin controllers
+  loginAdminController = require('./admin/login_admin.controller');
+  addProductdAdminController = require('./admin/admin_addProduct.controller');
+  productsListAdminController = require('./admin/admin_productsList.controller');
+  userListAdminController = require('./admin/admin_userList.controller');
+  updateProductAdminController = require('./admin/admin_updateProduct.controller');
+   
 
-    // PROFILE SECTION =========================
-//    app.get('/profile', isLoggedIn, function(req, res) {
-//        res.render('pages/profile.ejs', {layout:'admin_side/admin' , user : req.user });
-//    });
-
-    // LOGOUT ==============================
-    app.get('/logout', function(req, res) {
-        req.logout();
-        res.redirect('/');
-    });
-
+// AUTHENTICATE (FIRST LOGIN) 
 // =============================================================================
-// AUTHENTICATE (FIRST LOGIN) ==================================================
-// =============================================================================
-
-    // locally --------------------------------
-        // LOGIN ===============================
-        // show the login form
-//        app.get('/login', function(req, res) {
-//            var title="";
-//            res.render('pages/signin.ejs', {message: req.flash('loginMessage'), title:title});
-//        });
 
         // process the login form
         app.post('/login', passport.authenticate('local-login', {
@@ -36,12 +47,6 @@
             failureRedirect : '/login', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
-
-        // SIGNUP =================================
-        // show the signup form
-//        app.get('/register', function(req, res) {
-//            res.render('pages/register.ejs', { message: req.flash('signupMessage') });
-//        });
 
         // process the signup form
         app.post('/register', passport.authenticate('local-signup', {
@@ -87,19 +92,9 @@
                 failureRedirect : '/'
             }));
 
-// =============================================================================
-// AUTHORIZE (ALREADY LOGGED IN / CONNECTING OTHER SOCIAL ACCOUNT) =============
-// =============================================================================
 
-    // locally --------------------------------
-        app.get('/connect/local', function(req, res) {
-            res.render('pages/connect-local.ejs', { message: req.flash('loginMessage') });
-        });
-        app.post('/connect/local', passport.authenticate('local-signup', {
-            successRedirect : '/profile', // redirect to the secure profile section
-            failureRedirect : '/connect/local', // redirect back to the signup page if there is an error
-            failureFlash : true // allow flash messages
-        }));
+// AUTHORIZE
+// =============================================================================
 
     // facebook -------------------------------
 
@@ -138,12 +133,10 @@
                 failureRedirect : '/'
             }));
 
+
+// UNLINK ACCOUNTS 
 // =============================================================================
-// UNLINK ACCOUNTS =============================================================
-// =============================================================================
-// used to unlink accounts. for social accounts, just remove the token
-// for local account, remove email and password
-// user account will stay active in case they want to reconnect in the future
+
 
     // local -----------------------------------
     app.get('/unlink/local', isLoggedIn, function(req, res) {
@@ -182,43 +175,6 @@
         });
     });
 
-////create a new express app
-//  const express = require('express'),
-//  app = express.app(),
-
-  //client controllers
-  layoutController = require('./controllers/layout.controller'),
-  registerController = require('./controllers/register.controller'),
-  mainController = require('./controllers/main.controller'),
-  contactController = require('./controllers/contact.controller'),
-  aboutController = require('./controllers/about.controller'),
-  coursesController = require('./controllers/courses.controller'),
-  fHCourseController = require('./controllers/4hCourse.controller'),
-  eHCourseController = require('./controllers/8hCourse.controller'),
-  ttHCourseController = require('./controllers/22hCourse.controller'),
-  thHCourseController = require('./controllers/28hCourse.controller'),
-  ffHCourseController = require('./controllers/44hCourse.controller'),
-  sHCourseController = require('./controllers/60hCourse.controller'),
-  fHBabyCourseController = require('./controllers/4hBabyCourse.controller'),
-  medicalTeamsCourseController = require('./controllers/medicalTeamsCourse.controller'),
-  paramedicCourseController = require('./controllers/paramedicCourse.controller'),
-  approvalsController = require('./controllers/approvals.controller'),
-  recommendationController = require('./controllers/recommendation.controller'),
-  cartController = require('./controllers/cart.controller'),
-  onlineCourseController = require('./controllers/onlineCourse.controller'),
-  medicalEquipmentController = require('./controllers/medicalEquipment.controller'),
-  medicalProductController = require('./controllers/medicalProduct.controller'),
-  medicalFurnitureController = require('./controllers/medicalFurniture.controller'),
-  equipmentCPRFirstAidController = require('./controllers/equipmentCPRFirstAid.controller'),
-  trainingandSimulationEquipmentController = require('./controllers/trainingandSimulationEquipment.controller'),
-  firstAidKitsController = require('./controllers/firstAidKits.controller'),
-
-  //admin controllers
-  loginAdminController = require('./admin/login_admin.controller');
-  addProductdAdminController = require('./admin/admin_addProduct.controller');
-  productsListAdminController = require('./admin/admin_productsList.controller');
-  userListAdminController = require('./admin/admin_userList.controller');
-  updateProductAdminController = require('./admin/admin_updateProduct.controller');
 
 
   //export app
@@ -228,9 +184,15 @@
   
   //client routes
   //define routes
+  
   //layout routs
   app.get('/login', layoutController.showLogin); 
      
+  // logout
+  app.get('/logout', function(req, res) {
+        req.logout();
+        res.redirect('/');
+    });
   //register routes
   app.get('/register', registerController.showRegister);
   //app.post('/register', registerController.processRegister);
@@ -316,19 +278,11 @@
   //cart routes
   app.get('/cart', cartController.showProducts);
 
-  //seed products
-//  app.get('/cart/seed', cartController.seedProducts);
-  app.get('/cart/seed', cartController.seedSuggestions);
-
-  //edit product
-  app.get('/cart/:slug/edit', cartController.showEdit);
-  app.post('/cart/:slug', cartController.processEdit);
-
   //delete product
   app.get('/cart/:slug/delete', cartController.deleteProduct);
 
-  //show a single product
-  app.get('/cart/:slug', cartController.showSingle);
+//  //show a single product
+//  app.get('/cart/:slug', cartController.showSingle);
 
 //====================================================================================
 
@@ -349,24 +303,17 @@ app.post('/adminlogin', passport.authenticate('local-login', {
 //add product 
 app.get('/admin_addProduct', addProductdAdminController.addProduct);
 app.post('/addNewProduct', addProductdAdminController.processCreate);
-     
-     
-//app.get('/profile', isLoggedIn, function(req, res) {
-//    res.render('pages/profile.ejs', {layout:'admin_side/admin' , user : req.user });
-//});
 
 //show product 
 app.get('/admin_productsList',  productsListAdminController.showProductsList);
 app.post('/displayProduct',  productsListAdminController.showProducts);
 app.get('/deleteProduct/:slug/delete',  productsListAdminController.deleteProduct);
      
-
 //update product 
 //app.get('/admin_updateProductDetails', loginAdminController.updateProductDetails);
 app.get('/updateProduct/:slug/update', updateProductAdminController.showUpdateProduct);
 app.post('/admin_updateProduct/:slug', updateProductAdminController.updateProduct);    
      
-
 //user list
 app.get('/admin_userlist', userListAdminController.showUserList);
 app.get('/deleteUser/:username/delete', userListAdminController.deleteUser);

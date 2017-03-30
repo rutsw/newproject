@@ -1,10 +1,9 @@
-// load all the things we need
+// load all the dependecies
 var LocalStrategy    = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var TwitterStrategy  = require('passport-twitter').Strategy;
 var GoogleStrategy   = require('passport-google-oauth').OAuth2Strategy;
 
-// load up the user model
 var User       = require('../app/models/user');
 
 // load the auth variables
@@ -12,12 +11,8 @@ var configAuth = require('./auth'); // use this one for testing
 
 module.exports = function(passport) {
 
-    // =========================================================================
-    // passport session setup ==================================================
-    // =========================================================================
-    // required for persistent login sessions
-    // passport needs ability to serialize and unserialize users out of session
-
+   
+    // passport session setup 
     // used to serialize the user for the session
     passport.serializeUser(function(user, done) {
         done(null, user.id);
@@ -30,18 +25,17 @@ module.exports = function(passport) {
         });
     });
 
-    // =========================================================================
-    // LOCAL LOGIN =============================================================
-    // =========================================================================
-    passport.use('local-login', new LocalStrategy({
-        // by default, local strategy uses username and password, we will override with email
+    
+    // local login 
+     passport.use('local-login', new LocalStrategy({
+        // by default, local strategy uses username and password, we used email
         usernameField : 'email',
         passwordField : 'password',
-        passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
+        passReqToCallback : true // lets us check if a user is logged in or not
     },
     function(req, email, password, done) {
         if (email)
-            email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
+            email = email.toLowerCase(); //to avoid case-sensitive email matching
 
         // asynchronous
         process.nextTick(function() {
@@ -65,18 +59,17 @@ module.exports = function(passport) {
 
     }));
 
-    // =========================================================================
-    // LOCAL SIGNUP ============================================================
-    // =========================================================================
+    
+    // LOCAL SIGNUP 
     passport.use('local-signup', new LocalStrategy({
-        // by default, local strategy uses username and password, we will override with email
+        // by default, local strategy uses username and password, weused email
         usernameField : 'email',
         passwordField : 'password',
-        passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
+        passReqToCallback : true // lets us check if a user is logged in or not
     },
     function(req, email, password, done) {
         if (email)
-            email = email.toLowerCase(); // Use lower-case e-mails to avoid case-sensitive e-mail matching
+            email = email.toLowerCase(); // to avoid case-sensitive email matching
 
         // asynchronous
         process.nextTick(function() {
@@ -114,15 +107,14 @@ module.exports = function(passport) {
                 });
             // if the user is logged in but has no local account...
             } else if ( !req.user.local.email ) {
-                // ...presumably they're trying to connect a local account
-                // BUT let's check if the email used to connect a local account is being used by another user
+                // presumably they're trying to connect a local account
+                // check if the email used to connect a local account is being used by another user
                 User.findOne({ 'local.email' :  email }, function(err, user) {
                     if (err)
                         return done(err);
                     
                     if (user) {
                         return done(null, false, req.flash('loginMessage', 'That email is already taken.'));
-                        // Using 'loginMessage instead of signupMessage because it's used by /connect/local'
                     } else {
                         var user = req.user;
                         user.local.email = email;
@@ -136,7 +128,7 @@ module.exports = function(passport) {
                     }
                 });
             } else {
-                // user is logged in and already has a local account. Ignore signup. (You should log out before trying to create a new account, user!)
+                // user is logged in and already has a local account. Ignore signup.
                 return done(null, req.user);
             }
 
@@ -148,7 +140,7 @@ module.exports = function(passport) {
     // FACEBOOK ================================================================
     // =========================================================================
     var fbStrategy = configAuth.facebookAuth;
-    fbStrategy.passReqToCallback = true;  // allows us to pass in the req from our route (lets us check if a user is logged in or not)
+    fbStrategy.passReqToCallback = true;  // lets us check if a user is logged in or not
     passport.use(new FacebookStrategy(fbStrategy,
     function(req, token, refreshToken, profile, done) {
 
@@ -164,7 +156,7 @@ module.exports = function(passport) {
 
                     if (user) {
 
-                        // if there is a user id already but no token (user was linked at one point and then removed)
+                        //if user was linked at one point and then removed
                         if (!user.facebook.token) {
                             user.facebook.token = token;
                             user.facebook.name  = profile.name.givenName + ' ' + profile.name.familyName;
@@ -226,7 +218,7 @@ module.exports = function(passport) {
         consumerKey     : configAuth.twitterAuth.consumerKey,
         consumerSecret  : configAuth.twitterAuth.consumerSecret,
         callbackURL     : configAuth.twitterAuth.callbackURL,
-        passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
+        passReqToCallback : true // ets us check if a user is logged in or not
 
     },
     function(req, token, tokenSecret, profile, done) {
@@ -242,7 +234,7 @@ module.exports = function(passport) {
                         return done(err);
 
                     if (user) {
-                        // if there is a user id already but no token (user was linked at one point and then removed)
+                        // user was linked at one point and then removed
                         if (!user.twitter.token) {
                             user.twitter.token       = token;
                             user.twitter.username    = profile.username;
@@ -304,7 +296,7 @@ module.exports = function(passport) {
         clientID        : configAuth.googleAuth.clientID,
         clientSecret    : configAuth.googleAuth.clientSecret,
         callbackURL     : configAuth.googleAuth.callbackURL,
-        passReqToCallback : true // allows us to pass in the req from our route (lets us check if a user is logged in or not)
+        passReqToCallback : true //lets us check if a user is logged in or not
 
     },
     function(req, token, refreshToken, profile, done) {
@@ -321,7 +313,7 @@ module.exports = function(passport) {
 
                     if (user) {
 
-                        // if there is a user id already but no token (user was linked at one point and then removed)
+                        // user was linked at one point and then removed
                         if (!user.google.token) {
                             user.google.token = token;
                             user.google.name  = profile.displayName;
