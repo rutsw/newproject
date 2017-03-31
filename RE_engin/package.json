@@ -1,0 +1,22 @@
+{
+  "name": "recommengine",
+  "version": "0.5.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "./node_modules/.bin/coffee web.coffee"
+  },
+  "license": "Proprietary",
+  "dependencies": {
+    "async": "^0.9.0",
+      "mongoose": "^4.5.8",
+      "dotenv": "^2.0.0",
+      "bcrypt-nodejs" : "latest",
+    "bourne": "^0.4.0",
+    "coffee-script": "^1.8.0",
+    "express": "^4.11.1",
+    "jade": "^1.9.1",
+    "node-schedule": "^1.2.1",
+    "underscore": "^1.7.0"
+  }
+}
