@@ -1,4 +1,4 @@
-# The - way: recommendation engine
+# The-way: recommendation engine
 
 This is the recommendation engine for "the way - Yosi Amar" ewbsit.
 
