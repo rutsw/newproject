@@ -1,4 +1,4 @@
-var Bourne, Suggestions, _, async , products;
+var Bourne, Suggestions, _, async , product_list;
 
 _ = require('underscore');
 
@@ -6,7 +6,7 @@ async = require('async');
 
 Bourne = require('bourne');
 
-products = require('./../../data/products.json');
+product_list = require('./../../data/products.json');
 
 //compute the suggestions
 module.exports = Suggestions = (function() {
@@ -78,8 +78,8 @@ module.exports = Suggestions = (function() {
                   return done(err);
                 }
                   
-                helper = _.findWhere(products, {imgName: product});
-                console.log(product);
+                helper = _.findWhere(product_list, {imgName: product});
+                
                 numerator = 0;
                 ref = _.without(_.flatten([likers, dislikers]), username);
                 for (i = 0, len = ref.length; i < len; i++) {

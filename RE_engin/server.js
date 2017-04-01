@@ -176,6 +176,7 @@ app.route('/update').get(function(arg, res, next){
                   res.send('recengines not found!');
                   } 
                   if(array){
+//                      array = JSON.stringify(array);
                       array = JSON.stringify(array);
                       fs.writeFile('data/products.json', array , (err) => {
                                   if (err) throw err;
@@ -183,7 +184,7 @@ app.route('/update').get(function(arg, res, next){
                     }
 
                   });
-  res.redirect('/');
+  res.redirect('/export');
              
 });
 
