@@ -1,3 +1,23 @@
+@media screen and (min-width:1500px) and (max-width:2000px) {
+    body {font-size:20px;}
+    h2 {font-size:45px;}
+}
+
+@media screen and (min-width:1000px) and (max-width:1500px) {
+   body{font-size:18px;}
+    h2 {font-size:35px;}
+}
+
+@media screen and (min-width: 568px) and (max-width:1000px) {
+   body{font-size:16px;}
+    h2 {font-size:25px;}
+}
+
+@media screen and (min-width: 235px) and (max-width: 568px) {
+    body {font-size:12px;}
+    h2 {font-size:15px;}
+}
+
 #add_h2{
     color: #244b6b; 
 }
@@ -14,4 +34,8 @@
 
 .btn-success{
     background-color: #244b6b; 
+}
+
+.col-sm-6{
+    float:right; 
 }

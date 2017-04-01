@@ -1,22 +1,22 @@
-@media screen and (max-width:2000px) {
+@media screen and (min-width:1500px) and (max-width:2000px) {
     body {
         font-size:20px;
     }
 }
 
-@media screen and (max-width:1500px) {
+@media screen and (min-width:1000px) and (max-width:1500px) {
    body {
         font-size:18px;
     }
 }
 
-@media screen and (max-width:1000px) {
+@media screen and (min-width: 568px) and (max-width:1000px) {
    body {
         font-size:16px;
     }
 }
 
-@media screen and (max-width: 568px) {
+@media screen and (min-width: 235px) and (max-width: 568px) {
     body {
         font-size:12px;
     }
@@ -47,7 +47,7 @@ html, body  {
     float: right;
     height: 50px;
     padding: 15px 15px;
-    font-size: 18px;
+/*    font-size: 18px;*/
     line-height: 20px;
 }
 
@@ -81,4 +81,16 @@ label{
     border: 1px solid transparent;
     border-radius: 0;
     background-color: #eaeef1;
+    width: 70%;
+    float: left;
+}
+
+.col-md-3{
+    padding-right:0;
+    width: 30%;
+    
+}
+
+ul.sidebar-nav{
+    padding-right: 0px;
 }
