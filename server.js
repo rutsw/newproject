@@ -34,12 +34,10 @@ app.use(bodyParser.json()); // get information from html forms
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator());
 
-//app.use(nodemailer);
-//app.use(smtpTransport);
 
 // required for passport
 app.use(session({
-    secret: 'ilovescotchscotchyscotchscotch', // session secret
+    secret: 'idowhateveriwanttamarmiryamfinala', // session secret
     resave: true,
     saveUninitialized: true
 }));
@@ -47,17 +45,6 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use conn
 
-
-//// set sessions and cookie parser
-//app.use(expressValidator());
-//app.use(cookieParser());//read coo
-//app.use(session({
-//  secret: process.env.SECRET, 
-//  cookie: { maxAge: 60000 },
-//  resave: false,    // forces the session to be saved back to the store
-//  saveUninitialized: false  // dont save unmodified
-//}));
-//app.use(flash());
 
 
 // tell express where to look for static assets
@@ -79,7 +66,6 @@ mongoose.connect(process.env.DB_URI);
 app.use(bodyParser.urlencoded({extended: true}));
 
 // set the routes =============================
-//app.use(require('./app/routes'));
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 

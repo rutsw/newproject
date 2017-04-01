@@ -16,7 +16,7 @@ html
 		.container(style='margin-top: 16px;')
 			.row
 				.col-xs-12
-					if !username
+					
 						.row
 							.col-xs-4.col-xs-offset-4
 								h1 Hello, stranger!
@@ -24,49 +24,4 @@ html
 								p for runing the algorithm.
 								form(action='/update' method='get')
 									button.btn.btn-primary Algorithm               
-					else
-						.page-header
-							h1 Hello, #{username}!
-						h2
-							.pull-right
-								form(action='/refresh?username=#{username}' method='post')
-									button.btn.btn-primary Refresh
-							| Recommended Products
-						if suggestions.length == 0
-							.alert.alert-success Like/dislike a few products below to generate some recommendations
-
-						
-						.row
-							.col-xs-12
-								h2 All products
-								for product, i in products
-									if i%4 == 0
-										.row
-											for product in products.slice(i, i+4)
-												.col-sm-3
-													.thumbnail
-														img(src='#{product.imgName}')
-														.caption
-															h4(style='margin-bottom: 24px; text-overflow: ellipsis; white-space: nowrap; overflow: hidden;') #{product.name}
-															.row
-																.col-xs-6
-																	if likes.indexOf(product.imgName) != -1
-																		form.text-center(action='/like?product=#{product.imgName}&username=#{username}&unset=yes' method='post')
-																			button.btn.btn-default.active
-																				span.glyphicon.glyphicon-thumbs-up
-
-																	else
-																		form.text-center(action='/like?product=#{product.imgName}&username=#{username}' method='post')
-																			button.btn.btn-default
-																				span.glyphicon.glyphicon-thumbs-up
-
-																.col-xs-6
-																	if dislikes.indexOf(product.imgName) != -1
-																		form.text-center(action='/dislike?product=#{product.imgName}&username=#{username}&unset=yes' method='post')
-																			button.btn.btn-default.active
-																				span.glyphicon.glyphicon-thumbs-down
-
-																	else
-																		form.text-center(action='/dislike?product=#{product.imgName}&username=#{username}' method='post')
-																			button.btn.btn-default
-																				span.glyphicon.glyphicon-thumbs-down
+					
