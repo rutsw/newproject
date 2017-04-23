@@ -28,8 +28,16 @@
 
 .table{
     text-align: center;
+     border: 0px;
+}
+tr{
+     border: 0px;
 }
 
+td{
+
+     border: 0px;
+}
 
 .thumbnail{
     margin: auto;
@@ -177,10 +185,27 @@ div.img img {
 .btn-default{
     border:0px;
     border-radius: 0px;
-    background-color: #d1585d;
+    background-color: #244b6b;
+    color:aliceblue;
+    font-size: 13px;
+}
+
+.btn-default-orderall{
+    border:0px;
+    border-radius: 0px;
+    background-color: #244b6b;
     color:aliceblue;
     font-size: 15px;
 }
+
+.btn-default-delete{
+    border:0px;
+    border-radius: 0px;
+    background-color: #d1585d;
+    color:aliceblue;
+    font-size: 13px;
+}
+
 
 .msg{
 /*    margin-bottom: 500px;*/

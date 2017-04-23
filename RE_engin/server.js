@@ -176,7 +176,6 @@ app.route('/update').get(function(arg, res, next){
                   res.send('recengines not found!');
                   } 
                   if(array){
-//                      array = JSON.stringify(array);
                       array = JSON.stringify(array);
                       fs.writeFile('data/products.json', array , (err) => {
                                   if (err) throw err;
@@ -222,8 +221,7 @@ app.route('/refresh').get(function(arg, res, next) {
       var user="";
       var str="";
         for(user in users){
-            
-        if(users[user].local.isadmin!=true){
+          if(users[user].local.isadmin!=true){
            
             compute(users[user].local.email); 
 

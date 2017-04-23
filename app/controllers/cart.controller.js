@@ -44,8 +44,10 @@ function showProducts(req, res) {
                   res.status(404);
                   res.send('Products not found!');
                   }
+                      if(suggestions!="")
+                           title ="מומלץ בשבילך..."
 //                   res.json(suggestions);
-                    title ="מומלץ בשבילך..."
+                   
                             
                  res.render('pages/cart', { products: products, suggestions:suggestions, title:title,  userstat_su_un:userstat_su_un,userstat_si_so:userstat_si_so});
               });
