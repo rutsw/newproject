@@ -49,15 +49,17 @@ function sendRequest(req, res) {
   var transporter = nodemailer.createTransport(smtpTransport({
     service: 'gmail',
     auth: {
-        user: 'haderekh9062200@gmail.com',
-        pass: 'yossiamar'
+        user: 'yosiamarya@gmail.com',
+        pass: '203121488ah'
+//        user: 'haderekh9062200@gmail.com',
+//        pass: 'yossiamar'
     }
   }));
   
     console.log('name is:' + req.body.name);
     var mailOptions = {
     from: req.body.email, // sender address
-    to: 'haderekh9062200@gmail.com', // list of receivers
+    to: 'yosiamarya@gmail.com', // list of receivers
     subject: 'מייל מהאתר הדרך להציל חיים', // Subject line
     text: " נשלח מאת: "+req.body.name+"\n כתובת מייל: "+req.body.email+"\n תוכן ההודעה: "+req.body.query // plaintext body
   };
